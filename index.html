@@ -48,9 +48,19 @@
 <!-- NAV -->
 <header class="mnav">
   <a href="/" class="logo"><span class="g">G</span>loBorder</a>
+  <nav class="nav-menu" id="nav-menu">
+    <a href="/ai-consulting.html">AI 컨설팅 &amp; 빌드</a>
+    <a href="/gov-project.html">정부지원사업</a>
+    <a href="/smb-ai.html">SMB &amp; 개인 AI</a>
+    <a href="/ai-academy.html">AI 교육</a>
+    <a href="/global-ecommerce.html">글로벌 이커머스</a>
+    <a href="/digital-marketing.html">디지털 마케팅</a>
+    <a href="/about.html">회사소개</a>
+    <a href="#contact" class="nav-contact">무료 상담</a>
+  </nav>
   <div class="nav-actions">
     <a href="#contact" class="nav-cta">무료 상담</a>
-    <button class="hamb" aria-label="메뉴">
+    <button class="hamb" id="hamb-btn" aria-label="메뉴" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -116,7 +126,7 @@
 </section>
 
 <!-- TRUST -->
-<section class="trust">
+<section class="trust animate-in">
   <div class="trust-grid">
     <div class="t-item">
       <div class="t-num">25<small>년</small></div>
@@ -138,7 +148,7 @@
 </section>
 
 <!-- SERVICES -->
-<section class="services">
+<section class="services animate-in">
   <div class="sec-head">
     <span class="eyebrow">Services</span>
     <h2>글로보더 6대 사업 영역</h2>
@@ -235,7 +245,7 @@
 </section>
 
 <!-- WHY -->
-<section class="why">
+<section class="why animate-in">
   <span class="eyebrow" style="color:var(--cyan-muted)">Why GloBorder</span>
   <h2>왜 글로보더인가</h2>
   <p class="pull">&ldquo;컨설팅 회사는 많습니다.<br/>설계하고 직접 구현하는 팀은 드뭅니다.&rdquo;</p>
@@ -255,7 +265,7 @@
 </section>
 
 <!-- PIPELINE -->
-<section class="pipeline">
+<section class="pipeline animate-in">
   <div class="sec-head">
     <span class="eyebrow">AI Pipeline</span>
     <h2>글로보더의 AI 구현 파이프라인</h2>
@@ -314,7 +324,7 @@
 </section>
 
 <!-- GLOBAL -->
-<section class="global">
+<section class="global animate-in">
   <div class="sec-head">
     <span class="eyebrow">Global Footprint</span>
     <h2>글로보더가 연결하는<br/>글로벌 네트워크</h2>
@@ -372,36 +382,37 @@
     </div>
   </div>
 
-  <form class="c-form" id="cf" novalidate>
+  <form class="c-form" id="cf" method="POST" action="https://formspree.io/f/xyzabc" novalidate>
     <h3>무료 상담 신청</h3>
     <div class="field">
       <label for="m-name">이름 <span class="req">*</span></label>
-      <input id="m-name" type="text" placeholder="홍길동" required />
+      <input id="m-name" name="name" type="text" placeholder="홍길동" required />
     </div>
     <div class="field">
       <label for="m-email">이메일 <span class="req">*</span></label>
-      <input id="m-email" type="email" placeholder="email@company.com" required />
+      <input id="m-email" name="email" type="email" placeholder="email@company.com" required />
     </div>
     <div class="field">
       <label for="m-phone">연락처</label>
-      <input id="m-phone" type="tel" placeholder="010-0000-0000" />
+      <input id="m-phone" name="phone" type="tel" placeholder="010-0000-0000" />
     </div>
     <div class="field">
       <label for="m-type">문의 유형 <span class="req">*</span></label>
-      <select id="m-type" required>
+      <select id="m-type" name="inquiry_type" required>
         <option value="">선택해 주세요</option>
-        <option>AI 프로젝트·구현 상담</option>
-        <option>정부지원사업 컨설팅</option>
-        <option>파트너·제휴·협업</option>
-        <option>AI 교육·강의</option>
-        <option>기타</option>
+        <option value="ai_project">AI 프로젝트·구현 상담</option>
+        <option value="gov_consulting">정부지원사업 컨설팅</option>
+        <option value="partnership">파트너·제휴·협업</option>
+        <option value="education">AI 교육·강의</option>
+        <option value="other">기타</option>
       </select>
     </div>
     <div class="field">
       <label for="m-msg">문의 내용 <span class="req">*</span></label>
-      <textarea id="m-msg" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요?" required></textarea>
+      <textarea id="m-msg" name="message" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요?" required></textarea>
     </div>
-    <button type="submit" class="submit-btn">무료 상담 신청 →</button>
+    <button type="submit" class="submit-btn" id="submit-btn">무료 상담 신청 →</button>
+    <div id="form-status" style="display:none; margin-top:1rem; padding:1rem; border-radius:8px; font-size:14px; text-align:center;"></div>
     <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
   </form>
 </section>

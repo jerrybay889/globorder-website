@@ -6,7 +6,13 @@
       "mcp__filesystem__create_directory",
       "mcp__filesystem__write_file",
       "Bash(git init *)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "mcp__filesystem__directory_tree",
+      "Bash(vercel --version)",
+      "Bash(vercel whoami *)",
+      "Bash(vercel --prod)"
     ]
   }
 }

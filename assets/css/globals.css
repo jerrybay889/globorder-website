@@ -185,6 +185,93 @@ nav, .mnav {
   height: 1.6px;
   background: var(--white);
   border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.hamb[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamb[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamb[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Navigation Menu */
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(10, 22, 40, 0.98);
+  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  z-index: 19;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-menu a {
+  padding: 12px 14px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-menu a:hover {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--cyan);
+}
+
+.nav-menu .nav-contact {
+  background: var(--cyan);
+  color: var(--navy-deep);
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.nav-menu .nav-contact:hover {
+  opacity: 0.9;
+  background: var(--cyan);
+}
+
+@media (min-width: 768px) {
+  .nav-menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    gap: 4px;
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .nav-menu a {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .nav-menu .nav-contact {
+    display: none;
+  }
+
+  .hamb {
+    display: none;
+  }
+
+  .nav-cta {
+    display: inline-block;
+  }
 }
 
 /* ───────── SECTIONS ───────── */
@@ -772,8 +859,13 @@ nav, .mnav {
   transition: opacity 0.2s ease;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   opacity: 0.9;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .privacy {
@@ -812,4 +904,421 @@ footer .links a {
 
 footer .links a:hover {
   color: var(--cyan);
+}
+
+/* ───────── RESPONSIVE DESIGN ───────── */
+@media (max-width: 640px) {
+  .mnav {
+    padding: 14px 16px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .hero {
+    padding: 48px 16px 40px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+
+  .cta-stack {
+    gap: 8px;
+  }
+
+  .btn {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .trust {
+    padding: 48px 16px;
+  }
+
+  .services {
+    padding: 48px 16px;
+  }
+
+  .svc-card {
+    padding: 18px 16px;
+  }
+
+  .svc-title {
+    font-size: 15px;
+  }
+
+  .svc-body {
+    font-size: 12.5px;
+  }
+
+  .svc-link {
+    font-size: 12px;
+  }
+
+  .why {
+    padding: 48px 16px;
+  }
+
+  .why h2 {
+    font-size: 22px;
+  }
+
+  .pull {
+    font-size: 16px;
+  }
+
+  .pipeline {
+    padding: 48px 16px;
+  }
+
+  .pipeline .sec-head h2 {
+    font-size: 22px;
+  }
+
+  .stage {
+    grid-template-columns: 36px 1fr;
+    gap: 10px;
+  }
+
+  .stage-num {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .stage h4 {
+    font-size: 13px;
+  }
+
+  .global {
+    padding: 48px 16px;
+  }
+
+  .global .sec-head h2 {
+    font-size: 20px;
+  }
+
+  .contact {
+    padding: 48px 16px;
+  }
+
+  .contact h2 {
+    font-size: 22px;
+  }
+
+  .contact .lede {
+    font-size: 13.5px;
+  }
+
+  .c-info {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .c-item {
+    font-size: 12.5px;
+  }
+
+  .c-form {
+    padding: 20px 16px;
+  }
+
+  .c-form h3 {
+    font-size: 15px;
+  }
+
+  .field {
+    margin-bottom: 12px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    padding: 10px 11px;
+    font-size: 13px;
+  }
+
+  .submit-btn {
+    height: 46px;
+    font-size: 13px;
+  }
+
+  footer {
+    padding: 24px 16px 36px;
+    font-size: 11px;
+  }
+
+  footer .logo {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 375px) {
+  .mnav {
+    padding: 12px 12px;
+  }
+
+  .logo {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 40px 12px 32px;
+  }
+
+  .hero h1 {
+    font-size: 19px;
+    line-height: 1.15;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    margin-top: 16px;
+  }
+
+  .cta-stack {
+    margin-top: 20px;
+  }
+
+  .btn {
+    height: 42px;
+    font-size: 12px;
+  }
+
+  .micro-trust {
+    margin-top: 18px;
+    font-size: 11px;
+  }
+
+  .panel {
+    margin-top: 24px;
+    padding: 18px 14px 14px;
+  }
+
+  .trust {
+    padding: 40px 12px;
+  }
+
+  .t-num {
+    font-size: 22px;
+  }
+
+  .t-label {
+    font-size: 11.5px;
+  }
+
+  .services {
+    padding: 40px 12px;
+  }
+
+  .sec-head h2 {
+    font-size: 19px;
+  }
+
+  .sec-head p {
+    font-size: 13px;
+  }
+
+  .svc-list {
+    gap: 10px;
+  }
+
+  .svc-card {
+    padding: 16px 14px;
+  }
+
+  .svc-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .svc-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .svc-sub {
+    font-size: 11.5px;
+  }
+
+  .svc-body {
+    font-size: 12px;
+  }
+
+  .why {
+    padding: 40px 12px;
+  }
+
+  .why h2 {
+    font-size: 19px;
+  }
+
+  .pull {
+    font-size: 15px;
+    padding: 18px 0 24px;
+  }
+
+  .why-block {
+    padding-left: 12px;
+    margin-bottom: 22px;
+  }
+
+  .why-block h3 {
+    font-size: 15px;
+  }
+
+  .why-block p {
+    font-size: 13px;
+  }
+
+  .pipeline {
+    padding: 40px 12px;
+  }
+
+  .stages {
+    padding-left: 4px;
+  }
+
+  .stage {
+    grid-template-columns: 32px 1fr;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .stage-num {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .stage:not(:last-child)::before {
+    left: 15px;
+    top: 44px;
+  }
+
+  .stage h4 {
+    font-size: 12px;
+  }
+
+  .stage .stage-kr {
+    font-size: 10px;
+  }
+
+  .pipeline-foot {
+    margin-top: 24px;
+  }
+
+  .pipeline-foot p {
+    font-size: 13px;
+  }
+
+  .global {
+    padding: 40px 12px;
+  }
+
+  .global .sec-head h2 {
+    font-size: 18px;
+  }
+
+  .global .sec-head p {
+    font-size: 12px;
+  }
+
+  .g-list {
+    gap: 10px;
+  }
+
+  .g-card .head {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .g-card .body {
+    padding: 14px;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .contact {
+    padding: 40px 12px;
+  }
+
+  .contact h2 {
+    font-size: 19px;
+  }
+
+  .contact .lede {
+    font-size: 12.5px;
+    margin-top: 12px;
+  }
+
+  .c-info {
+    margin-top: 16px;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .c-item {
+    font-size: 11.5px;
+    gap: 10px;
+  }
+
+  .c-form {
+    padding: 16px 12px;
+  }
+
+  .c-form h3 {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .field {
+    margin-bottom: 10px;
+  }
+
+  .field label {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .submit-btn {
+    height: 44px;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  .privacy {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+
+  footer {
+    padding: 20px 12px 30px;
+    font-size: 10px;
+  }
+
+  footer .logo {
+    font-size: 12px;
+  }
 }
