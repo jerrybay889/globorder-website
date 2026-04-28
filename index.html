@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GloBorder | AI 전략 설계부터 구현까지 (주)글로보더</title>
+  <meta name="description" content="GloBorder는 AI 전략 설계와 실제 구현을 한 팀이 수행하는 AI 컨설팅·빌드 파트너입니다. 25년 IT·커머스 현장 운영, 특허 CBT Total Solution, 5개 부처 수행 이력, 35+ 글로벌 플랫폼 연동 역량." />
+  <link rel="canonical" href="https://www.globorder.kr" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GloBorder | Where Strategy Meets AI Execution" />
+  <meta property="og:description" content="LLM · AI Agent · Agentic AI 3단 구현 역량과 25년 IT·커머스 현장 운영 경험을 하나로." />
+  <meta property="og:url" content="https://www.globorder.kr" />
+  <meta property="og:site_name" content="GloBorder" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/css/globals.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@name": "GloBorder",
+    "alternateName": "(주)글로보더",
+    "url": "https://www.globorder.kr",
+    "logo": "https://www.globorder.kr/logo.svg",
+    "description": "AI Consulting & Implementation firm. Strategy design and actual system implementation by one team.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Seoul",
+      "addressCountry": "KR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@globorder.kr",
+      "contactType": "customer service",
+      "availableLanguage": ["Korean", "English"]
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="mnav">
+  <a href="/" class="logo"><span class="g">G</span>loBorder</a>
+  <div class="nav-actions">
+    <a href="#contact" class="nav-cta">무료 상담</a>
+    <button class="hamb" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">AI Implementation Partner</span>
+  <h1>
+    Where Strategy Meets AI Execution.<br/>
+    AI 전략 설계부터 실제 구현까지,<br/>
+    글로보더 한 팀이 담당합니다.
+  </h1>
+  <p class="hero-sub">
+    LLM · AI Agent · Agentic AI 3단 구현 역량과 25년 IT·커머스 현장 운영 경험을 하나로. 컨설팅으로 끝나지 않습니다. 설계하고, 직접 구현합니다.
+  </p>
+  <div class="cta-stack">
+    <a href="#contact" class="btn btn-primary">AI 프로젝트 무료 상담 신청 →</a>
+    <a href="#contact" class="btn btn-ghost">파트너 · 제휴 문의</a>
+  </div>
+  <div class="micro-trust">
+    <span>특허 등록 CBT Total Solution</span>
+    <span>5개 부처 수행 이력</span>
+    <span>글로벌 35+ 플랫폼</span>
+  </div>
+
+  <div class="panel">
+    <div class="panel-label">GloBorder Agentic Flow</div>
+    <svg viewBox="0 0 320 180" width="100%" height="auto" role="img" aria-label="Input → Strategy → Build → Deploy → Optimize">
+      <line x1="32" y1="80" x2="96" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+      <line x1="96" y1="80" x2="160" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+      <line x1="160" y1="80" x2="224" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+      <line x1="224" y1="80" x2="288" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+      <g>
+        <circle cx="32" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+        <circle cx="32" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+        <text x="32" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Input</text>
+      </g>
+      <g>
+        <circle cx="96" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+        <circle cx="96" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+        <text x="96" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Strategy</text>
+      </g>
+      <g>
+        <circle cx="160" cy="80" r="16" fill="#00D4FF"/>
+        <circle cx="160" cy="80" r="22" fill="none" stroke="rgba(0,212,255,0.25)" stroke-width="1.2"/>
+        <text x="160" y="83" text-anchor="middle" fill="#0A1628" font-size="9" font-family="Inter, sans-serif" font-weight="800">BUILD</text>
+        <text x="160" y="116" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Inter, sans-serif" font-weight="700">Build</text>
+      </g>
+      <g>
+        <circle cx="224" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+        <circle cx="224" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+        <text x="224" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Deploy</text>
+      </g>
+      <g>
+        <circle cx="288" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+        <circle cx="288" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+        <text x="288" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Optimize</text>
+      </g>
+    </svg>
+    <div class="panel-cap">End-to-End AI Implementation</div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust-grid">
+    <div class="t-item">
+      <div class="t-num">25<small>년</small></div>
+      <div class="t-label">IT·커머스 현장<br/>운영 경험</div>
+    </div>
+    <div class="t-item">
+      <div class="t-num">특허</div>
+      <div class="t-label">CBT Total Solution<br/>10-2771910 등록</div>
+    </div>
+    <div class="t-item">
+      <div class="t-num">35<small>+</small></div>
+      <div class="t-label">글로벌 플랫폼<br/>연동 설계 역량</div>
+    </div>
+    <div class="t-item">
+      <div class="t-num">AI</div>
+      <div class="t-label">LLM · Agent<br/>Agentic 3단 구현</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="sec-head">
+    <span class="eyebrow">Services</span>
+    <h2>글로보더 6대 사업 영역</h2>
+    <p>전략 설계에서 실제 구현까지, 한 팀이 수행합니다.</p>
+  </div>
+
+  <div class="svc-list">
+    <article class="svc-card">
+      <span class="svc-badge">★ 핵심사업</span>
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="14" y="14" width="20" height="20" rx="2"/>
+        <line x1="24" y1="6" x2="24" y2="14"/>
+        <line x1="24" y1="34" x2="24" y2="42"/>
+        <line x1="6" y1="24" x2="14" y2="24"/>
+        <line x1="34" y1="24" x2="42" y2="24"/>
+        <line x1="11" y1="11" x2="16" y2="16"/>
+        <line x1="32" y1="32" x2="37" y2="37"/>
+        <line x1="37" y1="11" x2="32" y2="16"/>
+        <line x1="16" y1="32" x2="11" y2="37"/>
+        <circle cx="24" cy="24" r="3"/>
+      </svg>
+      <h3 class="svc-title">AI 컨설팅 &amp; 빌드</h3>
+      <div class="svc-sub">아이디어를 목표 범위 기준, 첫 작동 버전으로.</div>
+      <p class="svc-body">LLM 기반 어시스턴트부터 Agentic AI 자동화까지, 전략 설계와 실제 구현을 한 팀이 수행합니다.</p>
+      <a class="svc-link" href="/ai-consulting.html">서비스 알아보기 →</a>
+    </article>
+
+    <article class="svc-card">
+      <span class="svc-badge">★ 핵심사업</span>
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 40V20l16-10 16 10v20"/>
+        <line x1="4" y1="40" x2="44" y2="40"/>
+        <rect x="14" y="24" width="4" height="10"/>
+        <rect x="22" y="24" width="4" height="10"/>
+        <rect x="30" y="24" width="4" height="10"/>
+      </svg>
+      <h3 class="svc-title">정부지원사업</h3>
+      <div class="svc-sub">제안부터 납품까지, 글로보더가 일원화하여 담당합니다.</div>
+      <p class="svc-body">중기부·과기부·산업부·해수부·고용부 등 주요 부처 AI 기반 제안서 설계부터 수행·정산까지.</p>
+      <a class="svc-link" href="/gov-project.html">서비스 알아보기 →</a>
+    </article>
+
+    <article class="svc-card">
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 6c-7 0-12 5-12 11 0 4 2 7 5 9v6h14v-6c3-2 5-5 5-9 0-6-5-11-12-11Z"/>
+        <line x1="19" y1="38" x2="29" y2="38"/>
+        <line x1="20" y1="42" x2="28" y2="42"/>
+      </svg>
+      <h3 class="svc-title">SMB &amp; 개인 AI 서비스</h3>
+      <div class="svc-sub">작게 시작해, 오래 쓰는 AI.</div>
+      <p class="svc-body">자영업자·1인 창업가·개인을 위한 실용적 AI. 매장 챗봇, 예약 자동화, 루틴 AI까지.</p>
+      <a class="svc-link" href="/smb-ai.html">서비스 알아보기 →</a>
+    </article>
+
+    <article class="svc-card">
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 20l20-10 20 10-20 10L4 20Z"/>
+        <path d="M12 24v10c0 3 5 6 12 6s12-3 12-6V24"/>
+        <line x1="40" y1="22" x2="40" y2="34"/>
+      </svg>
+      <h3 class="svc-title">AI 교육</h3>
+      <div class="svc-sub">실제 프로젝트 경험을 기반으로 가르칩니다.</div>
+      <p class="svc-body">경영진 1일 워크숍부터 창업가 6주 MVP 빌드캠프까지. 현장에서 쓰는 방법 그대로.</p>
+      <a class="svc-link" href="/ai-academy.html">서비스 알아보기 →</a>
+    </article>
+
+    <article class="svc-card">
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="18"/>
+        <ellipse cx="24" cy="24" rx="8" ry="18"/>
+        <line x1="6" y1="24" x2="42" y2="24"/>
+        <path d="M8 14c5 3 11 5 16 5s11-2 16-5"/>
+        <path d="M8 34c5-3 11-5 16-5s11 2 16 5"/>
+      </svg>
+      <h3 class="svc-title">글로벌 이커머스</h3>
+      <div class="svc-sub">K-브랜드의 글로벌 진출 파트너.</div>
+      <p class="svc-body">특허 CBT Total Solution(10-2771910)으로 Amazon · Shopify · Qoo10 · Rakuten 등 35개 채널 연동.</p>
+      <a class="svc-link" href="/global-ecommerce.html">서비스 알아보기 →</a>
+    </article>
+
+    <article class="svc-card">
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="42" x2="42" y2="42"/>
+        <rect x="10" y="28" width="6" height="14"/>
+        <rect x="21" y="20" width="6" height="22"/>
+        <rect x="32" y="12" width="6" height="30"/>
+      </svg>
+      <h3 class="svc-title">디지털 마케팅</h3>
+      <div class="svc-sub">실행을 대신하지 않습니다. 지속 가능한 구조를 설계합니다.</div>
+      <p class="svc-body">AI 기반 중장기 마케팅 전략 설계 전문. SEO · SNS · 퍼포먼스 구조를 스스로 운영 가능하게 내재화.</p>
+      <a class="svc-link" href="/digital-marketing.html">서비스 알아보기 →</a>
+    </article>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <span class="eyebrow" style="color:var(--cyan-muted)">Why GloBorder</span>
+  <h2>왜 글로보더인가</h2>
+  <p class="pull">&ldquo;컨설팅 회사는 많습니다.<br/>설계하고 직접 구현하는 팀은 드뭅니다.&rdquo;</p>
+
+  <div class="why-block">
+    <h3>전략 설계와 실제 구현,<br/>한 팀이 수행합니다</h3>
+    <p>LLM 설계 → POC → MVP → 운영까지, 외주 없이 단일 팀이 일관된 책임 구조로 수행합니다. 보고서로 끝나는 컨설팅이 아닌, 작동하는 시스템을 목표로 합니다.</p>
+  </div>
+  <div class="why-block">
+    <h3>25년 IT·커머스 현장 운영의<br/>언어로 말합니다</h3>
+    <p>2000년대 초부터 이커머스·IT 시스템을 직접 설계하고 운영해온 현장 경험이 글로보더의 서비스 설계 기반입니다.</p>
+  </div>
+  <div class="why-block">
+    <h3>LLM → AI Agent → Agentic AI,<br/>전 단계를 자체 구현합니다</h3>
+    <p>자연어 입력 → 추론 → 워크플로우 생성 → 자율 실행 → 결과 학습. Agentic AI 풀 루프를 자체 구현 역량으로 보유합니다.</p>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section class="pipeline">
+  <div class="sec-head">
+    <span class="eyebrow">AI Pipeline</span>
+    <h2>글로보더의 AI 구현 파이프라인</h2>
+    <p>아이디어가 들어오면, 작동하는 AI 시스템이 나갑니다.</p>
+  </div>
+
+  <div class="stages">
+    <div class="stage">
+      <div class="stage-num">1</div>
+      <div>
+        <h4>Natural Language Input</h4>
+        <div class="stage-kr">자연어 입력</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">2</div>
+      <div>
+        <h4>Interpretation &amp; Strategy Design</h4>
+        <div class="stage-kr">해석 · 전략 설계</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">3</div>
+      <div>
+        <h4>Reasoning &amp; Architecture</h4>
+        <div class="stage-kr">추론 · 아키텍처</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">4</div>
+      <div>
+        <h4>Workflow Generation &amp; Build</h4>
+        <div class="stage-kr">워크플로우 빌드</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">5</div>
+      <div>
+        <h4>Execution &amp; Testing</h4>
+        <div class="stage-kr">실행 · 테스트</div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">6</div>
+      <div>
+        <h4>Outcome &amp; Continuous Learning</h4>
+        <div class="stage-kr">결과 · 지속 학습</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pipeline-foot">
+    <p>글로보더는 이 6단계 파이프라인을 고객의 비즈니스 문제에 맞춤 설계하고, 목표 범위를 사전에 확정한 후 첫 작동 버전 구현을 목표합니다.</p>
+    <a href="#contact" class="btn btn-outline-cyan">AI 파이프라인 상담 신청 →</a>
+  </div>
+</section>
+
+<!-- GLOBAL -->
+<section class="global">
+  <div class="sec-head">
+    <span class="eyebrow">Global Footprint</span>
+    <h2>글로보더가 연결하는<br/>글로벌 네트워크</h2>
+    <p>25년 글로벌 커머스 운영 경험 기반 35개 플랫폼 연동 설계 역량과 13개국 물류 네트워크 활용 이력.</p>
+  </div>
+  <div class="g-list">
+    <article class="g-card">
+      <div class="head">글로벌 이커머스 플랫폼</div>
+      <div class="body">
+        <strong>Amazon</strong> · <strong>Shopify</strong> · <strong>Qoo10</strong> · <strong>Rakuten</strong> · <strong>Shopee</strong><br/>
+        TMall · Lazada · AliExpress · eBay · Cafe24<br/>
+        외 25개+
+      </div>
+    </article>
+    <article class="g-card">
+      <div class="head">글로벌 물류 네트워크</div>
+      <div class="body">
+        <strong>DHL</strong> · <strong>FedEx</strong> · <strong>UPS</strong> · <strong>EMS</strong><br/>
+        아시아 현지 특송사<br/>
+        <span style="color:var(--gray-400); font-size:12px;">(13개국 거점)</span>
+      </div>
+    </article>
+    <article class="g-card">
+      <div class="head">기술 파트너 &amp; 스택</div>
+      <div class="body">
+        <strong>Claude</strong> (Anthropic) · <strong>OpenAI GPT</strong> · <strong>Google Gemini</strong><br/>
+        n8n · Supabase · Vercel · GitHub
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <span class="eyebrow">Contact</span>
+  <h2>지금 바로 문의하세요</h2>
+  <p class="lede">아이디어 단계도 괜찮습니다.<br/>문제 정의만 있어도 충분합니다.<br/>첫 상담은 무료입니다.</p>
+
+  <div class="c-info">
+    <div class="c-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+      <span>hello@globorder.kr</span>
+    </div>
+    <div class="c-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <span>평일 09:00 – 18:00 KST</span>
+    </div>
+    <div class="c-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
+      <span>국내 · 글로벌 프로젝트 모두 대응</span>
+    </div>
+    <div class="c-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      <span>문의 접수 후 1 영업일 이내 담당자 직접 연락</span>
+    </div>
+  </div>
+
+  <form class="c-form" id="cf" novalidate>
+    <h3>무료 상담 신청</h3>
+    <div class="field">
+      <label for="m-name">이름 <span class="req">*</span></label>
+      <input id="m-name" type="text" placeholder="홍길동" required />
+    </div>
+    <div class="field">
+      <label for="m-email">이메일 <span class="req">*</span></label>
+      <input id="m-email" type="email" placeholder="email@company.com" required />
+    </div>
+    <div class="field">
+      <label for="m-phone">연락처</label>
+      <input id="m-phone" type="tel" placeholder="010-0000-0000" />
+    </div>
+    <div class="field">
+      <label for="m-type">문의 유형 <span class="req">*</span></label>
+      <select id="m-type" required>
+        <option value="">선택해 주세요</option>
+        <option>AI 프로젝트·구현 상담</option>
+        <option>정부지원사업 컨설팅</option>
+        <option>파트너·제휴·협업</option>
+        <option>AI 교육·강의</option>
+        <option>기타</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="m-msg">문의 내용 <span class="req">*</span></label>
+      <textarea id="m-msg" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요?" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">무료 상담 신청 →</button>
+    <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo"><span class="g" style="color:var(--cyan)">G</span>loBorder</div>
+  <div>© 2026 (주)글로보더</div>
+  <div>사업자등록번호 표기 예정 | 서울</div>
+  <div class="links">
+    <a href="/about.html">회사소개</a> / <a href="#contact">문의</a>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

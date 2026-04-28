@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GloBorder Homepage — Mobile 375px</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-deep: #0A1628;
+    --navy-mid: #0F2040;
+    --cyan: #00D4FF;
+    --cyan-muted: #00A8CC;
+    --white: #FFFFFF;
+    --surface: #F8F9FA;
+    --surface-2: #EEF1F5;
+    --gray-600: #4B5563;
+    --gray-400: #9CA3AF;
+    --gray-200: #E5E7EB;
+    --border: rgba(0, 212, 255, 0.15);
+    --font-kr: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-en: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font-kr);
+    background:
+      radial-gradient(circle at 30% 0%, #14233d 0%, #0A1628 40%, #050b18 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 24px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Stage label */
+  .stage-meta {
+    position: fixed;
+    top: 18px; left: 24px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em;
+    z-index: 10;
+  }
+  .stage-meta b { color: var(--cyan); font-weight: 600; }
+
+  .stage-meta-right {
+    position: fixed;
+    top: 18px; right: 24px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em;
+    z-index: 10;
+  }
+
+  /* Phone frame */
+  .phone {
+    position: relative;
+    width: 415px;
+    background: #0c0c0e;
+    border-radius: 56px;
+    padding: 18px;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.05),
+      0 30px 80px -10px rgba(0,0,0,0.6),
+      0 0 0 8px #1a1a1f inset;
+  }
+  .phone::before {
+    /* side button */
+    content: '';
+    position: absolute;
+    left: -3px; top: 180px;
+    width: 4px; height: 80px; border-radius: 2px;
+    background: #2a2a30;
+  }
+  .phone::after {
+    content: '';
+    position: absolute;
+    right: -3px; top: 220px;
+    width: 4px; height: 100px; border-radius: 2px;
+    background: #2a2a30;
+  }
+  .screen {
+    width: 375px;
+    height: 760px;
+    background: var(--white);
+    border-radius: 42px;
+    overflow: hidden;
+    position: relative;
+  }
+  .notch {
+    position: absolute;
+    top: 12px; left: 50%;
+    transform: translateX(-50%);
+    width: 110px; height: 28px;
+    background: #0c0c0e;
+    border-radius: 16px;
+    z-index: 30;
+  }
+
+  /* Status bar inside screen */
+  .status-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 44px;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px 0;
+    font-family: var(--font-en);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    pointer-events: none;
+  }
+  .status-bar.dark { color: var(--navy-deep); }
+  .status-icons { display: flex; align-items: center; gap: 6px; }
+  .status-icons svg { display: block; }
+
+  /* The actual scrollable mobile site */
+  .site {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .site::-webkit-scrollbar { display: none; }
+
+  /* ───────── MOBILE NAV ───────── */
+  .mnav {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 22, 40, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 20px 14px; /* room for status bar */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+  }
+  .logo {
+    font-family: var(--font-en);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+  .logo .g { color: var(--cyan); }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .nav-cta {
+    background: var(--cyan); color: var(--navy-deep);
+    font-weight: 700; font-size: 12px;
+    padding: 8px 12px; border-radius: 6px;
+  }
+  .hamb {
+    width: 30px; height: 30px;
+    display: flex; flex-direction: column; gap: 5px;
+    align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 6px;
+    background: transparent;
+  }
+  .hamb span {
+    width: 14px; height: 1.6px; background: var(--white); border-radius: 1px;
+  }
+
+  /* ───────── HERO ───────── */
+  .hero {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 32px 20px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+  }
+  .hero h1 .en {
+    font-family: var(--font-en);
+    font-size: 28px;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .hero h1 .kr-1, .hero h1 .kr-2 {
+    display: block;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.32;
+  }
+  .hero-sub {
+    margin-top: 22px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    word-break: keep-all;
+  }
+  .cta-stack {
+    margin-top: 26px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 48px; padding: 0 18px;
+    border-radius: 8px;
+    font-size: 14px; font-weight: 700;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-primary { background: var(--cyan); color: var(--navy-deep); }
+  .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); }
+  .btn-outline-cyan { background: transparent; color: var(--cyan); border: 1px solid var(--cyan); }
+
+  .micro-trust {
+    margin-top: 26px;
+    display: flex; flex-direction: column; gap: 10px;
+    font-size: 12.5px; color: rgba(255,255,255,0.6);
+  }
+  .micro-trust span {
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .micro-trust span::before {
+    content: ''; width: 12px; height: 12px;
+    border: 1.4px solid var(--cyan); border-radius: 50%;
+    background: radial-gradient(circle, var(--cyan) 28%, transparent 30%);
+  }
+
+  /* Diagram panel — moves UNDER hero copy on mobile */
+  .panel {
+    margin-top: 32px;
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 18px 18px;
+  }
+  .panel-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray-400);
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .panel-label::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 4px rgba(0,212,255,0.15);
+  }
+  .panel-cap {
+    margin-top: 14px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray-400);
+  }
+
+  /* ───────── TRUST STRIP ───────── */
+  .trust {
+    background: var(--surface);
+    color: var(--navy-deep);
+    padding: 36px 20px;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 0;
+  }
+  .t-item { padding: 0 14px; border-left: 1px solid var(--gray-200); }
+  .t-item:nth-child(odd) { border-left: none; padding-left: 0; }
+  .t-num {
+    font-family: var(--font-en);
+    font-size: 26px; font-weight: 800;
+    color: var(--cyan);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .t-num small { font-size: 14px; font-weight: 700; }
+  .t-label {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+
+  /* ───────── SERVICES ───────── */
+  .services {
+    background: var(--surface-2);
+    color: var(--navy-deep);
+    padding: 56px 20px;
+  }
+  .sec-head { text-align: center; margin-bottom: 32px; }
+  .sec-head h2 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-top: 12px;
+    color: var(--navy-deep);
+  }
+  .sec-head p {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+  .svc-list {
+    display: flex; flex-direction: column;
+    gap: 14px;
+  }
+  .svc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 24px 22px;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .svc-badge {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--cyan); color: var(--navy-deep);
+    font-size: 10px; font-weight: 700;
+    padding: 3px 8px; border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+  .svc-icon {
+    width: 36px; height: 36px;
+    color: var(--navy-deep);
+    margin-bottom: 18px;
+  }
+  .svc-title {
+    font-size: 17px; font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .svc-sub {
+    font-size: 12.5px;
+    color: var(--cyan-muted);
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .svc-body {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+  .svc-link {
+    margin-top: 16px;
+    font-size: 13px; font-weight: 700;
+    color: var(--cyan-muted);
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+
+  /* ───────── WHY ───────── */
+  .why {
+    background: var(--white);
+    color: var(--navy-deep);
+    padding: 56px 20px;
+  }
+  .why h2 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-top: 12px;
+    line-height: 1.25;
+  }
+  .pull {
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--navy-deep);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    padding: 24px 0 32px;
+    border-bottom: 1px solid var(--gray-200);
+    margin: 22px 0 32px;
+  }
+  .why-block {
+    padding-left: 16px;
+    border-left: 3px solid var(--cyan);
+    margin-bottom: 28px;
+  }
+  .why-block h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+  .why-block p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.75;
+    word-break: keep-all;
+  }
+
+  /* ───────── PIPELINE ───────── */
+  .pipeline {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 56px 20px;
+    position: relative;
+  }
+  .pipeline::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  .pipeline .sec-head h2 { color: var(--white); }
+  .pipeline .sec-head p { color: var(--gray-400); }
+
+  /* Vertical stage list (mobile-native pipeline) */
+  .stages {
+    margin-top: 8px;
+    position: relative;
+    padding-left: 6px;
+  }
+  .stage {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    position: relative;
+  }
+  .stage-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1.4px solid var(--cyan);
+    color: var(--white);
+    font-family: var(--font-en);
+    font-size: 16px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--navy-deep);
+    z-index: 1;
+  }
+  .stage:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 19px; top: 48px; bottom: -10px;
+    width: 1.4px;
+    background: rgba(0,212,255,0.22);
+  }
+  .stage h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-top: 8px;
+    letter-spacing: -0.01em;
+  }
+  .stage .stage-kr {
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray-400);
+  }
+  .pipeline-foot {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .pipeline-foot p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+    word-break: keep-all;
+  }
+
+  /* ───────── GLOBAL ───────── */
+  .global {
+    background: var(--surface);
+    color: var(--navy-deep);
+    padding: 56px 20px;
+  }
+  .global .sec-head { text-align: left; }
+  .global .sec-head h2 { font-size: 24px; line-height: 1.3; }
+  .global .sec-head p { font-size: 13.5px; }
+  .g-list { display: flex; flex-direction: column; gap: 14px; }
+  .g-card {
+    background: var(--surface-2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .g-card .head {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 14px 18px;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .g-card .head::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan);
+  }
+  .g-card .body {
+    padding: 18px;
+    color: var(--gray-600);
+    font-size: 13.5px;
+    line-height: 1.85;
+    word-break: keep-all;
+  }
+  .g-card .body strong { color: var(--navy-deep); font-weight: 600; }
+
+  /* ───────── CONTACT ───────── */
+  .contact {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 56px 20px;
+    position: relative;
+  }
+  .contact::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  .contact h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-top: 12px;
+    line-height: 1.25;
+  }
+  .contact .lede {
+    margin-top: 16px;
+    font-size: 14.5px;
+    color: var(--gray-400);
+    line-height: 1.85;
+    word-break: keep-all;
+  }
+  .c-info {
+    margin-top: 22px;
+    display: flex; flex-direction: column; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .c-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+  .c-item svg { flex: none; color: var(--cyan); margin-top: 1px; }
+
+  /* Form — full width card */
+  .c-form {
+    background: var(--white);
+    color: var(--navy-deep);
+    border-radius: 14px;
+    padding: 24px 20px;
+    width: 100%;
+  }
+  .c-form h3 {
+    font-size: 17px; font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--navy-deep);
+  }
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 12px; font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--navy-deep);
+  }
+  .field label .req { color: var(--cyan-muted); margin-left: 2px; }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 11px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--navy-deep);
+    background: var(--white);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .submit-btn {
+    width: 100%;
+    height: 50px;
+    background: var(--cyan);
+    color: var(--navy-deep);
+    font-weight: 800; font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+  .privacy { font-size: 11px; color: var(--gray-400); margin-top: 10px; text-align: center; }
+
+  /* ───────── FOOTER ───────── */
+  footer {
+    background: var(--navy-deep);
+    color: var(--gray-400);
+    border-top: 1px solid var(--border);
+    padding: 28px 20px 44px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  footer .logo { font-size: 14px; margin-bottom: 8px; }
+  footer .links { margin-top: 8px; }
+  footer .links a { color: var(--gray-400); margin: 0 6px; }
+
+  /* Home indicator */
+  .home-indicator {
+    position: absolute;
+    bottom: 8px; left: 50%;
+    transform: translateX(-50%);
+    width: 134px; height: 5px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 3px;
+    z-index: 30;
+  }
+  .home-indicator.dark { background: rgba(0,0,0,0.5); }
+</style>
+</head>
+<body>
+
+<div class="stage-meta">// <b>globorder.kr</b> — mobile preview · 375 × 812</div>
+<div class="stage-meta-right">iPhone safe-area · scroll to explore</div>
+
+<div class="phone">
+  <div class="screen">
+    <div class="notch"></div>
+
+    <div class="status-bar" id="status">
+      <span>9:41</span>
+      <div class="status-icons">
+        <!-- signal -->
+        <svg width="18" height="11" viewBox="0 0 18 11" fill="none" aria-hidden="true">
+          <rect x="0" y="7" width="3" height="4" rx="0.5" fill="currentColor"/>
+          <rect x="5" y="5" width="3" height="6" rx="0.5" fill="currentColor"/>
+          <rect x="10" y="2" width="3" height="9" rx="0.5" fill="currentColor"/>
+          <rect x="15" y="0" width="3" height="11" rx="0.5" fill="currentColor"/>
+        </svg>
+        <!-- wifi -->
+        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" aria-hidden="true">
+          <path d="M8 9.5l1.5-1.5a2 2 0 00-3 0L8 9.5z" fill="currentColor"/>
+          <path d="M3 5.5C4.5 4 6.2 3.2 8 3.2s3.5.8 5 2.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <path d="M0.8 3.3C2.8 1.4 5.3 0.4 8 0.4s5.2 1 7.2 2.9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        </svg>
+        <!-- battery -->
+        <svg width="26" height="12" viewBox="0 0 26 12" fill="none" aria-hidden="true">
+          <rect x="0.5" y="0.5" width="22" height="11" rx="2.5" stroke="currentColor" fill="none"/>
+          <rect x="2" y="2" width="19" height="8" rx="1.5" fill="currentColor"/>
+          <rect x="23.5" y="3.5" width="2" height="5" rx="1" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="site" id="site">
+
+      <!-- NAV -->
+      <header class="mnav">
+        <div class="logo"><span class="g">G</span>loBorder</div>
+        <div class="nav-actions">
+          <a href="#contact" class="nav-cta">무료 상담</a>
+          <button class="hamb" aria-label="메뉴">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- HERO — copy first, diagram below -->
+      <section class="hero">
+        <span class="eyebrow">AI Implementation Partner</span>
+        <h1>
+          <span class="en">Where Strategy Meets AI Execution.</span>
+          <span class="kr-1">AI 전략 설계부터 실제 구현까지,</span>
+          <span class="kr-2">글로보더 한 팀이 담당합니다.</span>
+        </h1>
+        <p class="hero-sub">
+          LLM · AI Agent · Agentic AI 3단 구현 역량과 25년 IT·커머스 현장 운영 경험을 하나로. 컨설팅으로 끝나지 않습니다. 설계하고, 직접 구현합니다.
+        </p>
+        <div class="cta-stack">
+          <a href="#contact" class="btn btn-primary">AI 프로젝트 무료 상담 신청 →</a>
+          <a href="#contact" class="btn btn-ghost">파트너 · 제휴 문의</a>
+        </div>
+        <div class="micro-trust">
+          <span>특허 등록 CBT Total Solution</span>
+          <span>5개 부처 수행 이력</span>
+          <span>글로벌 35+ 플랫폼</span>
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">GloBorder Agentic Flow</div>
+          <svg viewBox="0 0 320 180" width="100%" height="auto" role="img" aria-label="Input → Strategy → Build → Deploy → Optimize">
+            <line x1="32" y1="80" x2="96" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+            <line x1="96" y1="80" x2="160" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+            <line x1="160" y1="80" x2="224" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+            <line x1="224" y1="80" x2="288" y2="80" stroke="rgba(0,212,255,0.18)" stroke-width="1.2"/>
+
+            <g>
+              <circle cx="32" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+              <circle cx="32" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+              <text x="32" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Input</text>
+            </g>
+            <g>
+              <circle cx="96" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+              <circle cx="96" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+              <text x="96" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Strategy</text>
+            </g>
+            <g>
+              <circle cx="160" cy="80" r="16" fill="#00D4FF"/>
+              <circle cx="160" cy="80" r="22" fill="none" stroke="rgba(0,212,255,0.25)" stroke-width="1.2"/>
+              <text x="160" y="83" text-anchor="middle" fill="#0A1628" font-size="9" font-family="Inter, sans-serif" font-weight="800">BUILD</text>
+              <text x="160" y="116" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Inter, sans-serif" font-weight="700">Build</text>
+            </g>
+            <g>
+              <circle cx="224" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+              <circle cx="224" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+              <text x="224" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Deploy</text>
+            </g>
+            <g>
+              <circle cx="288" cy="80" r="11" fill="none" stroke="rgba(0,212,255,0.45)" stroke-width="1.3"/>
+              <circle cx="288" cy="80" r="2.5" fill="rgba(0,212,255,0.65)"/>
+              <text x="288" y="112" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" font-weight="600">Optimize</text>
+            </g>
+
+            <line x1="0" y1="148" x2="320" y2="148" stroke="rgba(0,212,255,0.08)" stroke-width="1" stroke-dasharray="2 4"/>
+            <text x="0" y="166" fill="#4B5563" font-size="9" font-family="JetBrains Mono, monospace">// active phase</text>
+            <text x="320" y="166" text-anchor="end" fill="#4B5563" font-size="9" font-family="JetBrains Mono, monospace">03 / 05</text>
+          </svg>
+          <div class="panel-cap">End-to-End AI Implementation</div>
+        </div>
+      </section>
+
+      <!-- TRUST -->
+      <section class="trust">
+        <div class="trust-grid">
+          <div class="t-item">
+            <div class="t-num">25<small>년</small></div>
+            <div class="t-label">IT·커머스 현장<br/>운영 경험</div>
+          </div>
+          <div class="t-item">
+            <div class="t-num">특허</div>
+            <div class="t-label">CBT Total Solution<br/>10-2771910 등록</div>
+          </div>
+          <div class="t-item">
+            <div class="t-num">35<small>+</small></div>
+            <div class="t-label">글로벌 플랫폼<br/>연동 설계 역량</div>
+          </div>
+          <div class="t-item">
+            <div class="t-num">AI</div>
+            <div class="t-label">LLM · Agent<br/>Agentic 3단 구현</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES — single column -->
+      <section class="services">
+        <div class="sec-head">
+          <span class="eyebrow">Services</span>
+          <h2>글로보더 6대 사업 영역</h2>
+          <p>전략 설계에서 실제 구현까지, 한 팀이 수행합니다.</p>
+        </div>
+
+        <div class="svc-list">
+          <article class="svc-card">
+            <span class="svc-badge">★ 핵심사업</span>
+            <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="14" width="20" height="20" rx="2"/>
+              <line x1="24" y1="6" x2="24" y2="14"/>
+              <line x1="24" y1="34" x2="24" y2="42"/>
+              <line x1="6" y1="24" x2="14" y2="24"/>
+              <line x1="34" y1="24" x2="42" y2="24"/>
+              <line x1="11" y1="11" x2="16" y2="16"/>
+              <line x1="32" y1="32" x2="37" y2="37"/>
+              <line x1="37" y1="11" x2="32" y2="16"/>
+              <line x1="16" y1="32" x2="11" y2="37"/>
+              <circle cx="24" cy="24" r="3"/>
+            </svg>
+            <h3 class="svc-title">AI 컨설팅 &amp; 빌드</h3>
+            <div class="svc-sub">아이디어를 목표 범위 기준, 첫 작동 버전으로.</div>
+            <p class="svc-body">LLM 기반 어시스턴트부터 Agentic AI 자동화까지, 전략 설계와 실제 구현을 한 팀이 수행합니다.</p>
+            <a class="svc-link" href="#contact">서비스 알아보기 →</a>
+          </article>
+
+          <article class="svc-card">
+            <span class="svc-badge">★ 핵심사업</span>
+            <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 40V20l16-10 16 10v20"/>
+              <line x1="4" y1="40" x2="44" y2="40"/>
+              <rect x="14" y="24" width="4" height="10"/>
+              <rect x="22" y="24" width="4" height="10"/>
+              <rect x="30" y="24" width="4" height="10"/>
+            </svg>
+            <h3 class="svc-title">정부지원사업</h3>
+            <div class="svc-sub">제안부터 납품까지, 글로보더가 일원화하여 담당합니다.</div>
+            <p class="svc-body">중기부·과기부·산업부·해수부·고용부 등 주요 부처 AI 기반 제안서 설계부터 수행·정산까지.</p>
+            <a class="svc-link" href="#contact">서비스 알아보기 →</a>
+          </article>
+
+          <article class="svc-card">
+            <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6c-7 0-12 5-12 11 0 4 2 7 5 9v6h14v-6c3-2 5-5 5-9 0-6-5-11-12-11Z"/>
+              <line x1="19" y1="38" x2="29" y2="38"/>
+              <line x1="20" y1="42" x2="28" y2="42"/>
+            </svg>
+            <h3 class="svc-title">SMB &amp; 개인 AI 서비스</h3>
+            <div class="svc-sub">작게 시작해, 오래 쓰는 AI.</div>
+            <p class="svc-body">자영업자·1인 창업가·개인을 위한 실용적 AI. 매장 챗봇, 예약 자동화, 루틴 AI까지.</p>
+            <a class="svc-link" href="#contact">서비스 알아보기 →</a>
+          </article>
+
+          <article class="svc-card">
+            <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20l20-10 20 10-20 10L4 20Z"/>
+              <path d="M12 24v10c0 3 5 6 12 6s12-3 12-6V24"/>
+              <line x1="40" y1="22" x2="40" y2="34"/>
+            </svg>
+            <h3 class="svc-title">AI 교육</h3>
+            <div class="svc-sub">실제 프로젝트 경험을 기반으로 가르칩니다.</div>
+            <p class="svc-body">경영진 1일 워크숍부터 창업가 6주 MVP 빌드캠프까지. 현장에서 쓰는 방법 그대로.</p>
+            <a class="svc-link" href="#contact">서비스 알아보기 →</a>
+          </article>
+
+          <article class="svc-card">
+            <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="18"/>
+              <ellipse cx="24" cy="24" rx="8" ry="18"/>
+              <line x1="6" y1="24" x2="42" y2="24"/>
+              <path d="M8 14c5 3 11 5 16 5s11-2 16-5"/>
+              <path d="M8 34c5-3 11-5 16-5s11 2 16 5"/>
+            </svg>
+            <h3 class="svc-title">글로벌 이커머스</h3>
+            <div class="svc-sub">K-브랜드의 글로벌 진출 파트너.</div>
+            <p class="svc-body">특허 CBT Total Solution(10-2771910)으로 Amazon · Shopify · Qoo10 · Rakuten 등 35개 채널 연동.</p>
+            <a class="svc-link" href="#global">서비스 알아보기 →</a>
+          </article>
+
+          <article class="svc-card">
+            <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="42" x2="42" y2="42"/>
+              <rect x="10" y="28" width="6" height="14"/>
+              <rect x="21" y="20" width="6" height="22"/>
+              <rect x="32" y="12" width="6" height="30"/>
+            </svg>
+            <h3 class="svc-title">디지털 마케팅</h3>
+            <div class="svc-sub">실행을 대신하지 않습니다. 지속 가능한 구조를 설계합니다.</div>
+            <p class="svc-body">AI 기반 중장기 마케팅 전략 설계 전문. SEO · SNS · 퍼포먼스 구조를 스스로 운영 가능하게 내재화.</p>
+            <a class="svc-link" href="#contact">서비스 알아보기 →</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="why">
+        <span class="eyebrow" style="color:var(--cyan-muted)">Why GloBorder</span>
+        <h2>왜 글로보더인가</h2>
+        <p class="pull">&ldquo;컨설팅 회사는 많습니다.<br/>설계하고 직접 구현하는 팀은 드뭅니다.&rdquo;</p>
+
+        <div class="why-block">
+          <h3>전략 설계와 실제 구현,<br/>한 팀이 수행합니다</h3>
+          <p>LLM 설계 → POC → MVP → 운영까지, 외주 없이 단일 팀이 일관된 책임 구조로 수행합니다. 보고서로 끝나는 컨설팅이 아닌, 작동하는 시스템을 목표로 합니다.</p>
+        </div>
+        <div class="why-block">
+          <h3>25년 IT·커머스 현장 운영의<br/>언어로 말합니다</h3>
+          <p>2000년대 초부터 이커머스·IT 시스템을 직접 설계하고 운영해온 현장 경험이 글로보더의 서비스 설계 기반입니다.</p>
+        </div>
+        <div class="why-block">
+          <h3>LLM → AI Agent → Agentic AI,<br/>전 단계를 자체 구현합니다</h3>
+          <p>자연어 입력 → 추론 → 워크플로우 생성 → 자율 실행 → 결과 학습. Agentic AI 풀 루프를 자체 구현 역량으로 보유합니다.</p>
+        </div>
+      </section>
+
+      <!-- PIPELINE — vertical -->
+      <section class="pipeline">
+        <div class="sec-head">
+          <span class="eyebrow">AI Pipeline</span>
+          <h2>글로보더의 AI 구현 파이프라인</h2>
+          <p>아이디어가 들어오면, 작동하는 AI 시스템이 나갑니다.</p>
+        </div>
+
+        <div class="stages">
+          <div class="stage">
+            <div class="stage-num">1</div>
+            <div>
+              <h4>Natural Language Input</h4>
+              <div class="stage-kr">자연어 입력</div>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-num">2</div>
+            <div>
+              <h4>Interpretation &amp; Strategy Design</h4>
+              <div class="stage-kr">해석 · 전략 설계</div>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-num">3</div>
+            <div>
+              <h4>Reasoning &amp; Architecture</h4>
+              <div class="stage-kr">추론 · 아키텍처</div>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-num">4</div>
+            <div>
+              <h4>Workflow Generation &amp; Build</h4>
+              <div class="stage-kr">워크플로우 빌드</div>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-num">5</div>
+            <div>
+              <h4>Execution &amp; Testing</h4>
+              <div class="stage-kr">실행 · 테스트</div>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-num">6</div>
+            <div>
+              <h4>Outcome &amp; Continuous Learning</h4>
+              <div class="stage-kr">결과 · 지속 학습</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipeline-foot">
+          <p>글로보더는 이 6단계 파이프라인을 고객의 비즈니스 문제에 맞춤 설계하고, 목표 범위를 사전에 확정한 후 첫 작동 버전 구현을 목표합니다.</p>
+          <a href="#contact" class="btn btn-outline-cyan">AI 파이프라인 상담 신청 →</a>
+        </div>
+      </section>
+
+      <!-- GLOBAL -->
+      <section class="global">
+        <div class="sec-head">
+          <span class="eyebrow">Global Footprint</span>
+          <h2>글로보더가 연결하는<br/>글로벌 네트워크</h2>
+          <p>25년 글로벌 커머스 운영 경험 기반 35개 플랫폼 연동 설계 역량과 13개국 물류 네트워크 활용 이력.</p>
+        </div>
+        <div class="g-list">
+          <article class="g-card">
+            <div class="head">글로벌 이커머스 플랫폼</div>
+            <div class="body">
+              <strong>Amazon</strong> · <strong>Shopify</strong> · <strong>Qoo10</strong> · <strong>Rakuten</strong> · <strong>Shopee</strong><br/>
+              TMall · Lazada · AliExpress · eBay · Cafe24<br/>
+              외 25개+
+            </div>
+          </article>
+          <article class="g-card">
+            <div class="head">글로벌 물류 네트워크</div>
+            <div class="body">
+              <strong>DHL</strong> · <strong>FedEx</strong> · <strong>UPS</strong> · <strong>EMS</strong><br/>
+              아시아 현지 특송사<br/>
+              <span style="color:var(--gray-400); font-size:12px;">(13개국 거점)</span>
+            </div>
+          </article>
+          <article class="g-card">
+            <div class="head">기술 파트너 &amp; 스택</div>
+            <div class="body">
+              <strong>Claude</strong> (Anthropic) · <strong>OpenAI GPT</strong> · <strong>Google Gemini</strong><br/>
+              n8n · Supabase · Vercel · GitHub
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <span class="eyebrow">Contact</span>
+        <h2>지금 바로 문의하세요</h2>
+        <p class="lede">아이디어 단계도 괜찮습니다.<br/>문제 정의만 있어도 충분합니다.<br/>첫 상담은 무료입니다.</p>
+
+        <div class="c-info">
+          <div class="c-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+            <span>hello@globorder.kr</span>
+          </div>
+          <div class="c-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span>평일 09:00 – 18:00 KST</span>
+          </div>
+          <div class="c-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
+            <span>국내 · 글로벌 프로젝트 모두 대응</span>
+          </div>
+          <div class="c-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            <span>문의 접수 후 1 영업일 이내 담당자 직접 연락</span>
+          </div>
+        </div>
+
+        <form class="c-form" id="cf" novalidate>
+          <h3>무료 상담 신청</h3>
+          <div class="field">
+            <label for="m-name">이름 <span class="req">*</span></label>
+            <input id="m-name" type="text" placeholder="홍길동" required />
+          </div>
+          <div class="field">
+            <label for="m-email">이메일 <span class="req">*</span></label>
+            <input id="m-email" type="email" placeholder="email@company.com" required />
+          </div>
+          <div class="field">
+            <label for="m-phone">연락처</label>
+            <input id="m-phone" type="tel" placeholder="010-0000-0000" />
+          </div>
+          <div class="field">
+            <label for="m-type">문의 유형 <span class="req">*</span></label>
+            <select id="m-type" required>
+              <option value="">선택해 주세요</option>
+              <option>AI 프로젝트·구현 상담</option>
+              <option>정부지원사업 컨설팅</option>
+              <option>파트너·제휴·협업</option>
+              <option>AI 교육·강의</option>
+              <option>기타</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="m-msg">문의 내용 <span class="req">*</span></label>
+            <textarea id="m-msg" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요?" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">무료 상담 신청 →</button>
+          <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
+        </form>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div class="logo"><span class="g" style="color:var(--cyan)">G</span>loBorder</div>
+        <div>© 2026 (주)글로보더</div>
+        <div>사업자등록번호 표기 예정 | 서울</div>
+        <div class="links">
+          <a href="#">개인정보처리방침</a> / <a href="#">이용약관</a>
+        </div>
+      </footer>
+
+    </div>
+
+    <div class="home-indicator" id="home-ind"></div>
+  </div>
+</div>
+
+<script>
+  // Toggle status-bar color depending on scroll position (light section vs dark section)
+  const site = document.getElementById('site');
+  const status = document.getElementById('status');
+  const homeInd = document.getElementById('home-ind');
+  // Light sections: trust, services, why, global => positions roughly past hero+
+  function updateChrome() {
+    // Inspect the element under status-bar Y position (top of screen)
+    const rect = site.getBoundingClientRect();
+    const probeY = rect.top + 22;
+    const probeX = rect.left + rect.width / 2;
+    const el = document.elementFromPoint(probeX, probeY);
+    if (!el) return;
+    let bg = '';
+    let node = el;
+    while (node && node !== document.body) {
+      const c = getComputedStyle(node).backgroundColor;
+      if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') { bg = c; break; }
+      node = node.parentElement;
+    }
+    // Approximate: detect light by parsing rgb values
+    const m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    let isLight = false;
+    if (m) {
+      const lum = (parseInt(m[1])*0.299 + parseInt(m[2])*0.587 + parseInt(m[3])*0.114);
+      isLight = lum > 180;
+    }
+    status.classList.toggle('dark', isLight);
+    homeInd.classList.toggle('dark', false); // bottom indicator stays light over contact (dark)
+  }
+  site.addEventListener('scroll', updateChrome, { passive: true });
+  window.addEventListener('load', updateChrome);
+
+  // Form (no real submit)
+  document.getElementById('cf').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('문의가 접수되었습니다. 1 영업일 이내 담당자가 직접 연락드립니다.');
+  });
+</script>
+
+</body>
+</html>
