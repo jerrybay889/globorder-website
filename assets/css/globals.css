@@ -906,6 +906,82 @@ footer .links a:hover {
   color: var(--cyan);
 }
 
+/* ───────── ABOUT PAGE STYLES ───────── */
+.timeline-vertical {
+  position: relative;
+  padding-left: 28px;
+}
+
+.timeline-item {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.timeline-item .timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  background: var(--white);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.timeline-item.highlight .timeline-dot {
+  background: var(--cyan);
+  width: 16px;
+  height: 16px;
+  left: -26px;
+  top: 2px;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 16px;
+  width: 2px;
+  bottom: -24px;
+  background: rgba(0, 212, 255, 0.2);
+}
+
+.timeline-year {
+  font-family: var(--font-en);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cyan-muted);
+  margin-bottom: 4px;
+}
+
+.timeline-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  line-height: 1.5;
+}
+
+.timeline-note {
+  font-size: 11px;
+  color: var(--gray-400);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.timeline-item.highlight .timeline-year {
+  color: var(--cyan);
+}
+
+.timeline-item.highlight .timeline-title {
+  color: var(--navy-deep);
+  font-weight: 700;
+}
+
+.timeline-item.highlight .timeline-note {
+  color: var(--cyan-muted);
+}
+
 /* ───────── RESPONSIVE DESIGN ───────── */
 @media (max-width: 640px) {
   .mnav {
