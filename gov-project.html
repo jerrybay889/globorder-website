@@ -3,36 +3,492 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>정부지원사업 | 글로보더 — AI 기반 제안서 설계부터 수행·정산까지</title>
-  <meta name="description" content="중기부·과기부·산업부·해수부·고용부 등 주요 부처 AI 기반 사업 제안부터 수행·정산까지 일원화 관리. 정부지원 R&D 전문." />
-  <link rel="canonical" href="https://www.globorder.kr/gov-project.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="정부지원사업 | 글로보더" />
-  <meta property="og:description" content="중기부·과기부·산업부 AI 기반 제안부터 수행·정산까지 일원화 관리. 15년 정부지원사업 컨설팅 경험." />
-  <meta property="og:url" content="https://www.globorder.kr/gov-project.html" />
-  <meta property="og:site_name" content="GloBorder" />
+  <title>정부지원사업 컨설팅 &amp; 수행 | 글로보더 — 기획부터 정산까지</title>
+  <meta name="description" content="(주)글로보더는 중소벤처기업부·과기부·고용부·해수부 등 주요 부처 AI 지원사업의 기획·제안서·수행·납품·정산까지 전 과정을 담당합니다." />
+  <link rel="canonical" href="https://www.globorder.kr/gov-project" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/globals.css" />
+  <style>
+    /* ── Page Hero ── */
+    .page-hero {
+      background: var(--navy-deep);
+      color: var(--white);
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.5) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .04;
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative;
+      max-width: 860px;
+    }
+    .page-hero h1 {
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin: 16px 0 0;
+    }
+    .page-hero-sub {
+      margin-top: 28px;
+      font-size: 19px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.65);
+      max-width: 640px;
+    }
+
+    /* ── Dark Strip ── */
+    .strip-dark {
+      background: var(--navy-mid);
+      padding: 56px 0;
+    }
+    .strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .strip-item {
+      padding: 8px 32px;
+      border-left: 1px solid var(--border);
+    }
+    .strip-item:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+    .strip-num {
+      font-family: var(--font-en);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--cyan);
+      line-height: 1;
+    }
+    .strip-label {
+      margin-top: 10px;
+      font-size: 15px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.55;
+    }
+
+    /* ── Compare Table ── */
+    .compare-section {
+      background: var(--surface-2);
+      padding: 100px 0;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+    }
+    .compare-table th {
+      background: var(--navy-deep);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 14px 20px;
+      text-align: left;
+    }
+    .compare-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--gray-600);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .compare-table td.good { color: #10b981; font-weight: 600; }
+    .compare-table td.bad  { color: var(--gray-400); }
+    .compare-note {
+      margin-top: 32px;
+      font-size: 16px;
+      color: var(--gray-600);
+      line-height: 1.8;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* ── Type Cards ── */
+    .type-section {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .type-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 28px;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .type-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+      box-shadow: 0 12px 30px -18px rgba(10,22,40,.2);
+    }
+    .type-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 10px;
+    }
+    .badge2 {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(0,212,255,.1);
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+    .type-card p {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .type-card .strength {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--navy-deep);
+      font-weight: 600;
+      border-top: 1px solid var(--gray-200);
+      padding-top: 12px;
+    }
+
+    /* ── Step List ── */
+    .process-section {
+      background: var(--surface);
+      padding: 100px 0;
+    }
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 720px;
+      margin: 48px auto 0;
+    }
+    .step-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 24px;
+    }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border: 1.5px solid var(--cyan);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-en);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+    .step-body {
+      padding: 10px 0 44px;
+    }
+    .step-body h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 8px;
+    }
+    .step-body p {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    /* ── History Table ── */
+    .history-section {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+    }
+    .ref-table th {
+      background: var(--navy-deep);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 14px 20px;
+      text-align: left;
+    }
+    .ref-table td {
+      padding: 14px 20px;
+      font-size: 15px;
+      color: var(--gray-600);
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .badge-corp {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: rgba(0,212,255,.12);
+      color: var(--cyan);
+      font-weight: 600;
+    }
+    .badge-rep {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: var(--surface-2);
+      color: var(--gray-600);
+      font-weight: 600;
+    }
+    .ref-footnote {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--gray-400);
+    }
+
+    /* ── Consult Cards ── */
+    .consult-section {
+      background: var(--navy-deep);
+      padding: 100px 0;
+    }
+    .consult-section .section-head h2 { color: var(--white); }
+    .consult-section .section-head p  { color: rgba(255,255,255,.6); }
+    .consult-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .consult-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .consult-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .consult-card p {
+      font-size: 15px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+    }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: var(--cyan);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--navy-deep);
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(10,22,40,.7);
+      margin-bottom: 36px;
+    }
+    .cta-banner .btn-navy {
+      background: var(--navy-deep);
+      color: var(--white);
+      border: none;
+    }
+    .cta-banner .btn-navy:hover {
+      background: var(--navy-mid);
+    }
+    .cta-banner .btn-outline-navy {
+      background: transparent;
+      color: var(--navy-deep);
+      border: 2px solid var(--navy-deep);
+    }
+    .cta-banner .btn-outline-navy:hover {
+      background: var(--navy-deep);
+      color: var(--white);
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      background: var(--surface);
+      padding: 100px 0;
+    }
+    .gov-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-left h2 {
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 800;
+      color: var(--navy-deep);
+      letter-spacing: -.02em;
+      margin-top: 14px;
+    }
+    .contact-left .lede {
+      margin-top: 20px;
+      font-size: 16px;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+    .contact-info-list {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--gray-600);
+    }
+    .contact-info-item svg { flex-shrink: 0; }
+    .gov-contact-form {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+      padding: 40px;
+    }
+    .gov-contact-form h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 28px;
+    }
+    .gfield {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .gfield label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy-deep);
+    }
+    .req { color: var(--cyan); }
+    .gfield input,
+    .gfield select,
+    .gfield textarea {
+      width: 100%;
+      padding: 11px 14px;
+      font-family: inherit;
+      font-size: 14.5px;
+      background: var(--surface);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      color: var(--navy-deep);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .gfield input:focus,
+    .gfield select:focus,
+    .gfield textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0,212,255,.15);
+    }
+    .gfield.error input,
+    .gfield.error select,
+    .gfield.error textarea { border-color: #ef4444; }
+    .err-msg { display: none; font-size: 12px; color: #ef4444; }
+    .gfield.error .err-msg { display: block; }
+    .gov-submit {
+      width: 100%;
+      height: 50px;
+      background: var(--cyan);
+      color: var(--navy-deep);
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: background .2s, color .2s;
+    }
+    .gov-submit:hover { background: var(--cyan-muted); color: var(--white); }
+    .privacy { margin-top: 12px; font-size: 12px; color: var(--gray-400); text-align: center; }
+    .form-success {
+      display: none;
+      background: rgba(0,212,255,.08);
+      border: 1px solid var(--cyan);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 14px;
+      color: var(--cyan);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-success.show { display: block; }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .strip-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
+      .strip-item:nth-child(odd) { border-left: none; padding-left: 0; }
+      .strip-item:nth-child(3),
+      .strip-item:nth-child(4) { border-top: 1px solid var(--border); padding-top: 24px; }
+      .type-grid { grid-template-columns: repeat(2, 1fr); }
+      .consult-cards { grid-template-columns: 1fr; }
+      .gov-contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .page-hero { padding: 120px 0 72px; }
+      .page-hero-sub { font-size: 16px; }
+      .compare-section,
+      .type-section,
+      .process-section,
+      .history-section,
+      .consult-section,
+      .contact-section { padding: 72px 0; }
+      .cta-banner { padding: 60px 0; }
+      .type-grid { grid-template-columns: 1fr; }
+      .ref-table { font-size: 13px; }
+      .ref-table th, .ref-table td { padding: 10px 12px; }
+      .gov-contact-form { padding: 28px; }
+    }
+  </style>
 </head>
 <body>
+
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
     <nav class="nav-links" aria-label="primary">
       <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
-      <a href="/gov-project" style="color:var(--cyan);">정부지원사업</a>
+      <a href="/gov-project" class="active">정부지원사업</a>
       <a href="/smb-ai">SMB AI</a>
-      <a href="/ai-academy">Academy</a>
-      <a href="/global-ecommerce">Global eCommerce</a>
-      <a href="/about">About</a>
+      <a href="/ai-academy">AI 아카데미</a>
+      <a href="/global-ecommerce">글로벌 e커머스</a>
+      <a href="/digital-marketing">디지털 마케팅</a>
     </nav>
     <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -41,145 +497,370 @@
   <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
   <a href="/gov-project" data-close>정부지원사업</a>
   <a href="/smb-ai" data-close>SMB AI</a>
-  <a href="/ai-academy" data-close>Academy</a>
-  <a href="/global-ecommerce" data-close>Global eCommerce</a>
-  <a href="/about" data-close>About</a>
+  <a href="/ai-academy" data-close>AI 아카데미</a>
+  <a href="/global-ecommerce" data-close>글로벌 e커머스</a>
+  <a href="/digital-marketing" data-close>디지털 마케팅</a>
   <a href="#contact" class="nav-cta" data-close>무료 상담</a>
 </aside>
 
-<section class="hero">
-  <span class="eyebrow">Government Support Programs</span>
-  <h1>AI 기반 정부지원사업, 제안부터 정산까지 글로보더가 일원화합니다</h1>
-  <p class="hero-sub">중기부·과기부·산업부·해수부·고용부 등 주요 부처의 R&amp;D 사업 경험. 기술 핵심화와 비용 최적화를 동시에 추진하는 글로보더의 노하우로 정부지원사업 성과를 극대화합니다.</p>
-  <div class="cta-stack">
-    <a href="#contact" class="btn btn-primary">정부지원사업 무료 상담 신청 →</a>
-    <a href="/about" class="btn btn-ghost">사업 이력 보기</a>
-  </div>
-</section>
+<main>
 
-<section class="services animate-in">
-  <div class="sec-head">
-    <span class="eyebrow">Support Programs</span>
-    <h2>지원 부처별 사업 경험</h2>
-  </div>
-  <div class="svc-list">
-    <article class="svc-card">
-      <h3 class="svc-title">중소벤처기업부</h3>
-      <div class="svc-sub">기술혁신형 중소기업 지원 프로그램</div>
-      <p class="svc-body">정책자금·R&amp;D 사업·창업지원·기술사업화 등 중기부 정책사업 전 영역에 대한 제안, 수행, 정산 컨설팅. AI 기반 혁신솔루션 개발 사업, 연구개발과제 관리, 기술평가 및 사업화 전략까지 지원합니다.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">과학기술정보통신부</h3>
-      <div class="svc-sub">R&amp;D 혁신 및 미래기술 개발</div>
-      <p class="svc-body">정보통신·AI·빅데이터·IoT 등 미래기술 분야 연구개발사업 경험. 과제 제안부터 성과 창출, 기술이전까지 전주기 관리. 국제공동연구, 대학-기업 협력과제, 창의형 과제 등 다양한 프로젝트 수행.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">산업통상자원부</h3>
-      <div class="svc-sub">산업 고도화 및 AI 융합</div>
-      <p class="svc-body">제조산업·에너지·소재부품·산업용 AI 고도화 사업 수행 경험. 산업 경쟁력 강화, 탄소중립 관련 기술개발, 산업 혁신 과제 관리. AI 도입을 통한 산업 프로세스 개선 및 효율화 전략 수립.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">해양수산부</h3>
-      <div class="svc-sub">수산 AI 및 스마트양식</div>
-      <p class="svc-body">수산정보화, 스마트양식, 해양자원 관리 기술개발 사업 경험. AI를 활용한 양식장 자동화, 수산물 품질 관리, 해양 생태 모니터링 기술 개발 및 상용화 지원.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">고용노동부</h3>
-      <div class="svc-sub">직업훈련 및 일자리 창출</div>
-      <p class="svc-body">AI 기반 직업훈련 개발, 고용 창출 사업 지원. 새로운 기술 분야 인력 양성, 기업 맞춤형 훈련과제, 취업 연계 프로그램 개발 및 운영.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">기타 부처</h3>
-      <div class="svc-sub">농림축산식품부·문화체육관광부·환경부 등</div>
-      <p class="svc-body">농업 AI, 문화콘텐츠 기술개발, 환경모니터링 등 다양한 정부 부처 사업 경험. 부처별 정책 특성을 고려한 맞춤형 제안서 작성 및 과제 수행 관리.</p>
-    </article>
-  </div>
-</section>
-
-<section class="why animate-in">
-  <h2>정부지원사업 일원화 프로세스</h2>
-  <p style="text-align:center; font-size:15px; color:var(--gray-600); margin:16px 0 32px; word-break:keep-all;">제안부터 정산까지, 글로보더가 모든 단계를 관리합니다</p>
-  <div class="stages" style="max-width:100%; overflow-x:auto;">
-    <div style="display:flex; gap:8px; padding:16px; align-items:center;">
-      <div style="flex-shrink:0; width:120px; text-align:center;">
-        <div style="width:32px; height:32px; background:var(--cyan); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; margin:0 auto 8px;">1</div>
-        <div style="font-size:13px; font-weight:600; color:var(--navy-deep); word-break:keep-all;">사업 기획</div>
-        <div style="font-size:12px; color:var(--gray-600); margin-top:4px;">ROI 분석</div>
+<!-- ── Hero ── -->
+<section class="page-hero" aria-labelledby="gov-hero-title">
+  <div class="container">
+    <div class="page-hero-inner reveal">
+      <span class="eyebrow">Government Project</span>
+      <h1 id="gov-hero-title">정부지원사업,<br />기획부터 정산까지<br />글로보더가 직접 담당합니다</h1>
+      <p class="page-hero-sub">
+        제안서 컨설팅에서 끝나지 않습니다.<br />
+        선정 이후 실제 AI 시스템 설계·구현·납품·정산까지<br />
+        IT·AI·커머스 풀스택 팀이 수행합니다.
+      </p>
+      <div class="cta-row" style="margin-top:36px;">
+        <a href="#contact" class="btn btn-primary">정부지원사업 무료 상담 →</a>
+        <a href="#history" class="btn btn-ghost">수행 이력 보기</a>
       </div>
-      <div style="flex-shrink:0; width:30px; height:2px; background:var(--gray-200); margin-top:16px;"></div>
-      <div style="flex-shrink:0; width:120px; text-align:center;">
-        <div style="width:32px; height:32px; background:var(--cyan); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; margin:0 auto 8px;">2</div>
-        <div style="font-size:13px; font-weight:600; color:var(--navy-deep); word-break:keep-all;">제안서 작성</div>
-        <div style="font-size:12px; color:var(--gray-600); margin-top:4px;">평가기준 최적화</div>
-      </div>
-      <div style="flex-shrink:0; width:30px; height:2px; background:var(--gray-200); margin-top:16px;"></div>
-      <div style="flex-shrink:0; width:120px; text-align:center;">
-        <div style="width:32px; height:32px; background:var(--cyan); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; margin:0 auto 8px;">3</div>
-        <div style="font-size:13px; font-weight:600; color:var(--navy-deep); word-break:keep-all;">과제 수행</div>
-        <div style="font-size:12px; color:var(--gray-600); margin-top:4px;">기술 개발</div>
-      </div>
-      <div style="flex-shrink:0; width:30px; height:2px; background:var(--gray-200); margin-top:16px;"></div>
-      <div style="flex-shrink:0; width:120px; text-align:center;">
-        <div style="width:32px; height:32px; background:var(--cyan); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; margin:0 auto 8px;">4</div>
-        <div style="font-size:13px; font-weight:600; color:var(--navy-deep); word-break:keep-all;">성과 관리</div>
-        <div style="font-size:12px; color:var(--gray-600); margin-top:4px;">논문·특허·제품</div>
-      </div>
-      <div style="flex-shrink:0; width:30px; height:2px; background:var(--gray-200); margin-top:16px;"></div>
-      <div style="flex-shrink:0; width:120px; text-align:center;">
-        <div style="width:32px; height:32px; background:var(--cyan); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; margin:0 auto 8px;">5</div>
-        <div style="font-size:13px; font-weight:600; color:var(--navy-deep); word-break:keep-all;">사업화·정산</div>
-        <div style="font-size:12px; color:var(--gray-600); margin-top:4px;">기술이전·수익화</div>
+      <div class="trust-microsignals">
+        <span>5개 부처 수행 이력</span>
+        <span>기획→제안→수행→납품→정산</span>
+        <span>25년 IT·사업기획 경력</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="global animate-in">
-  <div class="sec-head">
-    <span class="eyebrow">Expertise</span>
-    <h2>글로보더만의 정부사업 역량</h2>
-  </div>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:24px;">
-    <div style="padding:24px; background:var(--surface); border-radius:12px; border-left:4px solid var(--cyan);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:8px; font-size:15px;">15년 정부사업 경험</div>
-      <p style="font-size:13px; color:var(--gray-600); line-height:1.75; word-break:keep-all;">50개 이상의 정부과제 수행 및 컨설팅 경험을 바탕으로 부처별 정책 변화를 실시간 대응합니다.</p>
-    </div>
-    <div style="padding:24px; background:var(--surface); border-radius:12px; border-left:4px solid var(--cyan);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:8px; font-size:15px;">부처별 심사위원 네트워크</div>
-      <p style="font-size:13px; color:var(--gray-600); line-height:1.75; word-break:keep-all;">각 부처 심사 기준과 평가 경향을 파악하여 최적화된 제안서 전략을 수립합니다.</p>
-    </div>
-    <div style="padding:24px; background:var(--surface); border-radius:12px; border-left:4px solid var(--cyan);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:8px; font-size:15px;">성과 창출 집중</div>
-      <p style="font-size:13px; color:var(--gray-600); line-height:1.75; word-break:keep-all;">단순 과제 수행이 아닌 기술이전, 제품 출시, 매출 창출까지 최종 성과에 집중합니다.</p>
+<!-- ── Stat Strip ── -->
+<section class="strip-dark" aria-label="주요 지표">
+  <div class="container">
+    <div class="strip-grid reveal">
+      <div class="strip-item">
+        <div class="strip-num">5개 부처</div>
+        <div class="strip-label">수행 이력 보유<br />(중기부·과기부·고용부·해수부 등)</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">전 과정</div>
+        <div class="strip-label">기획→제안서→수행<br />→납품→정산 일원화</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">25년</div>
+        <div class="strip-label">대표 IT·커머스<br />사업기획 경력 기반</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">AI</div>
+        <div class="strip-label">LLM·Agent 기반<br />제안서 설계 역량</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact animate-in">
-  <div style="text-align:center; margin-bottom:32px;">
-    <h2>정부지원사업 무료 상담 신청</h2>
-    <p style="color:var(--gray-600); margin-top:8px;">담당자가 2시간 내 연락드립니다</p>
+<!-- ── Why ── -->
+<section class="compare-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why GloBorder</span>
+      <h2 style="margin-top:14px;">글로보더가 다른 이유</h2>
+      <p>"제안서를 쓰는 회사와, 직접 만들고 납품하는 회사는 다릅니다."</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>일반 컨설팅 펌</th>
+            <th>글로보더</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>제안서 작성</td><td class="bad">✅ 가능</td><td class="good">✅ 직접 설계</td></tr>
+          <tr><td>선정 후 수행</td><td class="bad">❌ 별도 업체 연결</td><td class="good">✅ 직접 수행</td></tr>
+          <tr><td>AI 시스템 구현</td><td class="bad">❌ 외주 의존</td><td class="good">✅ 자체 구현</td></tr>
+          <tr><td>납품·검수</td><td class="bad">❌ 지원 제한적</td><td class="good">✅ 직접 납품</td></tr>
+          <tr><td>정산·행정</td><td class="bad">❌ 별도 회계 필요</td><td class="good">✅ 전 과정 지원</td></tr>
+          <tr><td>부처별 AI 전문성</td><td class="bad">△ 일반적</td><td class="good">✅ 부처별 맞춤 설계</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note reveal">
+      "글로보더는 정부지원사업의 '설계자'이자 '실행자'입니다.<br />
+      제안서를 작성하고 선정되는 데서 끝나지 않습니다.<br />
+      실제 AI 시스템을 구현하고, 데이터로 검증하고, 정부에 납품·보고하는 전 과정을 한 팀이 담당합니다."
+    </p>
   </div>
-  <form id="cf" method="POST" action="https://formspree.io/f/xjgjqako" style="max-width:480px; margin:0 auto;">
-    <div style="margin-bottom:16px;">
-      <input type="text" name="회사명" placeholder="회사명" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:16px;">
-      <input type="text" name="담당자명" placeholder="담당자명" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:16px;">
-      <input type="tel" name="연락처" placeholder="연락처" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:16px;">
-      <input type="email" name="이메일" placeholder="이메일" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:20px;">
-      <textarea name="문의내용" placeholder="문의내용 (선택)" style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white); resize:vertical; min-height:100px;"></textarea>
-    </div>
-    <button type="submit" id="submit-btn" style="width:100%; padding:14px 20px; background:var(--cyan); color:white; border:none; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer; transition:background 0.2s;">상담 신청하기</button>
-    <div id="form-status" style="display:none; padding:12px 16px; border-radius:8px; margin-top:12px; text-align:center; font-size:14px; word-break:keep-all;"></div>
-  </form>
 </section>
+
+<!-- ── Service Types ── -->
+<section class="type-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Service Types</span>
+      <h2 style="margin-top:14px;">글로보더가 지원하는 사업 유형</h2>
+      <p>부처별 특성과 AI 기술을 연결해 최적 제안 구조를 설계합니다.</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card reveal">
+        <span class="badge2">중소벤처기업부</span>
+        <h3>예비창업·초기창업 패키지</h3>
+        <p>아이디어 → AI 기반 사업 모델 구체화, 경쟁 분석·시장 규모 데이터 기반 제안서 설계, MVP 구현 계획 수립.</p>
+        <div class="strength">✓ 실제 AI MVP 구현 경험 기반 "구현 가능성"이 뒷받침된 제안서</div>
+      </div>
+      <div class="type-card reveal">
+        <span class="badge2">중소벤처기업부</span>
+        <h3>창업성장 R&amp;D</h3>
+        <p>R&amp;D 과제 목표·범위·기술 로드맵 설계, LLM·AI Agent 기반 R&amp;D 주제 발굴, 중간·최종 보고서 작성.</p>
+        <div class="strength">✓ 창업성장 R&amp;D 2회 직접 수행 이력 보유</div>
+      </div>
+      <div class="type-card reveal">
+        <span class="badge2">과학기술정보통신부</span>
+        <h3>마이데이터·데이터 실증</h3>
+        <p>마이데이터 API 활용 서비스 구조 설계, 개인정보 보호 기반 AI 활용 아키텍처, 실증 서비스 프로토타입 구현·검수.</p>
+        <div class="strength">✓ 마이데이터 실증 사업 직접 수행 이력</div>
+      </div>
+      <div class="type-card reveal">
+        <span class="badge2">과기부·중기부</span>
+        <h3>AI 바우처·디지털 전환 지원</h3>
+        <p>기업 현황 진단·AI 도입 기회 발굴, AI 바우처 수요기업 신청 전략, 공급기업 컨소시엄 구축, 시스템 구현·납품.</p>
+        <div class="strength">✓ 수요기업 컨설팅과 AI 직접 구현 동시 수행</div>
+      </div>
+      <div class="type-card reveal">
+        <span class="badge2">고용노동부</span>
+        <h3>청년 일자리·고용 교육 사업</h3>
+        <p>청년 대상 AI 교육 커리큘럼 설계·운영, 취업 연계형 AI 실무 과정 PM, 수료 후 취업·창업 사후 관리.</p>
+        <div class="strength">✓ 고용부 청년일경험지원사업 직접 수행 이력</div>
+      </div>
+      <div class="type-card reveal">
+        <span class="badge2">해수부·농림부·산업부</span>
+        <h3>수산·농업·제조 AI 실증</h3>
+        <p>산업별 AI 실증 사업 기획·제안서 설계, AI 에이전트 기반 실증 시스템 구현, 데이터 수집·분석·최적화 파이프라인.</p>
+        <div class="strength">✓ 양식업 AI 에이전트 플랫폼 자체 개발 이력</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Process ── -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Process</span>
+      <h2 style="margin-top:14px;">정부지원사업 수행 프로세스</h2>
+      <p>기획부터 정산까지, 단계별로 설명합니다.</p>
+    </div>
+    <div class="step-list">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>무료 사전 상담 (1~2일)</h3>
+          <p>지원 사업 목표·현황·일정 파악. 적합 사업 유형 및 부처 추천. 신청 가능성·전략 방향 1차 검토. 무료, 비구속적 상담.</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>사업 선정 전략 수립 (3~7일)</h3>
+          <p>공고 분석·심사 기준 역분석. 경쟁 제안서 차별화 포인트 설계. AI 기반 사업 모델·기술 구조 설계. 제안서 완성본 납품.</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>선정 후 킥오프 (선정 통보 후 1주)</h3>
+          <p>수행 계획 확정·팀 구성. 정부 담당자 킥오프 미팅 동행. 수행 일정·마일스톤·납품물 확정.</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>수행 &amp; 구현 (사업별 상이)</h3>
+          <p>AI 시스템·플랫폼·콘텐츠 개발. 중간 보고·검수·피드백 반영. 성과 데이터 수집·분석·문서화. 최종 납품 완료.</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>정산 &amp; 사후관리 (사업 종료 후)</h3>
+          <p>증빙 서류 정리·정산 보고서 작성. 정부 정산 검토 대응. 차기 사업 연계 방안 제안. 시스템 운영·유지보수 지원.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Track Record ── -->
+<section class="history-section" id="history">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Track Record</span>
+      <h2 style="margin-top:14px;">수행 부처 &amp; 사업 이력</h2>
+      <p>(주)글로보더 수행 실적과 대표 배제협 직접 수행 이력을 구분해 기재합니다.</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>수행 주체</th>
+            <th>부처</th>
+            <th>사업명</th>
+            <th>역할</th>
+            <th>결과</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge-rep">대표 배제협 (재미와의미)</span></td>
+            <td>중소벤처기업부</td>
+            <td>예비창업패키지</td>
+            <td>PM·수행 총괄</td>
+            <td>수행 완료·납품</td>
+          </tr>
+          <tr>
+            <td><span class="badge-rep">대표 배제협 (재미와의미)</span></td>
+            <td>중소벤처기업부</td>
+            <td>재도전창업지원사업</td>
+            <td>PM 직접 수행</td>
+            <td>수행 완료·납품</td>
+          </tr>
+          <tr>
+            <td><span class="badge-rep">대표 배제협 (재미와의미)</span></td>
+            <td>중소벤처기업부</td>
+            <td>창업성장R&amp;D (2회)</td>
+            <td>PM·기술개발</td>
+            <td>수행 완료·납품</td>
+          </tr>
+          <tr>
+            <td><span class="badge-rep">대표 배제협 (재미와의미)</span></td>
+            <td>과학기술정보통신부</td>
+            <td>마이데이터 실증 사업</td>
+            <td>PM·수행 총괄</td>
+            <td>실증 완료·납품</td>
+          </tr>
+          <tr>
+            <td><span class="badge-rep">대표 배제협 (메타크리에이트)</span></td>
+            <td>고용노동부</td>
+            <td>2024 청년일경험지원사업</td>
+            <td>PM·강사·멘토</td>
+            <td>과정 완료</td>
+          </tr>
+          <tr>
+            <td><span class="badge-corp">(주)글로보더</span></td>
+            <td>해양수산부</td>
+            <td>AI 기반 수산업 실증사업</td>
+            <td>설계·제안 지원</td>
+            <td>협의 진행 중</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ref-footnote reveal">* 법인 설립 이전 이력은 해당 시점의 대표 소속 기관 기준으로 구분 표기합니다.</p>
+  </div>
+</section>
+
+<!-- ── Consult Type ── -->
+<section class="consult-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Consult Type</span>
+      <h2 style="margin-top:14px;">어떤 도움이 필요하신가요?</h2>
+      <p>상황에 맞는 지원 유형을 선택해 상담을 신청하세요.</p>
+    </div>
+    <div class="consult-cards">
+      <div class="consult-card reveal">
+        <h3>🔍 신규 지원사업 발굴</h3>
+        <p>어떤 사업에 신청해야 할지 모르는 분. 현재 사업 단계·기술·목표 파악 후 적합 부처·사업 매칭. 신청 시기·전략 방향 제안.</p>
+      </div>
+      <div class="consult-card reveal">
+        <h3>📝 제안서 설계·작성</h3>
+        <p>신청할 사업이 확정됐고, 제안서 도움이 필요한 분. 공고 분석·심사 기준 역분석, 제안 구조 설계·초안 작성, 발표·피칭 자료 제작.</p>
+      </div>
+      <div class="consult-card reveal">
+        <h3>⚙️ 선정 후 수행·납품·정산</h3>
+        <p>이미 선정됐고, 수행·납품·정산에 도움이 필요한 분. 수행 계획 재설계·WBS 수립. AI 시스템·플랫폼 구현. 정산 서류 작성 지원.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA Banner ── -->
+<section class="cta-banner">
+  <div class="container reveal">
+    <h2>정부지원사업, 지금 시작하세요</h2>
+    <p>
+      어떤 사업에 신청해야 할지 모르겠어도 괜찮습니다.<br />
+      현재 상황과 목표를 알려주시면 적합한 방향을 먼저 제안드립니다. 첫 상담은 무료입니다.
+    </p>
+    <div class="cta-row" style="justify-content:center; gap:16px;">
+      <a href="#contact" class="btn btn-navy">정부지원사업 무료 상담 신청 →</a>
+      <a href="/ai-consulting" class="btn btn-outline-navy">AI 컨설팅 서비스 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="gov-contact-grid">
+      <div class="contact-left reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>지금 바로 문의하세요</h2>
+        <p class="lede">
+          아이디어 단계도 괜찮습니다.<br />
+          문제 정의만 있어도 충분합니다.<br />
+          첫 상담은 무료입니다.
+        </p>
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+            hello@globorder.kr
+          </div>
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            평일 09:00 – 18:00 KST
+          </div>
+        </div>
+      </div>
+
+      <form class="gov-contact-form reveal" id="contact-form" novalidate>
+        <h3>무료 상담 신청</h3>
+        <div class="form-success" id="form-success">✓ 문의가 접수되었습니다. 1 영업일 이내 담당자가 직접 연락드립니다.</div>
+
+        <div class="gfield" data-field="name">
+          <label for="f-name">이름 <span class="req">*</span></label>
+          <input id="f-name" type="text" placeholder="홍길동" required />
+          <div class="err-msg">이름을 입력해 주세요.</div>
+        </div>
+        <div class="gfield" data-field="email">
+          <label for="f-email">이메일 <span class="req">*</span></label>
+          <input id="f-email" type="email" placeholder="email@company.com" required />
+          <div class="err-msg">올바른 이메일을 입력해 주세요.</div>
+        </div>
+        <div class="gfield" data-field="phone">
+          <label for="f-phone">연락처</label>
+          <input id="f-phone" type="tel" placeholder="010-0000-0000" />
+        </div>
+        <div class="gfield" data-field="type">
+          <label for="f-type">문의 유형 <span class="req">*</span></label>
+          <select id="f-type" required>
+            <option value="">선택해 주세요</option>
+            <option>신규 지원사업 발굴 상담</option>
+            <option>제안서 설계·작성 지원</option>
+            <option>선정 후 수행·납품·정산 지원</option>
+            <option>기타</option>
+          </select>
+          <div class="err-msg">문의 유형을 선택해 주세요.</div>
+        </div>
+        <div class="gfield" data-field="message">
+          <label for="f-message">문의 내용 <span class="req">*</span></label>
+          <textarea id="f-message" rows="4" placeholder="현재 상황과 목표를 자유롭게 작성해 주세요." required></textarea>
+          <div class="err-msg">문의 내용을 입력해 주세요.</div>
+        </div>
+
+        <button type="submit" class="gov-submit">무료 상담 신청 →</button>
+        <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <footer>
   <div class="container">
@@ -196,6 +877,62 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script>
+(() => {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const drawer = document.getElementById('drawer');
+  const scrim  = document.getElementById('scrim');
+  const hamb   = document.getElementById('hamburger');
+  const openDrawer  = () => { drawer.classList.add('open'); scrim.classList.add('open'); drawer.setAttribute('aria-hidden','false'); };
+  const closeDrawer = () => { drawer.classList.remove('open'); scrim.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); };
+  hamb.addEventListener('click', openDrawer);
+  scrim.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawer));
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const form    = document.getElementById('contact-form');
+  const fields  = form.querySelectorAll('.gfield');
+  const success = document.getElementById('form-success');
+
+  const vf = f => {
+    const i = f.querySelector('input,select,textarea');
+    if (!i) return true;
+    const v = (i.value || '').trim();
+    let ok = i.hasAttribute('required') ? !!v : true;
+    if (i.type === 'email' && v) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    f.classList.toggle('error', !ok);
+    return ok;
+  };
+
+  fields.forEach(f => {
+    const i = f.querySelector('input,select,textarea');
+    if (!i) return;
+    i.addEventListener('blur', () => vf(f));
+    i.addEventListener('input', () => { if (f.classList.contains('error')) vf(f); });
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    fields.forEach(f => { if (!vf(f)) ok = false; });
+    if (!ok) {
+      const fi = form.querySelector('.gfield.error input,.gfield.error select,.gfield.error textarea');
+      if (fi) fi.focus();
+      return;
+    }
+    success.classList.add('show');
+    form.querySelectorAll('input,select,textarea').forEach(el => el.value = '');
+    setTimeout(() => success.classList.remove('show'), 6000);
+  });
+})();
+</script>
 </body>
 </html>
