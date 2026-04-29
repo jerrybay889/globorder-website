@@ -12,7 +12,22 @@
       "mcp__filesystem__directory_tree",
       "Bash(vercel --version)",
       "Bash(vercel whoami *)",
-      "Bash(vercel --prod)"
+      "Bash(vercel --prod)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__85ce1476-12d7-4c98-bbd3-1f0b47a6dd3e__notion-fetch",
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "Bash(vercel --prod --yes)",
+      "WebFetch(domain:claude.ai)",
+      "Bash(python -m http.server 8000)",
+      "WebFetch(domain:www.notion.so)",
+      "mcp__Claude_in_Chrome__switch_browser",
+      "WebFetch(domain:globorder-website.vercel.app)",
+      "Bash(powershell -Command \"Get-Content 'C:\\\\Users\\\\jerry\\\\.claude\\\\projects\\\\C--Users-jerry-globorder-website\\\\99ec3bf3-91ee-4319-9a3b-758e81af0347\\\\tool-results\\\\mcp-85ce1476-12d7-4c98-bbd3-1f0b47a6dd3e-notion-fetch-1777362807560.txt' | Select-Object -First 200\")",
+      "Bash(python3 -c \" import json, sys sys.stdout = open\\(sys.stdout.fileno\\(\\), mode='w', encoding='utf-8', buffering=1\\) with open\\(r'C:\\\\Users\\\\jerry\\\\.claude\\\\projects\\\\C--Users-jerry-globorder-website\\\\99ec3bf3-91ee-4319-9a3b-758e81af0347\\\\tool-results\\\\mcp-85ce1476-12d7-4c98-bbd3-1f0b47a6dd3e-notion-fetch-1777362861143.txt', 'r', encoding='utf-8'\\) as f: data = json.load\\(f\\) text = data[0]['text'] print\\(text[:8000]\\) \")",
+      "Bash(sed -i 's/style=\"background: var\\(--surface\\);\"/style=\"background: var\\(--navy-mid\\);\"/g' \"C:/Users/jerry/globorder-website/smb-ai.html\")",
+      "Bash(sed -i 's/style=\"background: var\\(--surface\\);\"/style=\"background: var\\(--navy-mid\\);\"/g' \"C:/Users/jerry/globorder-website/ai-academy.html\")",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__426c6fd3-37ec-4f00-8e28-7508ba756b90__deploy_to_vercel"
     ]
   }
 }
