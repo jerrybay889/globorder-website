@@ -1,23 +1,407 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 교육 | 글로보더 — 실전 AI 교육·워크숍·부트캠프</title>
-  <meta name="description" content="경영진 1일 워크숍부터 창업가 6주 MVP 빌드캠프까지. 실제 프로젝트 경험을 기반으로 가르치는 AI 교육." />
-  <link rel="canonical" href="https://www.globorder.kr/ai-academy.html" />
+  <title>AI 교육 & 아카데미 | 글로보더 — 경영진 AI 전략부터 실전 MVP 빌드캠프까지</title>
+  <meta name="description" content="(주)글로보더 AI Academy는 현대자동차·르노코리아·대한상공회의소 강의 이력 기반의 실전형 AI 교육 프로그램입니다. 경영진 1일 워크숍부터 창업가 6주 MVP 빌드캠프, 기업 맞춤 AI 내재화 교육까지 — 글로보더가 실제 프로젝트에서 쓰는 방법 그대로 가르칩니다." />
+  <meta name="keywords" content="AI 교육, AI 아카데미, 기업 AI 교육, 경영진 AI 워크숍, AI MVP 제작, AI 실무 교육, LLM 교육, Agentic AI 실습, 기업 AI 내재화, 글로보더 아카데미" />
+  <meta property="og:title" content="AI Academy | 글로보더 — 쓰는 AI를 넘어, 만드는 AI로" />
+  <meta property="og:description" content="글로보더 대표가 현장 프로젝트에서 직접 쓰는 방법 그대로 가르칩니다. 경영진 워크숍·실무자 과정·창업가 빌드캠프·기업 맞춤 교육까지." />
+  <meta property="og:url" content="https://www.globorder.kr/ai-academy" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="AI 교육 | 글로보더" />
-  <meta property="og:description" content="경영진 워크숍, 팀 교육, 창업가 부트캠프. 현장에서 쓰는 AI를 직접 배우세요." />
-  <meta property="og:url" content="https://www.globorder.kr/ai-academy.html" />
-  <meta property="og:site_name" content="GloBorder" />
+  <link rel="canonical" href="https://www.globorder.kr/ai-academy" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/globals.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "(주)글로보더 AI Academy",
+    "url": "https://www.globorder.kr/ai-academy",
+    "description": "현장 프로젝트 기반 실전형 AI 교육 프로그램. 경영진 워크숍부터 MVP 빌드캠프까지.",
+    "provider": { "@type": "Organization", "name": "(주)글로보더" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Academy 프로그램",
+      "itemListElement": [
+        { "@type": "Course", "name": "경영진 AI 전략 워크숍 (1일)" },
+        { "@type": "Course", "name": "실무자 AI 도구 마스터 과정 (2주)" },
+        { "@type": "Course", "name": "창업가 AI MVP 빌드캠프 (6주)" },
+        { "@type": "Course", "name": "기업 맞춤 AI 내재화 과정" }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "코딩을 전혀 몰라도 빌드캠프를 수강할 수 있나요?", "acceptedAnswer": { "@type": "Answer", "text": "네. 창업가 AI MVP 빌드캠프는 코딩 경험이 없는 분을 포함해 설계된 과정입니다." } },
+      { "@type": "Question", "name": "기업 맞춤 교육은 최소 몇 명부터 가능한가요?", "acceptedAnswer": { "@type": "Answer", "text": "10인 이상부터 기업 맞춤 과정으로 진행합니다." } },
+      { "@type": "Question", "name": "교육 수강 후 실제 AI 시스템 구축도 글로보더에 맡길 수 있나요?", "acceptedAnswer": { "@type": "Answer", "text": "네. 교육 과정에서 도출된 AI 적용 아이디어를 글로보더 AI Consulting & Build 서비스로 연계 구현할 수 있습니다." } }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --gray-light: rgba(255,255,255,.85);
+      --gray-mid: rgba(255,255,255,.55);
+      --navy-card: #0F2040;
+    }
+    body {
+      background: var(--navy-deep);
+      color: var(--white);
+    }
+
+    .section { padding: 120px 0; }
+    .section-header { text-align: center; margin-bottom: 72px; }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--white);
+      margin: 0 0 16px;
+      line-height: 1.25;
+    }
+    .section-sub {
+      font-size: 1.15rem;
+      color: var(--gray-mid);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .page-hero {
+      min-height: 100vh;
+      background: var(--navy-deep);
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0,212,255,.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,212,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,212,255,.1);
+      border: 1px solid rgba(0,212,255,.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 28px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--white);
+      margin: 0 0 28px;
+    }
+    .page-hero h1 em { font-style: normal; color: var(--cyan); }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--gray-mid);
+      line-height: 1.85;
+      max-width: 620px;
+      margin: 0 0 12px;
+    }
+    .hero-note {
+      font-size: .82rem;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 32px;
+    }
+    .hero-course-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .course-chip {
+      background: rgba(0,212,255,.08);
+      border: 1px solid rgba(0,212,255,.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: .8rem;
+      color: var(--gray-mid);
+    }
+
+    .phil-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .phil-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+    }
+    .phil-icon { font-size: 2rem; margin-bottom: 16px; }
+    .phil-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 16px;
+      line-height: 1.4;
+    }
+    .phil-card p {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .course-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .course-tab {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-mid);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .course-tab.active, .course-tab:hover {
+      background: rgba(0,212,255,.1);
+      border-color: rgba(0,212,255,.4);
+      color: var(--white);
+    }
+    .course-panel { display: none; }
+    .course-panel.active { display: block; }
+    .course-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+    }
+    .course-badge {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(0,212,255,.12);
+      border: 1px solid rgba(0,212,255,.3);
+      color: var(--cyan);
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 16px;
+    }
+    .course-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin: 0 0 8px;
+    }
+    .course-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .course-meta span { font-size: .82rem; color: var(--gray-mid); }
+    .course-meta span strong { color: var(--white); font-weight: 600; }
+    .course-headline {
+      font-size: 1.05rem;
+      color: var(--cyan);
+      font-style: italic;
+      line-height: 1.65;
+      margin: 0 0 24px;
+      padding: 16px 20px;
+      border-left: 3px solid rgba(0,212,255,.4);
+      background: rgba(0,212,255,.04);
+      border-radius: 0 8px 8px 0;
+    }
+    .course-body p {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin: 0 0 20px;
+    }
+    .curriculum-block { margin-bottom: 24px; }
+    .curriculum-block h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .curriculum-block ul { list-style: none; padding: 0; margin: 0; }
+    .curriculum-block li {
+      font-size: .95rem;
+      color: var(--gray-mid);
+      padding: 4px 0;
+      line-height: 1.6;
+    }
+    .curriculum-block li::before { content: '· '; color: var(--cyan); }
+    .course-deliver {
+      margin-top: 28px;
+      padding: 20px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .course-deliver h4 {
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin: 0 0 12px;
+    }
+    .course-deliver ul { list-style: none; padding: 0; margin: 0; }
+    .course-deliver li { font-size: .95rem; color: var(--gray-mid); padding: 3px 0; }
+    .course-deliver li::before { content: '✅ '; }
+
+    .history-note {
+      font-size: .95rem;
+      color: rgba(255,255,255,.4);
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+    .history-table-wrap { overflow-x: auto; }
+    .history-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+    .history-table th {
+      background: rgba(0,212,255,.08);
+      color: var(--cyan);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(0,212,255,.2);
+    }
+    .history-table td {
+      color: var(--gray-mid);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .history-table tr:last-child td { border-bottom: none; }
+    .history-table td:first-child { color: var(--white); font-weight: 600; }
+
+    .gov-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .gov-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .gov-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin: 0 0 12px; }
+    .gov-card p { font-size: .95rem; color: var(--gray-mid); line-height: 1.75; margin: 0; }
+    .gov-warning {
+      margin-top: 32px;
+      padding: 16px 20px;
+      background: rgba(255,200,0,.06);
+      border: 1px solid rgba(255,200,0,.2);
+      border-radius: 10px;
+      font-size: .82rem;
+      color: rgba(255,200,0,.7);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-icon { flex-shrink: 0; font-size: 1.2rem; color: var(--cyan); transition: transform .25s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { font-size: 1rem; color: var(--gray-mid); line-height: 1.8; padding-bottom: 20px; display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    .cta-section { text-align: center; padding: 120px 0; background: var(--navy-deep); }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      margin: 0 0 20px;
+      line-height: 1.25;
+    }
+    .cta-section p { font-size: 1.05rem; color: var(--gray-mid); line-height: 1.75; margin: 0 0 40px; }
+    .cta-row-center {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .contact-grid {
+      display: inline-grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 20px;
+      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 32px;
+    }
+    .contact-grid dt { font-size: .82rem; color: var(--gray-mid); font-weight: 500; }
+    .contact-grid dd { font-size: .82rem; color: var(--white); margin: 0; }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .course-card { padding: 28px 20px; }
+    }
+  </style>
 </head>
 <body>
+
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
@@ -25,11 +409,11 @@
       <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
       <a href="/gov-project">정부지원사업</a>
       <a href="/smb-ai">SMB AI</a>
-      <a href="/ai-academy" style="color:var(--cyan);">Academy</a>
-      <a href="/global-ecommerce">Global eCommerce</a>
-      <a href="/about">About</a>
+      <a href="/ai-academy" aria-current="page">AI 아카데미</a>
+      <a href="/global-ecommerce">글로벌 e커머스</a>
+      <a href="/digital-marketing">디지털 마케팅</a>
     </nav>
-    <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
+    <a href="#cta" class="nav-cta desktop-only">교육 문의</a>
     <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
       <span></span><span></span><span></span>
     </button>
@@ -41,128 +425,431 @@
   <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
   <a href="/gov-project" data-close>정부지원사업</a>
   <a href="/smb-ai" data-close>SMB AI</a>
-  <a href="/ai-academy" data-close>Academy</a>
-  <a href="/global-ecommerce" data-close>Global eCommerce</a>
-  <a href="/about" data-close>About</a>
-  <a href="#contact" class="nav-cta" data-close>무료 상담</a>
+  <a href="/ai-academy" data-close>AI 아카데미</a>
+  <a href="/global-ecommerce" data-close>글로벌 e커머스</a>
+  <a href="/digital-marketing" data-close>디지털 마케팅</a>
+  <a href="#cta" class="nav-cta" data-close>교육 문의</a>
 </aside>
 
-<section class="hero">
-  <span class="eyebrow">AI Education &amp; Training</span>
-  <h1>실제 프로젝트 경험을 기반으로 가르칩니다</h1>
-  <p class="hero-sub">경영진 1일 워크숍부터 창업가 6주 MVP 빌드캠프까지. 이론이 아닌 현장에서 쓰는 AI를 직접 배우고 만들어봅니다.</p>
-  <div class="cta-stack">
-    <a href="#contact" class="btn btn-primary">교육 프로그램 신청 →</a>
-    <a href="/about" class="btn btn-ghost">강사 소개 보기</a>
-  </div>
-</section>
+<main>
 
-<section class="services animate-in">
-  <div class="sec-head">
-    <span class="eyebrow">Programs</span>
-    <h2>교육 프로그램</h2>
-  </div>
-  <div class="svc-list">
-    <article class="svc-card">
-      <h3 class="svc-title">경영진 AI 워크숍</h3>
-      <div class="svc-sub">1일 집중 프로그램 · 인원 5-15명</div>
-      <p class="svc-body">경영진/이사급을 위한 1일 집중 워크숍. AI의 기술적 이해가 아닌, 비즈니스 관점에서의 AI 전략, ROI 계산, 디지털 변신 로드맵을 구체적으로 배웁니다. 사내 AI 도입 결정 권자의 안목을 높입니다.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">팀 교육 (기업 맞춤)</h3>
-      <div class="svc-sub">4주 프로그램 · 인원 10-30명</div>
-      <p class="svc-body">기업의 직원들을 대상으로 한 맞춤형 AI 교육. 마케팅팀, 개발팀, 데이터팀 등 부서별 특성에 맞춰 실무에 바로 적용할 수 있는 AI 스킬을 배웁니다. 사내 AI 문화 구축의 첫 걸음.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">개발자 AI 부트캠프</h3>
-      <div class="svc-sub">8주 풀스택 프로그램 · 인원 20명</div>
-      <p class="svc-body">개발자/엔지니어를 위한 집중 교육. LLM API 활용부터 RAG 구현, AI Agent 빌드까지 실제 프로젝트로 배웁니다. 수료 후 LLM/AI 엔지니어로서의 역량을 갖추게 됩니다.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">창업가 MVP 빌드캠프</h3>
-      <div class="svc-sub">6주 집중 프로그램 · 인원 12명</div>
-      <p class="svc-body">AI 스타트업을 준비 중인 창업가를 위한 부트캠프. 아이디어 검증부터 AI 프로토타입 개발, 투자 피칭 준비까지 한 팀이 함께 진행합니다. MVP 완성이 목표입니다.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">프롬프트 엔지니어링 마스터</h3>
-      <div class="svc-sub">4주 정규 과정 · 인원 30명</div>
-      <p class="svc-body">ChatGPT, Claude 등 LLM을 업무에 효과적으로 활용하기 위한 프롬프트 작성 기술. 기초부터 고급 기법까지, 실제 업무 사례로 배우는 실용적 교육.</p>
-    </article>
-    <article class="svc-card">
-      <h3 class="svc-title">AI 사업화 전략 세미나</h3>
-      <div class="svc-sub">2일 워크숍 · 인원 50명</div>
-      <p class="svc-body">AI 기술을 비즈니스로 만드는 방법. 마케팅, 가격 책정, 고객 확보, 투자 유치까지. 글로보더의 실제 AI 사업화 경험을 공유하고, 참가자의 프로젝트 피드백을 제공합니다.</p>
-    </article>
-  </div>
-</section>
-
-<section class="why animate-in">
-  <h2>글로보더 AI 교육의 특징</h2>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; margin-top:32px;">
-    <div style="padding:20px; background:var(--white); border-radius:8px; border:1px solid var(--gray-200);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:8px;">이론이 아닌 실전</div>
-      <p style="font-size:13px; color:var(--gray-600); line-height:1.7; word-break:keep-all;">15년 프로젝트 경험에서 나온 노하우. 50개 이상의 AI 프로젝트 사례를 바탕으로 가르칩니다.</p>
-    </div>
-    <div style="padding:20px; background:var(--white); border-radius:8px; border:1px solid var(--gray-200);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:8px;">작동하는 코드</div>
-      <p style="font-size:13px; color:var(--gray-600); line-height:1.7; word-break:keep-all;">교육 중 만드는 모든 코드는 실제로 작동합니다. Copy-paste 가능한 실전 코드 제공.</p>
-    </div>
-    <div style="padding:20px; background:var(--white); border-radius:8px; border:1px solid var(--gray-200);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:8px;">포트폴리오 지원</div>
-      <p style="font-size:13px; color:var(--gray-600); line-height:1.7; word-break:keep-all;">수료생은 포트폴리오 프로젝트를 글로보더 웹사이트에 게시하고, 채용 기회를 받습니다.</p>
-    </div>
-    <div style="padding:20px; background:var(--white); border-radius:8px; border:1px solid var(--gray-200);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:8px;">수료 후 멘토링</div>
-      <p style="font-size:13px; color:var(--gray-600); line-height:1.7; word-break:keep-all;">교육 완료 후 6개월간 Slack 채널에서 무료 멘토링. 실무 질문에 답변 제공.</p>
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="hero-badge">AI Academy</div>
+      <h1>쓰는 AI를 넘어,<br /><em>만드는 AI</em>로.</h1>
+      <p class="hero-desc">
+        글로보더 AI Academy는 이론 중심 강의가 아닙니다.<br />
+        대표가 실제 기업 프로젝트에서 직접 설계하고 구현한 방법론을 그대로 교육합니다.<br /><br />
+        다양한 기업·정부 기관과의 AI 교육 및 컨설팅 경험 기반.
+      </p>
+      <div class="cta-row">
+        <a href="#cta" class="btn btn-primary">AI 교육 문의 및 커리큘럼 요청 →</a>
+        <a href="#history" class="btn btn-ghost">강의 이력 보기 ↓</a>
+      </div>
+      <div class="hero-course-strip">
+        <span class="course-chip">경영진 1일 워크숍</span>
+        <span class="course-chip">실무자 2주 과정</span>
+        <span class="course-chip">창업가 6주 빌드캠프</span>
+        <span class="course-chip">기업 맞춤 AI 내재화</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="global animate-in">
-  <div class="sec-head">
-    <span class="eyebrow">Instructors</span>
-    <h2>강사 소개</h2>
-  </div>
-  <div style="max-width:800px; margin:32px auto;">
-    <div style="padding:32px; background:var(--surface); border-radius:12px; border-left:4px solid var(--cyan);">
-      <div style="font-weight:700; color:var(--navy-deep); margin-bottom:4px; font-size:18px;">글로보더 교육팀</div>
-      <div style="font-size:13px; color:var(--cyan); margin-bottom:16px; font-weight:600;">AI 엔지니어 &amp; 사업가</div>
-      <p style="font-size:14px; color:var(--gray-600); line-height:1.8; word-break:keep-all; margin-bottom:16px;">글로보더 교육 프로그램은 실제 프로젝트에서 성공한 엔지니어와 사업가가 진행합니다. LLM 시대의 AI 구현 방법, 마켓핏 찾는 법, 사업화 전략까지 실제 경험에서 나온 인사이트를 공유합니다.</p>
-      <ul style="font-size:13px; color:var(--gray-600); line-height:2; list-style:none; padding:0;">
-        <li>✓ AI/LLM 엔지니어 (Python, LangChain, RAG, Agent)</li>
-        <li>✓ AI 사업가 (Go-to-Market, 투자 유치, 스케일링)</li>
-        <li>✓ 데이터 과학자 (ML Ops, 평가 지표, 최적화)</li>
-        <li>✓ 제품 매니저 (AI 제품 설계, UX/AI)</li>
-      </ul>
+<!-- PHILOSOPHY -->
+<section class="section" style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Why GloBorder Academy</span>
+      <h2 class="section-title">왜 글로보더 AI Academy인가</h2>
+      <p class="section-sub">현장에서 직접 만든 사람이 가르칩니다.</p>
+    </div>
+    <div class="phil-grid">
+      <div class="phil-card reveal">
+        <div class="phil-icon">⚡</div>
+        <h3>교재가 아닌, 실제 프로젝트가 교보재입니다</h3>
+        <p>현대자동차 AI 제너레이터 시스템, 국내 패션 SPA VOC AI Assistant, 대기업 ERP RAG 시스템을 직접 설계·구현한 방법론만 강의에 포함합니다. "어떤 AI를 써야 하는가"가 아닌, "이 문제에 AI를 어떻게 붙이는가"를 가르칩니다.</p>
+      </div>
+      <div class="phil-card reveal">
+        <div class="phil-icon">🎯</div>
+        <h3>경영진부터 개발자까지, 목적이 다르면 커리큘럼도 다릅니다</h3>
+        <p>AI 교육에서 가장 흔한 실패는 "모든 사람에게 같은 내용을 가르치는 것"입니다. 경영진 → AI 전략 의사결정, 실무자 → AI 도구 실전 활용, 창업가 → 6주 내 AI MVP 직접 구축, 기업 → 조직 AI 성숙도 진단 후 전 과정 설계.</p>
+      </div>
+      <div class="phil-card reveal">
+        <div class="phil-icon">🔄</div>
+        <h3>교육이 끝난 후에도 활용할 수 있어야 진짜 교육입니다</h3>
+        <p>모든 과정에는 프롬프트 템플릿·워크플로우 설계 가이드·체크리스트를 제공합니다. 기업 교육의 경우, 교육 종료 후 2~4주간 팀 적용 지원을 선택적으로 연계할 수 있습니다.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact animate-in">
-  <div style="text-align:center; margin-bottom:32px;">
-    <h2>AI 교육 신청 &amp; 상담</h2>
-    <p style="color:var(--gray-600); margin-top:8px;">귀사에 맞는 맞춤형 교육을 제안해드립니다</p>
+<!-- COURSES -->
+<section class="section" id="courses">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Course Lineup</span>
+      <h2 class="section-title">AI Academy 과정 라인업</h2>
+      <p class="section-sub">목적에 맞는 과정을 선택하거나, 조직 맞춤으로 설계받으세요.</p>
+    </div>
+    <div class="reveal">
+      <div class="course-tabs">
+        <button class="course-tab active" data-tab="c1">🏛️ 경영진 워크숍</button>
+        <button class="course-tab" data-tab="c2">💡 실무자 과정</button>
+        <button class="course-tab" data-tab="c3">🚀 창업가 빌드캠프</button>
+        <button class="course-tab" data-tab="c4">🏢 기업 맞춤</button>
+      </div>
+
+      <div class="course-panel active" id="c1">
+        <div class="course-card">
+          <div class="course-badge">추천 — 경영진·임원·팀장급</div>
+          <h3>경영진 AI 전략 워크숍</h3>
+          <div class="course-meta">
+            <span><strong>기간:</strong> 1일 (6~8시간)</span>
+            <span><strong>형태:</strong> 대면 or 온라인</span>
+            <span><strong>대상:</strong> CEO · C레벨 · 임원 · 팀장급</span>
+          </div>
+          <p class="course-headline">"AI를 도입해야 하는 이유가 아니라, 어떻게 의사결정하고 조직을 이끌어야 하는지를 다룹니다."</p>
+          <div class="course-body">
+            <p>기업 AI 도입에서 경영진이 실제로 결정해야 할 것들 — 어떤 AI를 선택하는가, 어디에 먼저 적용하는가, ROI를 어떻게 측정하는가, 리스크는 어떻게 관리하는가 — 를 1일 집중 워크숍으로 다룹니다.</p>
+            <div class="curriculum-block">
+              <h4>AM 1부 — AI 현황과 경영진이 알아야 할 핵심 개념</h4>
+              <ul>
+                <li>LLM·AI Agent·Agentic AI — 경영 의사결정에 필요한 수준의 정의</li>
+                <li>AI 도입 실패의 가장 흔한 원인 5가지</li>
+                <li>경쟁사는 AI를 어떻게 쓰고 있는가 (업종별 케이스)</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>AM 2부 — AI 전략 설계 프레임워크</h4>
+              <ul>
+                <li>AI Vision Alignment: 회사 방향과 AI 전략 정렬</li>
+                <li>Opportunity Mapping: 어디에 먼저 AI를 적용하는가</li>
+                <li>Ethics &amp; Governance: AI 리스크 관리와 내부 정책</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>PM 1부 — AI 투자와 ROI 설계</h4>
+              <ul>
+                <li>AI 프로젝트 예산 산정 기준</li>
+                <li>ROI 측정 프레임워크 (비용 절감 vs 매출 증대 vs 시간 단축)</li>
+                <li>Build vs Buy vs Partner 의사결정 기준</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>PM 2부 — 실습: 우리 회사 AI 로드맵 설계</h4>
+              <ul>
+                <li>현재 AI 성숙도 자가 진단</li>
+                <li>1순위 AI 적용 기회 도출</li>
+                <li>90일 AI 실행 계획 초안 작성</li>
+              </ul>
+            </div>
+            <div class="course-deliver">
+              <h4>수료 후 제공</h4>
+              <ul>
+                <li>AI 전략 설계 프레임워크 워크시트</li>
+                <li>업종별 AI 도입 케이스 자료집</li>
+                <li>글로보더 AI 진단 서비스 1회 우선 신청권</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:28px;"><a href="#cta" class="btn btn-primary">경영진 AI 워크숍 문의 →</a></div>
+        </div>
+      </div>
+
+      <div class="course-panel" id="c2">
+        <div class="course-card">
+          <div class="course-badge">추천 — 마케팅·기획·운영·세일즈 실무자</div>
+          <h3>실무자 AI 도구 마스터 과정</h3>
+          <div class="course-meta">
+            <span><strong>기간:</strong> 2주 (총 10회 세션)</span>
+            <span><strong>형태:</strong> 온라인 or 대면</span>
+            <span><strong>대상:</strong> 마케팅·기획·운영·CS·인사·영업팀 실무자</span>
+          </div>
+          <p class="course-headline">"오늘 배운 것을, 내일 업무에 바로 씁니다."</p>
+          <div class="course-body">
+            <p>ChatGPT·Claude·Perplexity의 기본 사용법이 아닙니다. 매일 반복되는 업무 — 보고서 작성, 데이터 분석, 콘텐츠 기획, CS 응대 — 에 AI를 실제로 붙이는 방법을 다룹니다. 각 세션은 "배우고 → 즉시 실습하고 → 내 업무에 적용하는" 3단계 구조로 설계됩니다.</p>
+            <div class="curriculum-block">
+              <h4>WEEK 1 — AI 실전 도구 세팅과 기초 활용</h4>
+              <ul>
+                <li>Day 1: AI 도구 환경 세팅 — Claude·ChatGPT·Perplexity 용도별 선택 기준</li>
+                <li>Day 2: 프롬프트 엔지니어링 실전 — 보고서·기획서·이메일·제안서 AI 초안 생성</li>
+                <li>Day 3: AI 기반 리서치·데이터 분석 — 경쟁사 분석·시장 리서치 자동화</li>
+                <li>Day 4: 콘텐츠·마케팅 AI 자동화 — SNS 콘텐츠 대량 제작·SEO 초안</li>
+                <li>Day 5: 워크플로우 자동화 입문 (n8n/Make) — 슬랙·이메일·구글시트 AI 연결</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>WEEK 2 — 업무 유형별 심화 적용</h4>
+              <ul>
+                <li>Day 6: CS·고객 응대 AI 자동화 — FAQ 생성·감정 분석·응대 문안 자동화</li>
+                <li>Day 7: HR·채용 업무 AI 적용 — 채용공고 작성·이력서 1차 분류</li>
+                <li>Day 8: 영업·세일즈 AI 도구 활용 — 제안서 초안·고객 맞춤 메시지</li>
+                <li>Day 9: AI 기반 데이터 시각화·리포팅 — 엑셀·구글시트 AI 분석</li>
+                <li>Day 10: 나만의 AI 워크플로우 설계 실습 — 2주 총정리 및 Q&amp;A</li>
+              </ul>
+            </div>
+            <div class="course-deliver">
+              <h4>수료 후 제공</h4>
+              <ul>
+                <li>직무별 AI 프롬프트 템플릿 50종</li>
+                <li>n8n 기초 자동화 템플릿 5종</li>
+                <li>AI 도구 활용 가이드북 (디지털)</li>
+                <li>수료 후 4주 온라인 Q&amp;A 지원</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:28px;"><a href="#cta" class="btn btn-primary">실무자 과정 문의 →</a></div>
+        </div>
+      </div>
+
+      <div class="course-panel" id="c3">
+        <div class="course-card">
+          <div class="course-badge">추천 — 스타트업 창업가·예비 창업자·사이드 프로젝트</div>
+          <h3>창업가 AI MVP 빌드캠프</h3>
+          <div class="course-meta">
+            <span><strong>기간:</strong> 6주 (총 18회 세션)</span>
+            <span><strong>형태:</strong> 온라인 + 오프라인 혼합</span>
+            <span><strong>대상:</strong> 스타트업 창업가·예비 창업자·사이드 프로젝트 실행자</span>
+          </div>
+          <p class="course-headline">"6주 과정의 목표 범위 기준으로, 당신은 작동하는 AI 서비스를 직접 만들어 갑니다."</p>
+          <div class="course-body">
+            <p>코딩 경험이 없어도 됩니다. Claude Code·Supabase·Vercel·n8n을 활용해 아이디어를 실제로 배포 가능한 AI 서비스로 만드는 전 과정을 6주 동안 따라옵니다.</p>
+            <p style="font-size:.82rem; color:rgba(255,255,255,.4);">"6주 안에 만든다"는 과정의 목표 범위 기준이며, 실제 수료 결과는 수강생의 아이디어 복잡도와 참여도에 따라 달라질 수 있습니다.</p>
+            <div class="curriculum-block">
+              <h4>WEEK 1 — 아이디어 → 문제 정의</h4>
+              <ul>
+                <li>AI 서비스 아이디어 검증 프레임워크</li>
+                <li>사용자 문제 정의와 MVP 범위 설정</li>
+                <li>경쟁 서비스 분석·포지셔닝 설계</li>
+                <li>수강생별 프로젝트 방향 확정</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>WEEK 2 — 아키텍처 설계와 프롬프트 엔지니어링</h4>
+              <ul>
+                <li>MVP 기술 아키텍처 설계 (Non-code 포함)</li>
+                <li>Claude·GPT·Gemini 중 최적 모델 선정 기준</li>
+                <li>핵심 기능 프롬프트 설계 실습</li>
+                <li>Supabase 데이터베이스 기초 설계</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>WEEK 3~4 — 기능 구현과 통합</h4>
+              <ul>
+                <li>Claude Code 기반 핵심 기능 구현</li>
+                <li>n8n 워크플로우 자동화 연결</li>
+                <li>기초 UI 구성 (Next.js/Tailwind)</li>
+                <li>첫 프로토타입 배포 (Vercel) + 중간 시연 및 피드백</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>WEEK 5~6 — 완성도와 런칭</h4>
+              <ul>
+                <li>UX 고도화·반응형 디자인·에러 처리</li>
+                <li>실사용자 테스트 및 반영</li>
+                <li>최종 배포·도메인 연결</li>
+                <li>Demo Day: 수강생 전원 프로젝트 발표</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>기술 스택</h4>
+              <ul>
+                <li>AI/LLM: Claude (Anthropic) · OpenAI GPT</li>
+                <li>자동화: n8n</li>
+                <li>백엔드/DB: Supabase (PostgreSQL)</li>
+                <li>프론트엔드: Next.js · Tailwind CSS</li>
+                <li>배포: Vercel · GitHub</li>
+              </ul>
+            </div>
+            <div class="course-deliver">
+              <h4>수료 후 제공</h4>
+              <ul>
+                <li>본인 명의로 배포된 AI 서비스 1종</li>
+                <li>프로젝트 소스코드 (GitHub)</li>
+                <li>수료 후 4주 운영 지원 및 Q&amp;A</li>
+                <li>글로보더 AI Consulting 연계 할인</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:28px;"><a href="#cta" class="btn btn-primary">빌드캠프 상세 일정 문의 →</a></div>
+        </div>
+      </div>
+
+      <div class="course-panel" id="c4">
+        <div class="course-card">
+          <div class="course-badge">기업 전용</div>
+          <h3>기업 맞춤 AI 내재화 교육</h3>
+          <div class="course-meta">
+            <span><strong>기간:</strong> 협의 (최소 1일 ~ 최대 3개월)</span>
+            <span><strong>대상:</strong> 10인 이상 기업·공공기관·협회·단체</span>
+          </div>
+          <p class="course-headline">"조직 전체가 AI를 실제로 쓰는 구조를 만들어드립니다."</p>
+          <div class="course-body">
+            <p>시중 기업 AI 교육의 가장 큰 문제는 교육 후 현업 적용률이 낮다는 것입니다. 글로보더 기업 맞춤 과정은 교육 설계 전 조직의 현재 AI 활용 수준과 핵심 업무 프로세스를 진단하고, 교육 → 적용 → 내재화까지 이어지는 구조로 설계합니다.</p>
+            <div class="curriculum-block">
+              <h4>STEP 1 — 조직 진단 (1~3일)</h4>
+              <ul>
+                <li>부서별 AI 활용 현황 인터뷰</li>
+                <li>반복 업무 및 AI 적용 가능 포인트 도출</li>
+                <li>조직 AI 성숙도 레벨 평가</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>STEP 2~3 — 커리큘럼 설계 및 교육 운영</h4>
+              <ul>
+                <li>직급별·부서별 맞춤 커리큘럼 초안 설계 및 고객사 확정</li>
+                <li>전사 공통 과정 + 직군별 심화 분리 운영</li>
+                <li>실습 기반 세션 (이론 30% : 실습 70% 비율)</li>
+                <li>교육 중 실제 업무 과제에 AI 바로 적용</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>STEP 4 — 사후 지원 (선택)</h4>
+              <ul>
+                <li>교육 후 2~4주 팀별 적용 현황 모니터링</li>
+                <li>온라인 Q&amp;A 채널 운영</li>
+                <li>AI 활용 내재화 현황 리포트 제공</li>
+              </ul>
+            </div>
+            <div class="curriculum-block">
+              <h4>협력 기관</h4>
+              <ul>
+                <li>현대자동차, 르노코리아 등 주요 기업 AI 교육 경험</li>
+                <li>대한상공회의소, 고용노동부 등 정부 기관 협력</li>
+                <li>대학 교직원 AI 직무역량 강화 교육</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:28px;"><a href="#cta" class="btn btn-primary">기업 교육 커리큘럼 및 견적 문의 →</a></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <form id="cf" method="POST" action="https://formspree.io/f/xjgjqako" style="max-width:480px; margin:0 auto;">
-    <div style="margin-bottom:16px;">
-      <input type="text" name="회사/조직명" placeholder="회사/조직명" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:16px;">
-      <input type="text" name="담당자명" placeholder="담당자명" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:16px;">
-      <input type="tel" name="연락처" placeholder="연락처" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:16px;">
-      <input type="email" name="이메일" placeholder="이메일" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white);"/>
-    </div>
-    <div style="margin-bottom:20px;">
-      <textarea name="관심프로그램" placeholder="관심 프로그램 또는 요청사항 (예: 팀 교육 15명, 개발자 부트캠프 신청)" required style="width:100%; padding:12px 16px; border:1px solid var(--gray-200); border-radius:8px; font-size:14px; font-family:inherit; background:var(--white); resize:vertical; min-height:100px;"></textarea>
-    </div>
-    <button type="submit" id="submit-btn" style="width:100%; padding:14px 20px; background:var(--cyan); color:white; border:none; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer; transition:background 0.2s;">신청하기</button>
-    <div id="form-status" style="display:none; padding:12px 16px; border-radius:8px; margin-top:12px; text-align:center; font-size:14px; word-break:keep-all;"></div>
-  </form>
 </section>
+
+<!-- HISTORY -->
+<section class="section" id="history" style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Track Record</span>
+      <h2 class="section-title">강의 · 교육 수행 이력</h2>
+    </div>
+    <p class="history-note reveal">
+      글로보더의 AI 교육은 기업·정부 기관과의 다양한 협력 경험을 기반으로 설계됩니다.
+    </p>
+    <div class="history-table-wrap reveal">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>연도</th>
+            <th>기관</th>
+            <th>과정명 / 내용</th>
+            <th>역할</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2025</td><td>명지전문대학교</td><td>교직원 AI 직무역량 강화 교육 (하계·동계 2회)</td><td>강사</td></tr>
+          <tr><td>2025</td><td>K-MOOC</td><td>AI 콘텐츠 크리에이터 양성과정 온라인 강사</td><td>강사</td></tr>
+          <tr><td>2024</td><td>고용노동부·한국경제TV 컨소시엄</td><td>2024 청년일경험지원사업 AI 크리에이터 과정</td><td>PM·강사·멘토</td></tr>
+          <tr><td>2024</td><td>대한상공회의소</td><td>AI 교육사업 전문 강사</td><td>강사</td></tr>
+          <tr><td>2024</td><td>패션산업협회</td><td>AI 활용 전략 강의</td><td>강사</td></tr>
+          <tr><td>2023~2024</td><td>현대자동차</td><td>임직원 AI 활용 전략 강의</td><td>강사</td></tr>
+          <tr><td>2023~2024</td><td>르노코리아</td><td>임직원 AI 활용 전략 강의</td><td>강사</td></tr>
+          <tr><td>2023</td><td>CEO 세미나 다수</td><td>산업별·직군별 AI 특강 및 세미나</td><td>강사</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- GOV SUPPORT -->
+<section class="section" id="gov">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Government Support</span>
+      <h2 class="section-title">기업 AI 교육, 정부 지원으로 비용을 절감할 수 있습니다</h2>
+      <p class="section-sub">글로보더는 관련 지원사업 컨설팅도 함께 안내합니다.</p>
+    </div>
+    <div class="gov-grid">
+      <div class="gov-card reveal">
+        <h3>K-Digital Training / K-디지털 크레딧</h3>
+        <p>재직자 대상 AI 실무 교육을 지원하는 고용노동부 사업. 기업 부담 없이 직원 AI 역량 강화가 가능합니다. 글로보더는 관련 훈련기관 연계 안내를 지원합니다.</p>
+      </div>
+      <div class="gov-card reveal">
+        <h3>AI 바우처 지원사업 (과기정통부)</h3>
+        <p>중소기업의 AI 솔루션·교육 도입 비용을 지원하는 바우처 사업. 글로보더 AI 교육 연계 및 솔루션 패키지 적용 가능 여부를 상담 단계에서 함께 검토합니다.</p>
+      </div>
+      <div class="gov-card reveal">
+        <h3>스마트공장·DX 지원사업 (중소벤처기업부)</h3>
+        <p>제조·유통업 기업의 AI·DX 역량 강화 교육과 연계 가능. 지원사업 신청·수행 컨설팅은 글로보더 정부지원사업 팀과 연계해 일괄 지원합니다.</p>
+      </div>
+    </div>
+    <div class="gov-warning reveal">
+      ⚠ 위 지원사업 항목은 각 사업의 공고·요강 기준이며, 실제 적용 가능 여부는 신청 시점·기업 요건·예산 현황에 따라 달라질 수 있습니다. 상담을 통해 최신 현황을 확인하세요.
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title">자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">코딩을 전혀 몰라도 빌드캠프를 수강할 수 있나요? <span class="faq-icon">+</span></button>
+        <div class="faq-a">네. 창업가 AI MVP 빌드캠프는 코딩 경험이 없는 분을 포함해 설계된 과정입니다. Claude Code·n8n·Supabase는 자연어와 시각적 인터페이스를 활용해 코드 없이도 핵심 기능 구현이 가능합니다. 단, 6주 과정 내 완성도는 아이디어의 복잡도와 수강생의 학습 투입 시간에 따라 달라질 수 있습니다.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">기업 맞춤 교육은 최소 몇 명부터 가능한가요? <span class="faq-icon">+</span></button>
+        <div class="faq-a">10인 이상부터 기업 맞춤 과정으로 진행합니다. 10인 미만의 경우 팀 또는 소규모 그룹 과정으로 별도 협의 가능합니다.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">교육 장소는 어디에서 진행되나요? <span class="faq-icon">+</span></button>
+        <div class="faq-a">기본적으로 고객사 사무실 출강 또는 온라인(Zoom·Teams·Google Meet) 진행이 가능합니다. 서울·수도권은 기본 출강 범위이며, 지방 출강은 별도 협의합니다. 글로보더 자체 교육장은 현재 운영하지 않습니다.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">경영진 워크숍과 실무자 과정을 동시에 신청할 수 있나요? <span class="faq-icon">+</span></button>
+        <div class="faq-a">가능합니다. 경영진 전략 방향 설정 → 실무자 도구 적용의 2단 구조로 설계하면 조직 전체의 AI 내재화에 더 효과적입니다. 패키지 연계 시 별도 협의 기준이 적용됩니다.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">교육 수강 후 실제 AI 시스템 구축도 글로보더에 맡길 수 있나요? <span class="faq-icon">+</span></button>
+        <div class="faq-a">네. 교육 과정에서 도출된 AI 적용 아이디어를 글로보더 AI Consulting &amp; Build 서비스로 연계 구현할 수 있습니다. 아카데미 수료생에게는 초기 컨설팅 우선 신청권을 제공합니다.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">교육 수료증이 발급되나요? <span class="faq-icon">+</span></button>
+        <div class="faq-a">현재 글로보더 자체 수료증을 발급합니다. 공인 자격증 연계 과정은 준비 중이며, K-MOOC 연계 과정의 경우 K-MOOC 플랫폼 수료 기준을 따릅니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="reveal">
+      <h2>AI 교육, 지금 글로보더와 시작하세요</h2>
+      <p>어떤 과정이 맞는지 모르겠다면, 먼저 상담받으세요.<br />목표와 조직 상황에 맞는 과정을 제안해드립니다.</p>
+      <div class="cta-row-center">
+        <a href="mailto:jerrybay889@gmail.com" class="btn btn-primary">AI 교육 문의 및 커리큘럼 요청 →</a>
+        <a href="/ai-consulting" class="btn btn-ghost">AI Consulting 서비스 보기</a>
+      </div>
+      <dl class="contact-grid">
+        <dt>이메일</dt><dd>jerrybay889@gmail.com</dd>
+        <dt>전화</dt><dd>010-3878-9581</dd>
+        <dt>카카오톡</dt><dd>jerrybay</dd>
+        <dt>운영시간</dt><dd>평일 09:00 ~ 19:00 KST</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <footer>
   <div class="container">
@@ -179,6 +866,37 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  function openDrawer() { drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); scrim.classList.add('open'); hamburger.classList.add('open'); }
+  function closeDrawer() { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); scrim.classList.remove('open'); hamburger.classList.remove('open'); }
+  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  scrim.addEventListener('click', closeDrawer);
+  document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawer));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.querySelectorAll('.course-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.course-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => btn.closest('.faq-item').classList.toggle('open'));
+  });
+</script>
 </body>
 </html>
