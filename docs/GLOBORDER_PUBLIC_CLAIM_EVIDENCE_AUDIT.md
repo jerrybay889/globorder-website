@@ -1,4 +1,4 @@
-# GLOBORDER PUBLIC CLAIM EVIDENCE AUDIT v1.0
+# GLOBORDER PUBLIC CLAIM EVIDENCE AUDIT v1.1
 
 Status: `CONTROL / EVIDENCE GATE / 2026-08-13 KST`
 
@@ -18,11 +18,20 @@ Source reviewed: `index.html` at `623631cb56184699ce07b73dea7cec8db64bdf3d`.
 | Current public claim | Source location | Current evidence state | Reuse rule |
 |---|---|---|---|
 | `견적서 초안 작성 시간 70% 단축, 주당 10시간 절감` | Home References / AI sales assistant card | `NEEDS_EVIDENCE` | Do not copy into Academy/B2B landing, brochure, proposal or outbound until evidence is bound. |
-| `반복 업무 80% 자동화` | Home References / internal Agentic automation card | `NEEDS_EVIDENCE` | Same restriction. |
-| `참가사 NPS 92 · 프로젝트 연결 5건` | Home References / AI strategy workshop card | `NEEDS_EVIDENCE` | Same restriction. |
-| `수료생 12명 중 8팀 서비스 출시` | Home References / AI MVP build camp card | `NEEDS_EVIDENCE` | Same restriction. |
+| `수동 3시간 → 자동 15분 처리, 오기입 오류율 제로` | Home References / product-registration automation Agent card | `NEEDS_EVIDENCE` | Do not copy into Academy/B2B landing, brochure, proposal or outbound until evidence is bound. |
+| `첫 작동 버전 3주 내 납품, 응대 커버리지 24시간으로 확대` | Home References / customer-response AI chatbot card | `NEEDS_EVIDENCE` | Do not copy into Academy/B2B landing, brochure, proposal or outbound until evidence is bound. |
+| `반복 업무 80% 자동화` | Home References / internal Agentic automation card | `NEEDS_EVIDENCE` | Do not copy into Academy/B2B landing, brochure, proposal or outbound until evidence is bound. |
+| `참가사 NPS 92 · 프로젝트 연결 5건` | Home References / AI strategy workshop card | `NEEDS_EVIDENCE` | Do not copy into Academy/B2B landing, brochure, proposal or outbound until evidence is bound. |
+| `수료생 12명 중 8팀 서비스 출시` | Home References / AI MVP build camp card | `NEEDS_EVIDENCE` | Do not copy into Academy/B2B landing, brochure, proposal or outbound until evidence is bound. |
+| `3개 부처 · 수료 200명+` | Home References / public-agency AI literacy training card | `NEEDS_EVIDENCE` | Do not copy into Academy/B2B landing, brochure, proposal or outbound until evidence is bound. |
 
 This table does **not** assert that the claims are false. It records only that the current G0 audit has not yet bound sufficient evidence.
+
+## Exhaustiveness rule for G0
+
+The seven rows above are the complete quantified-claim inventory for the current Home References cards reviewed in `index.html@623631cb...` across the AI Build and AI Education panels. G1/G2 must not introduce or reuse any of these metrics unless the individual claim has moved to an approved evidence state.
+
+If a future Home change introduces a new quantified outcome, the evidence audit must be updated before that claim is reused in another page, brochure, proposal, outbound message, Reference or Insight.
 
 ## Evidence record requirements
 
