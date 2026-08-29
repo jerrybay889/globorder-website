@@ -631,30 +631,32 @@
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
-    <nav class="nav-links" aria-label="primary">
-      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
-      <a href="/smb-ai">SMB AI</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
       <a href="/ai-academy">AI 아카데미</a>
-      <a href="/gov-project">정부지원사업</a>
-      <a href="/global-ecommerce" aria-current="page">글로벌 e커머스</a>
-      <a href="/digital-marketing">디지털 마케팅</a>
+      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
+      <a href="/gov-project">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab">프로토타입 랩</a>
+      <a href="/insights">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
     </nav>
-    <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="scrim" id="scrim"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
-  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
-  <a href="/smb-ai" data-close>SMB AI</a>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
   <a href="/ai-academy" data-close>AI 아카데미</a>
-  <a href="/gov-project" data-close>정부지원사업</a>
-  <a href="/global-ecommerce" data-close>글로벌 e커머스</a>
-  <a href="/digital-marketing" data-close>디지털 마케팅</a>
-  <a href="#contact" class="nav-cta" data-close>무료 상담</a>
+  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
 </aside>
 
 <main>
@@ -876,8 +878,8 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="section-eyebrow">수행 레퍼런스</span>
-      <h2 class="section-title">글로벌 이커머스 수행 레퍼런스</h2>
-      <p class="section-sub">프로젝트별 실측 성과를 기재합니다.</p>
+      <h2 class="section-title">글로벌 이커머스 수행 유형</h2>
+      <p class="section-sub">수행한 프로젝트의 유형과 구축 범위입니다. 개별 브랜드의 매출·비용 변화는 진출 시점·카테고리·예산에 따라 달라지므로 공개 수치로 제시하지 않습니다.</p>
     </div>
     <div class="ref-grid">
       <div class="ref-card reveal">
@@ -888,9 +890,9 @@
         <h3>K-Beauty 브랜드 일본 글로벌 진출</h3>
         <p>국내 K-Beauty 브랜드의 일본 플랫폼 진출 및 재고·CS·주문 운영 체계 구축. OMS·WMS·TMS 풀세트 구축으로 일본 주요 플랫폼 다채널 통합 운영 구조 설계 및 구현.</p>
         <div class="ref-results">
-          <span class="ref-chip">재고 회전율 70% 개선</span>
-          <span class="ref-chip">CS 처리 역량 개선</span>
-          <span class="ref-chip">매출 규모 성장</span>
+          <span class="ref-chip">재고·주문 운영 체계 구축</span>
+          <span class="ref-chip">다채널 CS 통합</span>
+          <span class="ref-chip">일본 다채널 운영 구조 완료</span>
         </div>
       </div>
 
@@ -900,10 +902,10 @@
           <span class="ref-badge">Shopify 글로벌</span>
         </div>
         <h3>국내 D2C 패션 브랜드 글로벌 전환</h3>
-        <p>국내 중심 판매 구조를 135개국 글로벌 D2C 체계로 전환하고, CS 자동화 및 국제 배송 운영 구조 구축. WMS·TMS 통합 구축 + CS 자동화 시스템 연동.</p>
+        <p>국내 중심 판매 구조를 다국가 글로벌 D2C 체계로 전환하고, CS 자동화 및 국제 배송 운영 구조 구축. WMS·TMS 통합 구축 + CS 자동화 시스템 연동.</p>
         <div class="ref-results">
-          <span class="ref-chip">CS 비용 60% 절감</span>
-          <span class="ref-chip">글로벌 주문 처리 역량 확대</span>
+          <span class="ref-chip">CS 자동화 연동</span>
+          <span class="ref-chip">국제 배송 운영 구조 구축</span>
           <span class="ref-chip">D2C 전환 완료</span>
         </div>
       </div>
@@ -1157,7 +1159,7 @@
       </div>
       <div class="center">사업자등록번호 : 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로 26길 61, 에이스하이엔드타워2차</div>
       <div class="right">
-        고객지원 &nbsp;/&nbsp; <a href="#">이용약관</a>
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
       </div>
     </div>
   </div>

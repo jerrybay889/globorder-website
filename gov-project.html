@@ -479,26 +479,30 @@
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
-    <nav class="nav-links" aria-label="primary">
-      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
-      <a href="/smb-ai">SMB AI</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
       <a href="/ai-academy">AI 아카데미</a>
-      <a href="/gov-project" class="active">정부지원사업</a>
-      <a href="/global-ecommerce">글로벌 e커머스</a>
+      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
+      <a href="/gov-project" class="active" aria-current="page" style="color:var(--cyan);">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab">프로토타입 랩</a>
+      <a href="/insights">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
     </nav>
-    <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="scrim" id="scrim"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
-  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
-  <a href="/smb-ai" data-close>SMB AI</a>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
   <a href="/ai-academy" data-close>AI 아카데미</a>
-  <a href="/gov-project" data-close>정부지원사업</a>
-  <a href="/global-ecommerce" data-close>글로벌 e커머스</a>
-  <a href="#contact" class="nav-cta" data-close>무료 상담</a>
+  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
 </aside>
 
 <main>
@@ -862,7 +866,7 @@
       </div>
       <div class="center">사업자등록번호 : 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로 26길 61, 에이스하이엔드타워2차</div>
       <div class="right">
-        고객지원 &nbsp;/&nbsp; <a href="#">이용약관</a>
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
       </div>
     </div>
   </div>

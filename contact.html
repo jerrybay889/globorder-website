@@ -3,98 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>문의 | GloBorder</title>
-  <meta name="description" content="지금 바로 문의하세요. 아이디어 단계도 괜찮습니다. 첫 상담은 무료입니다." />
+  <title>문의하기 | GloBorder — 목적에 맞는 상담 경로</title>
+  <meta name="description" content="글로보더에 문의하는 방법. 기업 AI 프로젝트, 공공·기관 사업, 교육·아카데미, 파트너·제휴 — 목적별 상담 경로와 무료 상담 신청 폼을 안내합니다." />
+  <link rel="canonical" href="https://www.globorder.kr/contact" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="문의하기 | GloBorder" />
+  <meta property="og:description" content="목적에 맞는 상담 경로와 무료 상담 신청. 마케팅 콘텐츠 프로토타입." />
+  <meta property="og:url" content="https://www.globorder.kr/contact" />
+  <meta name="twitter:card" content="summary" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/globals.css" />
+  <style>
+    body { background: var(--navy-deep); }
+    .contact-page-hero { background: var(--navy-deep); color: var(--white); padding: 150px 0 60px; }
+    .contact-page-hero .lead { margin-top: 20px; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.66); max-width: 620px; }
+    .contact-block { background: var(--navy-deep); padding: 0 0 40px; }
+    .contact-block .sec-label { margin: 0 0 24px; font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -0.01em; }
+    .contact .contact-grid { margin-top: 8px; }
+  </style>
 </head>
 <body>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
-    <nav class="nav-links" aria-label="primary">
+    <a href="/" class="logo" aria-label="GloBorder 홈"><span class="g">G</span>loBorder</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="/ai-academy">AI 아카데미</a>
       <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
-      <a href="/gov-project">정부지원사업</a>
-      <a href="/smb-ai">SMB AI</a>
-      <a href="/ai-academy">Academy</a>
-      <a href="/global-ecommerce">Global eCommerce</a>
-      <a href="/about">About</a>
+      <a href="/gov-project">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab">프로토타입 랩</a>
+      <a href="/insights">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
     </nav>
-    <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <a href="/contact" class="nav-cta desktop-only" aria-current="page">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="scrim" id="scrim"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
+  <a href="/ai-academy" data-close>AI 아카데미</a>
   <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
-  <a href="/gov-project" data-close>정부지원사업</a>
-  <a href="/smb-ai" data-close>SMB AI</a>
-  <a href="/ai-academy" data-close>Academy</a>
-  <a href="/global-ecommerce" data-close>Global eCommerce</a>
-  <a href="/about" data-close>About</a>
-  <a href="#contact" class="nav-cta" data-close>무료 상담</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
 </aside>
 
-<section class="contact" id="contact">
-  <span class="eyebrow">Contact</span>
-  <h2>지금 바로 문의하세요</h2>
-  <p class="lede">아이디어 단계도 괜찮습니다.<br/>문제 정의만 있어도 충분합니다.<br/>첫 상담은 무료입니다.</p>
+<main>
 
-  <div class="c-info">
-    <div class="c-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
-      <span>hello@globorder.kr</span>
-    </div>
-    <div class="c-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-      <span>평일 09:00 – 18:00 KST</span>
-    </div>
-    <div class="c-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
-      <span>국내 · 글로벌 프로젝트 모두 대응</span>
+<section class="contact-page-hero">
+  <div class="container">
+    <p class="crumbs"><a href="/">홈</a> / 문의하기</p>
+    <span class="eyebrow">Contact</span>
+    <h1 style="font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-0.02em;margin-top:12px;">
+      목적에 맞는 경로로 시작하세요
+    </h1>
+    <p class="lead">
+      아이디어 단계여도 괜찮습니다. 문제 정의만 있어도 충분합니다. 첫 상담은 무료이며,
+      접수 후 1 영업일 이내에 담당자가 직접 연락드립니다.
+    </p>
+  </div>
+</section>
+
+<section class="contact-block">
+  <div class="container">
+    <p class="sec-label">어떤 문의인가요?</p>
+    <div class="buyer-grid">
+      <div class="buyer-card">
+        <h3>기업 — AI 프로젝트 · 구현</h3>
+        <p>업무 자동화, 어시스턴트·에이전트 구축, PoC/MVP. 전략 설계부터 구현까지 한 팀이 담당합니다.</p>
+        <a href="/ai-consulting" class="btn btn-ghost">AI 컨설팅 &amp; 빌드 →</a>
+        <a href="#form" class="btn btn-primary" data-type="AI 프로젝트·구현 상담">이 유형으로 상담 신청 →</a>
+      </div>
+      <div class="buyer-card">
+        <h3>공공 · 기관 — 지원사업</h3>
+        <p>부처 지원사업의 기획·제안·수행·납품·정산. 기관 대상 AI 교육·리터러시 과정 포함.</p>
+        <a href="/gov-project" class="btn btn-ghost">공공 · 기관 →</a>
+        <a href="#form" class="btn btn-primary" data-type="공공·기관 지원사업">이 유형으로 상담 신청 →</a>
+      </div>
+      <div class="buyer-card">
+        <h3>교육 — 아카데미 · 워크숍</h3>
+        <p>경영진 워크숍, 실무자 과정, 창업가 빌드캠프, 조직 맞춤 AI 내재화 교육.</p>
+        <a href="/ai-academy" class="btn btn-ghost">AI 아카데미 →</a>
+        <a href="#form" class="btn btn-primary" data-type="AI 교육·강의">이 유형으로 상담 신청 →</a>
+      </div>
+      <div class="buyer-card">
+        <h3>파트너 · 제휴 · 협업</h3>
+        <p>공동 수행, 채널 파트너십, 기술 협업 등. 제휴 형태와 목표를 함께 검토합니다.</p>
+        <a href="/about" class="btn btn-ghost">회사 · 신뢰 →</a>
+        <a href="#form" class="btn btn-primary" data-type="파트너·제휴·협업">이 유형으로 상담 신청 →</a>
+      </div>
     </div>
   </div>
-
-  <form class="c-form" id="cf" novalidate>
-    <h3>무료 상담 신청</h3>
-    <div class="field">
-      <label for="m-name">이름 <span class="req">*</span></label>
-      <input id="m-name" type="text" placeholder="홍길동" required />
-    </div>
-    <div class="field">
-      <label for="m-email">이메일 <span class="req">*</span></label>
-      <input id="m-email" type="email" placeholder="email@company.com" required />
-    </div>
-    <div class="field">
-      <label for="m-phone">연락처</label>
-      <input id="m-phone" type="tel" placeholder="010-0000-0000" />
-    </div>
-    <div class="field">
-      <label for="m-type">문의 유형 <span class="req">*</span></label>
-      <select id="m-type" required>
-        <option value="">선택해 주세요</option>
-        <option>AI 프로젝트·구현 상담</option>
-        <option>정부지원사업 컨설팅</option>
-        <option>파트너·제휴·협업</option>
-        <option>AI 교육·강의</option>
-        <option>기타</option>
-      </select>
-    </div>
-    <div class="field">
-      <label for="m-msg">문의 내용 <span class="req">*</span></label>
-      <textarea id="m-msg" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요?" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">무료 상담 신청 →</button>
-    <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
-  </form>
 </section>
+
+<section class="contact" id="form">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <span class="eyebrow">Free Consultation</span>
+        <h2 style="margin-top:14px;">무료 상담 신청</h2>
+        <p class="lede">
+          아이디어 단계도 괜찮습니다.<br />
+          문제 정의만 있어도 충분합니다.<br />
+          첫 상담은 무료입니다.
+        </p>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span>평일 09:00 – 18:00 KST</span>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
+            <span>국내 · 글로벌 프로젝트 모두 대응</span>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            <span>문의 접수 후 1 영업일 이내 담당자 직접 연락</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <h3>상담 신청서</h3>
+        <div class="form-success" id="form-success">✓ 문의가 접수되었습니다. 1 영업일 이내 담당자가 직접 연락드립니다.</div>
+
+        <div class="field" data-field="name">
+          <label for="f-name">이름 <span class="req">*</span></label>
+          <input id="f-name" name="name" type="text" placeholder="홍길동" required />
+          <div class="err-msg">이름을 입력해 주세요.</div>
+        </div>
+        <div class="field" data-field="email">
+          <label for="f-email">이메일 <span class="req">*</span></label>
+          <input id="f-email" name="email" type="email" placeholder="email@company.com" required />
+          <div class="err-msg">올바른 이메일 주소를 입력해 주세요.</div>
+        </div>
+        <div class="field" data-field="phone">
+          <label for="f-phone">연락처</label>
+          <input id="f-phone" name="phone" type="tel" placeholder="010-0000-0000" />
+        </div>
+        <div class="field" data-field="org">
+          <label for="f-org">회사 / 기관명</label>
+          <input id="f-org" name="organization" type="text" placeholder="예: OO주식회사, OO기관" />
+        </div>
+        <div class="field" data-field="type">
+          <label for="f-type">문의 유형 <span class="req">*</span></label>
+          <select id="f-type" name="type" required>
+            <option value="">선택해 주세요</option>
+            <option>AI 프로젝트·구현 상담</option>
+            <option>공공·기관 지원사업</option>
+            <option>AI 교육·강의</option>
+            <option>파트너·제휴·협업</option>
+            <option>기타</option>
+          </select>
+          <div class="err-msg">문의 유형을 선택해 주세요.</div>
+        </div>
+        <div class="field" data-field="message">
+          <label for="f-message">문의 내용 <span class="req">*</span></label>
+          <textarea id="f-message" name="message" rows="4" placeholder="어떤 문제를 다루고 싶으신가요? 현재 상황과 목표를 자유롭게 적어 주세요." required></textarea>
+          <div class="err-msg">문의 내용을 입력해 주세요.</div>
+        </div>
+        <button type="submit" class="submit-btn">무료 상담 신청 →</button>
+        <p class="privacy">제출 시 개인정보 처리방침에 동의합니다. 이 폼은 마케팅 프로토타입으로, 실제 전송은 연동되지 않았습니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <footer>
   <div class="container">
@@ -103,14 +188,73 @@
         <div class="logo"><span class="g">G</span>loBorder</div>
         <div style="margin-top:6px;">© 2025 (주)글로보더</div>
       </div>
-      <div class="center">사업자등록번호 : 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로 26길 61, 에이스하이엔드타워2차</div>
+      <div class="center">사업자등록번호 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로26길 61, 에이스하이엔드타워2차</div>
       <div class="right">
-        <a href="mailto:jerrybay889@gmail.com">개인정보처리담당자</a> &nbsp;/&nbsp; <a href="#">이용약관</a>
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="#">이용약관</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script>
+(() => {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const hamb = document.getElementById('hamburger');
+  const open = () => { drawer.classList.add('open'); scrim.classList.add('open'); drawer.setAttribute('aria-hidden', 'false'); };
+  const close = () => { drawer.classList.remove('open'); scrim.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); };
+  hamb.addEventListener('click', () => drawer.classList.contains('open') ? close() : open());
+  scrim.addEventListener('click', close);
+  drawer.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
+
+  // buyer-card CTA prefills the inquiry type
+  const typeSelect = document.getElementById('f-type');
+  document.querySelectorAll('.buyer-card [data-type]').forEach(el => {
+    el.addEventListener('click', () => {
+      const v = el.getAttribute('data-type');
+      if (typeSelect) {
+        [...typeSelect.options].forEach(o => { if (o.value === v || o.text === v) typeSelect.value = o.value || o.text; });
+      }
+    });
+  });
+
+  const form = document.getElementById('contact-form');
+  const fields = form.querySelectorAll('.field');
+  const success = document.getElementById('form-success');
+  const validateField = (f) => {
+    const input = f.querySelector('input, select, textarea');
+    if (!input) return true;
+    const v = (input.value || '').trim();
+    let ok = input.hasAttribute('required') ? !!v : true;
+    if (input.type === 'email' && v) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    f.classList.toggle('error', !ok);
+    return ok;
+  };
+  fields.forEach(f => {
+    const input = f.querySelector('input, select, textarea');
+    if (!input) return;
+    input.addEventListener('blur', () => validateField(f));
+    input.addEventListener('input', () => { if (f.classList.contains('error')) validateField(f); });
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let ok = true;
+    fields.forEach(f => { if (!validateField(f)) ok = false; });
+    if (!ok) {
+      const first = form.querySelector('.field.error input, .field.error select, .field.error textarea');
+      if (first) first.focus();
+      return;
+    }
+    success.classList.add('show');
+    form.querySelectorAll('input, select, textarea').forEach(el => { el.value = ''; });
+    setTimeout(() => success.classList.remove('show'), 6000);
+  });
+})();
+</script>
 </body>
 </html>

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.globorder.kr/</loc></url>
-  <url><loc>https://www.globorder.kr/ai-consulting</loc></url>
-  <url><loc>https://www.globorder.kr/smb-ai</loc></url>
   <url><loc>https://www.globorder.kr/ai-academy</loc></url>
+  <url><loc>https://www.globorder.kr/ai-consulting</loc></url>
   <url><loc>https://www.globorder.kr/gov-project</loc></url>
+  <url><loc>https://www.globorder.kr/work</loc></url>
+  <url><loc>https://www.globorder.kr/prototype-lab</loc></url>
+  <url><loc>https://www.globorder.kr/insights</loc></url>
+  <url><loc>https://www.globorder.kr/about</loc></url>
+  <url><loc>https://www.globorder.kr/contact</loc></url>
+  <url><loc>https://www.globorder.kr/smb-ai</loc></url>
   <url><loc>https://www.globorder.kr/global-ecommerce</loc></url>
   <url><loc>https://www.globorder.kr/digital-marketing</loc></url>
 </urlset>

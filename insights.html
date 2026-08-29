@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인사이트 | GloBorder — AI 실행 관점의 노트</title>
+  <meta name="description" content="AI 도입·실행·공공사업·교육에 대한 글로보더의 관점을 정리한 노트입니다. 일부 글은 초안 상태이며, 특정 성과를 보장하는 내용이 아닙니다." />
+  <link rel="canonical" href="https://www.globorder.kr/insights" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="인사이트 | GloBorder" />
+  <meta property="og:description" content="AI 실행 관점의 노트. 마케팅 콘텐츠 프로토타입." />
+  <meta property="og:url" content="https://www.globorder.kr/insights" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/globals.css" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="GloBorder 홈"><span class="g">G</span>loBorder</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="/ai-academy">AI 아카데미</a>
+      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
+      <a href="/gov-project">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab">프로토타입 랩</a>
+      <a href="/insights" aria-current="page" style="color:var(--cyan);">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
+    </nav>
+    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
+  <a href="/ai-academy" data-close>AI 아카데미</a>
+  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
+</aside>
+
+<main>
+
+<section class="mkt-hero">
+  <div class="container">
+    <p class="crumbs"><a href="/">홈</a> / 인사이트</p>
+    <span class="eyebrow">Insights</span>
+    <h1>AI 실행 관점의 노트</h1>
+    <p class="lead">
+      컨설팅과 구현을 한 팀에서 하며 반복적으로 마주친 판단 지점을 정리합니다.
+      아래 글은 글로보더의 견해이며, 특정 도입 결과를 보장하지 않습니다.
+      <span class="status-label" style="margin-left:6px;">일부 글은 초안(draft)</span>
+    </p>
+  </div>
+</section>
+
+<section class="mkt-section">
+  <div class="container">
+    <div class="mkt-list mkt-prose" style="max-width:760px;">
+
+      <article class="mkt-entry">
+        <div class="mkt-entry-meta"><span>2025 · 노트</span><span class="status-label is-muted">공개</span></div>
+        <h3>"AI 도입"이 아니라 "어떤 업무에 붙이는가"가 먼저다</h3>
+        <p>많은 조직이 도구 선택(어떤 모델, 어떤 플랫폼)부터 시작하지만, 실제 실패의 대부분은 적용 지점을 잘못 고른 데서 온다. 반복적이고, 규칙이 비교적 명확하며, 실패 비용이 낮은 업무를 첫 대상으로 잡아야 학습 곡선을 조직이 감당할 수 있다.</p>
+        <p>우리가 상담 초반에 하는 질문은 항상 같다. "지금 사람이 시간을 가장 많이 쓰는데, 판단보다 정리에 가까운 일은 무엇인가?" 그 답이 첫 프로젝트의 범위가 된다.</p>
+      </article>
+
+      <article class="mkt-entry">
+        <div class="mkt-entry-meta"><span>2025 · 노트</span><span class="status-label is-muted">공개</span></div>
+        <h3>에이전트는 "자율성"보다 "경계"를 먼저 설계해야 한다</h3>
+        <p>Agentic 구조에서 가장 중요한 설계는 모델의 추론 능력이 아니라, 에이전트가 무엇을 해도 되고 무엇은 사람에게 넘겨야 하는지의 경계다. 경계가 흐리면 잘 도는 데모가 운영에서 신뢰를 잃는다.</p>
+        <p>실무에서는 "자동 실행 → 사람 확인 → 예외 에스컬레이션"의 3단 게이트를 기본값으로 두고, 신뢰가 쌓인 구간만 게이트를 낮춘다.</p>
+      </article>
+
+      <article class="mkt-entry">
+        <div class="mkt-entry-meta"><span>2025 · 초안</span><span class="status-label">draft</span></div>
+        <h3>공공사업에서 제안서보다 중요한 것: 검수 가능한 산출물 정의</h3>
+        <p>부처 사업은 제안 단계의 화려함보다 수행·납품·정산 단계의 명확성이 결과를 가른다. 착수 시점에 "무엇을, 어떤 형태로, 어떤 기준으로 검수하는가"를 문서로 고정하면 중간 조율 비용이 크게 줄어든다. (초안 — 사례 정리 보강 예정)</p>
+      </article>
+
+      <article class="mkt-entry">
+        <div class="mkt-entry-meta"><span>2025 · 초안</span><span class="status-label">draft</span></div>
+        <h3>기업 AI 교육의 성패는 "교육 후 4주"에 결정된다</h3>
+        <p>교육 만족도와 현업 적용률은 자주 어긋난다. 교육 종료 직후 2~4주 동안 실제 업무 과제에 붙여보는 짧은 적용 기간을 설계에 포함하면, 배운 내용이 조직에 남을 확률이 올라간다. (초안 — 체크리스트 공개 예정)</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="mkt-section on-dark">
+  <div class="container">
+    <div class="sec-head"><h2>더 보기</h2></div>
+    <div class="related-links on-dark" style="max-width:760px;margin:0 auto;">
+      <a href="/work">프로젝트 사례 &amp; 수행 역량 →</a>
+      <a href="/ai-academy">AI 아카데미 커리큘럼 →</a>
+      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드 →</a>
+      <a href="/contact">상담 신청 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="logo"><span class="g">G</span>loBorder</div>
+        <div style="margin-top:6px;">© 2025 (주)글로보더</div>
+      </div>
+      <div class="center">사업자등록번호 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로26길 61, 에이스하이엔드타워2차</div>
+      <div class="right">
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const hamb = document.getElementById('hamburger');
+  const open = () => { drawer.classList.add('open'); scrim.classList.add('open'); drawer.setAttribute('aria-hidden', 'false'); };
+  const close = () => { drawer.classList.remove('open'); scrim.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); };
+  hamb.addEventListener('click', () => drawer.classList.contains('open') ? close() : open());
+  scrim.addEventListener('click', close);
+  drawer.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
+})();
+</script>
+</body>
+</html>
