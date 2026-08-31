@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/globals.css" />
+  <script src="https://tally.so/widgets/embed.js"></script>
   <style>
     body { background: var(--navy-deep); }
     .contact-page-hero { background: var(--navy-deep); color: var(--white); padding: 150px 0 60px; }
@@ -82,25 +83,25 @@
         <h3>기업 — AI 프로젝트 · 구현</h3>
         <p>업무 자동화, 어시스턴트·에이전트 구축, PoC/MVP. 전략 설계부터 구현까지 한 팀이 담당합니다.</p>
         <a href="/ai-consulting" class="btn btn-ghost">AI 컨설팅 &amp; 빌드 →</a>
-        <a href="#form" class="btn btn-primary" data-type="AI 프로젝트·구현 상담">이 유형으로 상담 신청 →</a>
+        <button type="button" class="btn btn-primary" data-tally-open data-cta="contact-card-ai-project">이 유형으로 상담 신청 →</button>
       </div>
       <div class="buyer-card">
         <h3>공공 · 기관 — 지원사업</h3>
         <p>부처 지원사업의 기획·제안·수행·납품·정산. 기관 대상 AI 교육·리터러시 과정 포함.</p>
         <a href="/gov-project" class="btn btn-ghost">공공 · 기관 →</a>
-        <a href="#form" class="btn btn-primary" data-type="공공·기관 지원사업">이 유형으로 상담 신청 →</a>
+        <button type="button" class="btn btn-primary" data-tally-open data-cta="contact-card-gov">이 유형으로 상담 신청 →</button>
       </div>
       <div class="buyer-card">
         <h3>교육 — 아카데미 · 워크숍</h3>
         <p>경영진 워크숍, 실무자 과정, 창업가 빌드캠프, 조직 맞춤 AI 내재화 교육.</p>
         <a href="/ai-academy" class="btn btn-ghost">AI 아카데미 →</a>
-        <a href="#form" class="btn btn-primary" data-type="AI 교육·강의">이 유형으로 상담 신청 →</a>
+        <button type="button" class="btn btn-primary" data-tally-open data-cta="contact-card-education">이 유형으로 상담 신청 →</button>
       </div>
       <div class="buyer-card">
         <h3>파트너 · 제휴 · 협업</h3>
         <p>공동 수행, 채널 파트너십, 기술 협업 등. 제휴 형태와 목표를 함께 검토합니다.</p>
         <a href="/about" class="btn btn-ghost">회사 · 신뢰 →</a>
-        <a href="#form" class="btn btn-primary" data-type="파트너·제휴·협업">이 유형으로 상담 신청 →</a>
+        <button type="button" class="btn btn-primary" data-tally-open data-cta="contact-card-partner">이 유형으로 상담 신청 →</button>
       </div>
     </div>
   </div>
@@ -133,48 +134,19 @@
         </div>
       </div>
 
-      <form class="contact-form" id="contact-form" novalidate>
+      <div class="contact-form" id="contact-cta">
         <h3>상담 신청서</h3>
-        <div class="form-success" id="form-success">✓ 문의가 접수되었습니다. 담당자가 확인 후 회신드립니다.</div>
-
-        <div class="field" data-field="name">
-          <label for="f-name">이름 <span class="req">*</span></label>
-          <input id="f-name" name="name" type="text" placeholder="홍길동" required />
-          <div class="err-msg">이름을 입력해 주세요.</div>
+        <p style="font-size:14.5px;line-height:1.85;color:var(--navy-deep);margin-bottom:24px;">
+          아래 버튼을 누르면 상담 신청 양식이 열립니다.
+          이름 · 이메일 · 문의 유형 · 문의 내용만 입력하면 접수되며,
+          담당자가 확인 후 회신드립니다.
+        </p>
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          ✓ 상담 신청이 정상 접수되었습니다. 담당자가 확인 후 회신드립니다.
         </div>
-        <div class="field" data-field="email">
-          <label for="f-email">이메일 <span class="req">*</span></label>
-          <input id="f-email" name="email" type="email" placeholder="email@company.com" required />
-          <div class="err-msg">올바른 이메일 주소를 입력해 주세요.</div>
-        </div>
-        <div class="field" data-field="phone">
-          <label for="f-phone">연락처</label>
-          <input id="f-phone" name="phone" type="tel" placeholder="010-0000-0000" />
-        </div>
-        <div class="field" data-field="org">
-          <label for="f-org">회사 / 기관명</label>
-          <input id="f-org" name="organization" type="text" placeholder="예: OO주식회사, OO기관" />
-        </div>
-        <div class="field" data-field="type">
-          <label for="f-type">문의 유형 <span class="req">*</span></label>
-          <select id="f-type" name="type" required>
-            <option value="">선택해 주세요</option>
-            <option>AI 프로젝트·구현 상담</option>
-            <option>공공·기관 지원사업</option>
-            <option>AI 교육·강의</option>
-            <option>파트너·제휴·협업</option>
-            <option>기타</option>
-          </select>
-          <div class="err-msg">문의 유형을 선택해 주세요.</div>
-        </div>
-        <div class="field" data-field="message">
-          <label for="f-message">문의 내용 <span class="req">*</span></label>
-          <textarea id="f-message" name="message" rows="4" placeholder="어떤 문제를 다루고 싶으신가요? 현재 상황과 목표를 자유롭게 적어 주세요." required></textarea>
-          <div class="err-msg">문의 내용을 입력해 주세요.</div>
-        </div>
-        <button type="submit" class="submit-btn">상담 신청 →</button>
-        <p class="privacy">제출 시 개인정보 처리방침에 동의합니다. 이 폼은 마케팅 프로토타입으로, 실제 전송은 연동되지 않았습니다.</p>
-      </form>
+        <button type="button" class="submit-btn" data-tally-open data-cta="contact-main">상담 신청서 열기 →</button>
+        <p class="privacy">제출 시 개인정보 처리방침에 동의하는 것으로 간주됩니다.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -212,47 +184,64 @@
   scrim.addEventListener('click', close);
   drawer.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
 
-  // buyer-card CTA prefills the inquiry type
-  const typeSelect = document.getElementById('f-type');
-  document.querySelectorAll('.buyer-card [data-type]').forEach(el => {
-    el.addEventListener('click', () => {
-      const v = el.getAttribute('data-type');
-      if (typeSelect) {
-        [...typeSelect.options].forEach(o => { if (o.value === v || o.text === v) typeSelect.value = o.value || o.text; });
-      }
+  // ───────── Tally consultation popup (form Y5bypd) ─────────
+  const TALLY_FORM_ID = 'Y5bypd';
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  const query = new URLSearchParams(window.location.search);
+  const successEl = document.getElementById('form-success');
+  const seen = new Set();
+
+  // Keep hidden-field values short and attribution-only — no free text, no PII.
+  const sanitize = (v) => String(v == null ? '' : v).replace(/[^\w.\- ]/g, '').trim().slice(0, 120);
+
+  const hiddenFields = (cta) => {
+    const hf = { source: 'contact', cta: sanitize(cta) || 'contact-main' };
+    const runId = sanitize(query.get('run_id'));
+    if (runId) hf.run_id = runId;
+    UTM_KEYS.forEach(k => { const val = sanitize(query.get(k)); if (val) hf[k] = val; });
+    return hf;
+  };
+
+  // Success only after a real Tally.FormSubmitted with a redacted receipt.
+  // Never read, render, or store payload.fields (answers / PII).
+  const handleReceipt = (payload) => {
+    if (!payload) return;
+    const receipt = {
+      id: payload.id != null ? String(payload.id) : null,
+      formId: payload.formId != null ? String(payload.formId) : null,
+      createdAt: payload.createdAt != null ? String(payload.createdAt) : null
+    };
+    if (!receipt.id || !receipt.formId || !receipt.createdAt) return;
+    if (seen.has(receipt.id)) return;
+    seen.add(receipt.id);
+    console.info('[globorder] Tally submission receipt', receipt);
+    if (successEl) successEl.classList.add('show');
+  };
+
+  const openConsultation = (cta) => {
+    if (!window.Tally || typeof window.Tally.openPopup !== 'function') return;
+    window.Tally.openPopup(TALLY_FORM_ID, {
+      layout: 'modal',
+      width: 540,
+      overlay: true,
+      hiddenFields: hiddenFields(cta),
+      onSubmit: handleReceipt
     });
+  };
+
+  document.querySelectorAll('[data-tally-open]').forEach(el => {
+    el.addEventListener('click', () => openConsultation(el.getAttribute('data-cta')));
   });
 
-  const form = document.getElementById('contact-form');
-  const fields = form.querySelectorAll('.field');
-  const success = document.getElementById('form-success');
-  const validateField = (f) => {
-    const input = f.querySelector('input, select, textarea');
-    if (!input) return true;
-    const v = (input.value || '').trim();
-    let ok = input.hasAttribute('required') ? !!v : true;
-    if (input.type === 'email' && v) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    f.classList.toggle('error', !ok);
-    return ok;
-  };
-  fields.forEach(f => {
-    const input = f.querySelector('input, select, textarea');
-    if (!input) return;
-    input.addEventListener('blur', () => validateField(f));
-    input.addEventListener('input', () => { if (f.classList.contains('error')) validateField(f); });
-  });
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let ok = true;
-    fields.forEach(f => { if (!validateField(f)) ok = false; });
-    if (!ok) {
-      const first = form.querySelector('.field.error input, .field.error select, .field.error textarea');
-      if (first) first.focus();
-      return;
-    }
-    success.classList.add('show');
-    form.querySelectorAll('input, select, textarea').forEach(el => { el.value = ''; });
-    setTimeout(() => success.classList.remove('show'), 6000);
+  // Accept submission events only from tally.so or a *.tally.so subdomain.
+  window.addEventListener('message', (e) => {
+    let host = '';
+    try { host = new URL(e.origin).hostname; } catch (_) { return; }
+    if (host !== 'tally.so' && !host.endsWith('.tally.so')) return;
+    if (typeof e.data !== 'string' || e.data.indexOf('Tally.FormSubmitted') === -1) return;
+    let msg;
+    try { msg = JSON.parse(e.data); } catch (_) { return; }
+    handleReceipt(msg && msg.payload);
   });
 })();
 </script>
