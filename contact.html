@@ -233,7 +233,8 @@
     el.addEventListener('click', () => openConsultation(el.getAttribute('data-cta')));
   });
 
-  // Accept submission events only from tally.so or a *.tally.so subdomain.
+  // Accept submission events only from tally.so or a *.tally.so subdomain,
+  // and only an exact Tally.FormSubmitted event carrying this form's id.
   window.addEventListener('message', (e) => {
     let host = '';
     try { host = new URL(e.origin).hostname; } catch (_) { return; }
@@ -241,7 +242,10 @@
     if (typeof e.data !== 'string' || e.data.indexOf('Tally.FormSubmitted') === -1) return;
     let msg;
     try { msg = JSON.parse(e.data); } catch (_) { return; }
-    handleReceipt(msg && msg.payload);
+    if (!msg || (msg.event !== 'Tally.FormSubmitted' && msg.eventName !== 'Tally.FormSubmitted')) return;
+    const payload = msg.payload;
+    if (!payload || payload.formId !== TALLY_FORM_ID) return;
+    handleReceipt(payload);
   });
 })();
 </script>
