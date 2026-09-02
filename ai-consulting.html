@@ -475,21 +475,6 @@
       color: var(--gray-mid);
       text-align: center;
     }
-    .form-success {
-      display: none;
-      background: rgba(0,212,255,.12);
-      border: 1px solid var(--cyan);
-      border-radius: 8px;
-      padding: 16px;
-      font-size: .95rem;
-      color: var(--cyan);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .form-success.show {
-      display: block;
-    }
-
     @media (max-width: 768px) {
       .section { padding: 64px 0; }
       .contact-content { grid-template-columns: 1fr; gap: 36px; }
@@ -498,6 +483,7 @@
       .service-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <script src="/assets/js/tally-consultation.js" defer></script>
 </head>
 <body>
 
@@ -892,43 +878,13 @@
           </div>
         </div>
       </div>
-      <form class="contact-form reveal" id="contact-form" novalidate>
+      <div class="contact-form reveal" data-tally-surface>
         <h3>상담 신청</h3>
-        <div class="form-success" id="form-success">✓ 문의가 접수되었습니다. 담당자가 확인 후 회신드립니다.</div>
-        <div class="field" data-field="name">
-          <label for="f-name">이름 <span class="req">*</span></label>
-          <input id="f-name" name="name" type="text" placeholder="홍길동" required />
-          <div class="err-msg">이름을 입력해 주세요.</div>
-        </div>
-        <div class="field" data-field="email">
-          <label for="f-email">이메일 <span class="req">*</span></label>
-          <input id="f-email" name="email" type="email" placeholder="email@company.com" required />
-          <div class="err-msg">올바른 이메일 주소를 입력해 주세요.</div>
-        </div>
-        <div class="field" data-field="phone">
-          <label for="f-phone">연락처</label>
-          <input id="f-phone" name="phone" type="tel" placeholder="010-0000-0000" />
-        </div>
-        <div class="field" data-field="type">
-          <label for="f-type">문의 유형 <span class="req">*</span></label>
-          <select id="f-type" name="type" required>
-            <option value="">선택해 주세요</option>
-            <option>AI Business Assistant 구축</option>
-            <option>AI Agent Services 구현</option>
-            <option>Agentic AI Solution</option>
-            <option>POC/MVP 패키지</option>
-            <option>기타 AI 프로젝트</option>
-          </select>
-          <div class="err-msg">문의 유형을 선택해 주세요.</div>
-        </div>
-        <div class="field" data-field="message">
-          <label for="f-message">문의 내용 <span class="req">*</span></label>
-          <textarea id="f-message" name="message" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요? 자유롭게 작성해 주세요." required></textarea>
-          <div class="err-msg">문의 내용을 입력해 주세요.</div>
-        </div>
-        <button type="submit" class="submit-btn">상담 신청 →</button>
-        <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
-      </form>
+        <p>프로젝트 맥락을 Tally 상담 신청서에서 바로 남겨 주세요.</p>
+        <button type="button" class="submit-btn" data-tally-open data-cta="consulting-consultation">상담 신청서 열기 →</button>
+        <p class="privacy">상담 신청서는 Tally에서 안전하게 작성됩니다.</p>
+        <p class="privacy" data-tally-status role="status" aria-live="polite" hidden></p>
+      </div>
     </div>
   </div>
 </section>
@@ -986,33 +942,6 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => io.observe(el));
 
-  /* ── Contact form ── */
-  const form = document.getElementById('contact-form');
-  const fields = form.querySelectorAll('.field');
-  const success = document.getElementById('form-success');
-  const validateField = f => {
-    const input = f.querySelector('input,select,textarea');
-    if (!input) return true;
-    const v = (input.value||'').trim();
-    let ok = input.hasAttribute('required') ? !!v : true;
-    if (input.type==='email' && v) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    f.classList.toggle('error', !ok); return ok;
-  };
-  fields.forEach(f => {
-    const input = f.querySelector('input,select,textarea');
-    if (!input) return;
-    input.addEventListener('blur', () => validateField(f));
-    input.addEventListener('input', () => { if (f.classList.contains('error')) validateField(f); });
-  });
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let ok = true;
-    fields.forEach(f => { if (!validateField(f)) ok = false; });
-    if (!ok) { const first = form.querySelector('.field.error input,.field.error select,.field.error textarea'); if (first) first.focus(); return; }
-    success.classList.add('show');
-    form.querySelectorAll('input,select,textarea').forEach(el => el.value = '');
-    setTimeout(() => success.classList.remove('show'), 6000);
-  });
 </script>
 </body>
 </html>
