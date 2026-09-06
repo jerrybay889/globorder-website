@@ -19,10 +19,24 @@
     widgetPromise = new Promise((resolve, reject) => {
       const existing = [...document.scripts].find((script) => script.src === TALLY_WIDGET_URL);
       const script = existing || document.createElement('script');
-      const onLoad = () => (window.Tally && typeof window.Tally.openPopup === 'function')
-        ? resolve()
-        : reject(new Error('Tally widget unavailable'));
-      const onError = () => reject(new Error('Tally widget failed to load'));
+      const cleanup = () => {
+        script.removeEventListener('load', onLoad);
+        script.removeEventListener('error', onError);
+      };
+      const fail = (error) => {
+        cleanup();
+        if (!(window.Tally && typeof window.Tally.openPopup === 'function')) script.remove();
+        reject(error);
+      };
+      const onLoad = () => {
+        if (window.Tally && typeof window.Tally.openPopup === 'function') {
+          cleanup();
+          resolve();
+          return;
+        }
+        fail(new Error('Tally widget unavailable'));
+      };
+      const onError = () => fail(new Error('Tally widget failed to load'));
 
       script.addEventListener('load', onLoad, { once: true });
       script.addEventListener('error', onError, { once: true });
@@ -31,6 +45,9 @@
         script.async = true;
         document.head.appendChild(script);
       }
+    }).catch((error) => {
+      widgetPromise = undefined;
+      throw error;
     });
 
     return widgetPromise;
@@ -58,8 +75,16 @@
     status.textContent = '상담 신청서를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
   };
 
+  const clearLoadError = (button) => {
+    const status = button.closest('[data-tally-surface]')?.querySelector('[data-tally-status]');
+    if (!status) return;
+    status.hidden = true;
+    status.textContent = '';
+  };
+
   document.querySelectorAll('[data-tally-open]').forEach((button) => {
     button.addEventListener('click', () => {
+      clearLoadError(button);
       button.disabled = true;
       loadWidget()
         .then(() => window.Tally.openPopup(TALLY_FORM_ID, {
