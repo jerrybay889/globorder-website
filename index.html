@@ -43,34 +43,39 @@
     "sameAs": []
   }
   </script>
+  <script src="/assets/js/tally-consultation.js" defer></script>
 </head>
 <body>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
-    <nav class="nav-links" aria-label="primary">
-      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
-      <a href="/smb-ai">SMB AI</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
       <a href="/ai-academy">AI 아카데미</a>
-      <a href="/gov-project">정부지원사업</a>
-      <a href="/global-ecommerce">글로벌 e커머스</a>
+      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
+      <a href="/gov-project">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab">프로토타입 랩</a>
+      <a href="/insights">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
     </nav>
-    <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="scrim" id="scrim"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
-  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
-  <a href="/smb-ai" data-close>SMB AI</a>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
   <a href="/ai-academy" data-close>AI 아카데미</a>
-  <a href="/gov-project" data-close>정부지원사업</a>
-  <a href="/global-ecommerce" data-close>글로벌 e커머스</a>
-  <a href="#contact" class="nav-cta" data-close>무료 상담</a>
+  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
 </aside>
 
 <main>
@@ -91,7 +96,7 @@
           컨설팅으로 끝나지 않습니다. 설계하고, 직접 구현합니다.
         </p>
         <div class="cta-row">
-          <a href="#contact" class="btn btn-primary">AI 프로젝트 무료 상담 신청 →</a>
+          <a href="#contact" class="btn btn-primary">AI 프로젝트 상담 신청 →</a>
           <a href="#contact" class="btn btn-ghost">파트너 · 제휴 문의</a>
         </div>
         <div class="trust-microsignals">
@@ -389,7 +394,7 @@
           <span class="ref-badge">제조·B2B</span>
           <h3 class="ref-card-title">AI 영업 어시스턴트 구축</h3>
           <p class="ref-card-problem">영업 담당자의 수기 견적·제안서 작업으로 인한 반복 업무 과부하</p>
-          <p class="ref-card-result">견적서 초안 작성 시간 70% 단축, 주당 10시간 절감</p>
+          <p class="ref-card-result">수기 견적·제안 작업을 줄이고, 담당자가 검토·판단에 집중하도록 흐름을 재구성</p>
           <div class="ref-tags">
             <span class="ref-tag">LLM</span>
             <span class="ref-tag">n8n</span>
@@ -402,7 +407,7 @@
           <span class="ref-badge">이커머스·SMB</span>
           <h3 class="ref-card-title">상품 등록 자동화 Agent</h3>
           <p class="ref-card-problem">멀티채널 상품 업로드·수정 작업의 수동 반복으로 인한 운영 병목</p>
-          <p class="ref-card-result">수동 3시간 → 자동 15분 처리, 오기입 오류율 제로</p>
+          <p class="ref-card-result">수동 반복 업로드를 자동화하고, 등록 전 입력값 검증으로 오기입을 억제</p>
           <div class="ref-tags">
             <span class="ref-tag">AI Agent</span>
             <span class="ref-tag">Agentic Flow</span>
@@ -415,7 +420,7 @@
           <span class="ref-badge">스타트업</span>
           <h3 class="ref-card-title">고객 응대 AI 챗봇 풀스택 구현</h3>
           <p class="ref-card-problem">야간·주말 문의 미처리로 인한 리드 이탈 및 응대 공백</p>
-          <p class="ref-card-result">첫 작동 버전 3주 내 납품, 응대 커버리지 24시간으로 확대</p>
+          <p class="ref-card-result">첫 작동 버전을 짧은 주기로 납품하고, 야간·주말 응대 공백을 축소</p>
           <div class="ref-tags">
             <span class="ref-tag">Claude API</span>
             <span class="ref-tag">Vercel</span>
@@ -428,7 +433,7 @@
           <span class="ref-badge">서비스업</span>
           <h3 class="ref-card-title">내부 업무 자동화 Agentic 시스템</h3>
           <p class="ref-card-problem">보고서 취합·정리·발송 업무의 담당자 의존 구조</p>
-          <p class="ref-card-result">반복 업무 80% 자동화, 담당자 핵심 업무 집중 환경 구현</p>
+          <p class="ref-card-result">보고서 취합·정리·발송을 자동화하고, 사람은 예외 처리와 최종 확인에 집중</p>
           <div class="ref-tags">
             <span class="ref-tag">Agentic AI</span>
             <span class="ref-tag">n8n</span>
@@ -448,7 +453,7 @@
           <span class="ref-badge ref-badge--edu">기업 경영진</span>
           <h3 class="ref-card-title">AI 전략 1일 워크숍</h3>
           <p class="ref-card-problem">경영진이 AI 도입의 우선순위와 적용 범위를 직접 결정할 수 있도록 설계된 집중 과정</p>
-          <div class="ref-metric">참가사 NPS 92 · 프로젝트 연결 5건</div>
+          <div class="ref-metric">경영진이 AI 적용 우선순위를 직접 결정하는 집중 과정</div>
         </article>
 
         <article class="ref-card reveal">
@@ -456,7 +461,7 @@
           <span class="ref-badge ref-badge--edu">창업가·팀</span>
           <h3 class="ref-card-title">AI MVP 빌드캠프 (6주)</h3>
           <p class="ref-card-problem">아이디어에서 첫 작동 버전까지, 실제 빌드 경험 중심의 창업가 집중 과정</p>
-          <div class="ref-metric">수료생 12명 중 8팀 서비스 출시</div>
+          <div class="ref-metric">아이디어에서 배포 가능한 첫 버전까지 실습 중심으로 진행</div>
         </article>
 
         <article class="ref-card reveal">
@@ -464,7 +469,7 @@
           <span class="ref-badge ref-badge--edu">공공기관</span>
           <h3 class="ref-card-title">AI 리터러시 교육 (기관 맞춤형)</h3>
           <p class="ref-card-problem">실무자가 AI를 일상 업무에 적용할 수 있도록 설계한 공공기관 대상 교육 과정</p>
-          <div class="ref-metric">3개 부처 · 수료 200명+</div>
+          <div class="ref-metric">실무자가 반복 업무에 AI를 바로 적용하도록 설계한 기관 맞춤 과정</div>
         </article>
 
       </div>
@@ -509,6 +514,16 @@
       </div>
     </div>
 
+    <div class="reveal" style="margin-top:8px;">
+      <p style="font-size:13px;color:var(--gray-400);margin-bottom:14px;">더 알아보기</p>
+      <div class="related-links">
+        <a href="/work">프로젝트 사례 &amp; 수행 역량 →</a>
+        <a href="/prototype-lab">프로토타입 랩 (개념 검증) →</a>
+        <a href="/insights">인사이트 노트 →</a>
+        <a href="/about">회사 · 신뢰 →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -521,7 +536,7 @@
         <p class="lede">
           아이디어 단계도 괜찮습니다.<br />
           문제 정의만 있어도 충분합니다.<br />
-          첫 상담은 무료입니다.
+          먼저 대화로 시작할 수 있습니다.
         </p>
         <div class="contact-info">
           <div class="contact-info-item">
@@ -534,56 +549,18 @@
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-            <span>문의 접수 후 1 영업일 이내 담당자 직접 연락</span>
+            <span>문의 내용을 확인해 담당자가 회신합니다</span>
           </div>
         </div>
       </div>
 
-      <form class="contact-form reveal" id="contact-form" novalidate>
-        <h3>무료 상담 신청</h3>
-        <div class="form-success" id="form-success">
-          ✓ 문의가 접수되었습니다. 1 영업일 이내 담당자가 직접 연락드립니다.
-        </div>
-
-        <div class="field" data-field="name">
-          <label for="f-name">이름 <span class="req">*</span></label>
-          <input id="f-name" name="name" type="text" placeholder="홍길동" required />
-          <div class="err-msg">이름을 입력해 주세요.</div>
-        </div>
-
-        <div class="field" data-field="email">
-          <label for="f-email">이메일 <span class="req">*</span></label>
-          <input id="f-email" name="email" type="email" placeholder="email@company.com" required />
-          <div class="err-msg">올바른 이메일 주소를 입력해 주세요.</div>
-        </div>
-
-        <div class="field" data-field="phone">
-          <label for="f-phone">연락처</label>
-          <input id="f-phone" name="phone" type="tel" placeholder="010-0000-0000" />
-        </div>
-
-        <div class="field" data-field="type">
-          <label for="f-type">문의 유형 <span class="req">*</span></label>
-          <select id="f-type" name="type" required>
-            <option value="">선택해 주세요</option>
-            <option>AI 프로젝트·구현 상담</option>
-            <option>정부지원사업 컨설팅</option>
-            <option>파트너·제휴·협업</option>
-            <option>AI 교육·강의</option>
-            <option>기타</option>
-          </select>
-          <div class="err-msg">문의 유형을 선택해 주세요.</div>
-        </div>
-
-        <div class="field" data-field="message">
-          <label for="f-message">문의 내용 <span class="req">*</span></label>
-          <textarea id="f-message" name="message" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요?" required></textarea>
-          <div class="err-msg">문의 내용을 입력해 주세요.</div>
-        </div>
-
-        <button type="submit" class="submit-btn">무료 상담 신청 →</button>
-        <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
-      </form>
+      <div class="contact-form reveal" data-tally-surface>
+        <h3>상담 신청</h3>
+        <p>상담 신청서를 열어 필요한 내용을 바로 남겨 주세요.</p>
+        <button type="button" class="submit-btn" data-tally-open data-cta="home-consultation">상담 신청서 열기 →</button>
+        <p class="privacy">상담 신청서는 Tally에서 안전하게 작성됩니다.</p>
+        <p class="privacy" data-tally-status role="status" aria-live="polite" hidden></p>
+      </div>
     </div>
   </div>
 </section>
@@ -597,9 +574,9 @@
         <div class="logo"><span class="g">G</span>loBorder</div>
         <div style="margin-top:6px;">© 2025 (주)글로보더</div>
       </div>
-      <div class="center">사업자등록번호 : 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로 26길 61, 에이스하이엔드타워2차</div>
+      <div class="center">사업자등록번호 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로26길 61, 에이스하이엔드타워2차</div>
       <div class="right">
-        고객지원 &nbsp;/&nbsp; <a href="#">이용약관</a>
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
       </div>
     </div>
   </div>
@@ -657,45 +634,6 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(el => io.observe(el));
 
-  const form = document.getElementById('contact-form');
-  const fields = form.querySelectorAll('.field');
-  const success = document.getElementById('form-success');
-  const validateField = (fieldEl) => {
-    const input = fieldEl.querySelector('input, select, textarea');
-    if (!input) return true;
-    const required = input.hasAttribute('required');
-    let ok = true;
-    const v = (input.value || '').trim();
-    if (required && !v) ok = false;
-    if (input.type === 'email' && v) {
-      ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    }
-    fieldEl.classList.toggle('error', !ok);
-    return ok;
-  };
-  fields.forEach(f => {
-    const input = f.querySelector('input, select, textarea');
-    if (!input) return;
-    input.addEventListener('blur', () => validateField(f));
-    input.addEventListener('input', () => {
-      if (f.classList.contains('error')) validateField(f);
-    });
-  });
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let allOk = true;
-    fields.forEach(f => {
-      if (!validateField(f)) allOk = false;
-    });
-    if (!allOk) {
-      const firstErr = form.querySelector('.field.error input, .field.error select, .field.error textarea');
-      if (firstErr) firstErr.focus();
-      return;
-    }
-    success.classList.add('show');
-    form.querySelectorAll('input, select, textarea').forEach(el => { el.value = ''; });
-    setTimeout(() => success.classList.remove('show'), 6000);
-  });
 })();
 </script>
 </body>

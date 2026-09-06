@@ -475,21 +475,6 @@
       color: var(--gray-mid);
       text-align: center;
     }
-    .form-success {
-      display: none;
-      background: rgba(0,212,255,.12);
-      border: 1px solid var(--cyan);
-      border-radius: 8px;
-      padding: 16px;
-      font-size: .95rem;
-      color: var(--cyan);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .form-success.show {
-      display: block;
-    }
-
     @media (max-width: 768px) {
       .section { padding: 64px 0; }
       .contact-content { grid-template-columns: 1fr; gap: 36px; }
@@ -498,34 +483,39 @@
       .service-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <script src="/assets/js/tally-consultation.js" defer></script>
 </head>
 <body>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
-    <nav class="nav-links" aria-label="primary">
-      <a href="/ai-consulting" aria-current="page">AI 컨설팅 &amp; 빌드</a>
-      <a href="/smb-ai">SMB AI</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
       <a href="/ai-academy">AI 아카데미</a>
-      <a href="/gov-project">정부지원사업</a>
-      <a href="/global-ecommerce">글로벌 e커머스</a>
+      <a href="/ai-consulting" aria-current="page" style="color:var(--cyan);">AI 컨설팅 &amp; 빌드</a>
+      <a href="/gov-project">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab">프로토타입 랩</a>
+      <a href="/insights">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
     </nav>
-    <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="scrim" id="scrim"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
-  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
-  <a href="/smb-ai" data-close>SMB AI</a>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
   <a href="/ai-academy" data-close>AI 아카데미</a>
-  <a href="/gov-project" data-close>정부지원사업</a>
-  <a href="/global-ecommerce" data-close>글로벌 e커머스</a>
-  <a href="#contact" class="nav-cta" data-close>무료 상담</a>
+  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
 </aside>
 
 <main>
@@ -546,7 +536,7 @@
         컨설팅과 구현을 분리하지 않는 유일한 팀.
       </p>
       <div class="cta-row" style="margin-top: 36px;">
-        <a href="#contact" class="btn btn-primary">AI 프로젝트 무료 상담 신청 →</a>
+        <a href="#contact" class="btn btn-primary">AI 프로젝트 상담 신청 →</a>
         <a href="#references" class="btn btn-ghost">도입 사례 보기 ↓</a>
       </div>
       <div class="trust-microsignals">
@@ -615,7 +605,7 @@
         <ul>
           <li>고객사 정보와 제품 사양 기반 초안 작성</li>
           <li>영업 담당자 반복 작업 제거</li>
-          <li>제안서 작성 시간 90% 단축</li>
+          <li>영업 담당자의 반복 초안 작업 축소</li>
         </ul>
       </div>
       <div class="service-card reveal">
@@ -624,7 +614,7 @@
         <p>VOC·FAQ 학습 기반 고객 자동 응대 챗봇</p>
         <ul>
           <li>야간·휴일 고객 문의 자동 응대</li>
-          <li>CS팀 업무량 30~50% 감소</li>
+          <li>야간·휴일 문의의 자동 응대 비중 확대</li>
           <li>고객 만족도 유지·향상</li>
         </ul>
       </div>
@@ -732,7 +722,7 @@
       <div class="process-step reveal">
         <div class="step-num">01</div>
         <div class="step-body">
-          <h3>무료 상담 (30분~1시간)</h3>
+          <h3>상담 (30분~1시간)</h3>
           <p>현재 비즈니스 목표, 해결하고 싶은 문제, 예산·일정 파악. 아이디어 단계에서 연락하셔도 됩니다.</p>
         </div>
       </div>
@@ -774,45 +764,46 @@
     <div class="section-header reveal">
       <span class="section-eyebrow">References</span>
       <h2 class="section-title">글로보더가 수행한 AI 프로젝트</h2>
-      <p class="section-sub" style="font-size: .95rem;">아래 성과는 모두 특정 프로젝트 기반 실측 데이터입니다. 범위와 조건에 따라 상이합니다.</p>
+      <p class="section-sub" style="font-size: .95rem;">아래는 수행한 프로젝트의 유형과 접근 방식입니다. 개별 성과 수치와 고객 식별 정보는 공개 검증이 완료된 항목만 게시하며, 그 외에는 정성적으로 서술합니다.</p>
     </div>
     <div class="reveal" style="overflow-x: auto;">
       <table class="ref-table">
         <thead>
           <tr>
-            <th>고객사 업종</th>
+            <th>영역</th>
             <th>수행 내용</th>
-            <th>핵심 성과</th>
+            <th>접근 방식</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>글로벌 전기차 브랜드</td>
-            <td>End-to-End AI 고객 여정 분석 에이전트 구현</td>
-            <td>특정 구매 고려 구간 점유율 93.89% 달성</td>
+            <td>고객 여정 분석</td>
+            <td>End-to-End AI 고객 여정 분석 에이전트 설계·구현</td>
+            <td>데이터 수집·해석·리포트 생성을 자동화하고 사람이 의사결정에 집중</td>
           </tr>
           <tr>
-            <td>국내 패션 SPA 브랜드</td>
-            <td>VOC·리뷰 AI Business Assistant 구축</td>
-            <td>VOC 점수 유의미한 개선, CS 응대 자동화</td>
+            <td>VOC · 리뷰</td>
+            <td>VOC·리뷰 기반 AI Business Assistant 구축</td>
+            <td>리뷰 분류·요약과 응대 문안 초안 자동화</td>
           </tr>
           <tr>
-            <td>대기업 제조·유통 계열사</td>
-            <td>ERP 연동 내재화 RAG AI Assistant 구축</td>
-            <td>내부 문서 검색 시간 대폭 단축</td>
+            <td>내부 지식 검색</td>
+            <td>사내 시스템 연동 RAG AI Assistant 구축</td>
+            <td>근거 문단을 함께 제시해 근거 없는 답변을 억제</td>
           </tr>
           <tr>
-            <td>글로벌 이커머스 브랜드</td>
-            <td>HS Code AI 자동 분류 · 관세 판정 자동화</td>
-            <td>통관 오류율 대폭 감소</td>
+            <td>커머스 자동화</td>
+            <td>HS Code 분류 · 관세 판정 보조 자동화</td>
+            <td>규칙 기반 검증과 LLM 판단을 조합해 오류를 사전 차단</td>
           </tr>
           <tr>
-            <td>국내 뷰티 D2C 브랜드</td>
-            <td>LLM 기반 개인화 세일즈 에이전트 구현</td>
-            <td>리드 응대 자동화, 고객 전환 효율화</td>
+            <td>세일즈 지원</td>
+            <td>LLM 기반 개인화 세일즈 어시스턴트 구현</td>
+            <td>리드 정리·우선순위화와 맞춤 메시지 초안 자동화</td>
           </tr>
         </tbody>
       </table>
+      <p style="font-size:.85rem;color:var(--gray-mid);margin-top:16px;">더 많은 수행 유형은 <a href="/work" style="color:var(--cyan);">프로젝트 사례</a> 페이지에서 볼 수 있습니다.</p>
     </div>
   </div>
 </section>
@@ -851,9 +842,9 @@
   <div class="container">
     <div class="reveal">
       <h2>AI 프로젝트, 지금 시작할 준비가 됐나요?</h2>
-      <p>어떤 단계에서 시작해도 괜찮습니다.<br />아이디어 수준이어도, 문제 정의만 있어도 충분합니다.<br />첫 상담은 무료입니다.</p>
+      <p>어떤 단계에서 시작해도 괜찮습니다.<br />아이디어 수준이어도, 문제 정의만 있어도 충분합니다.<br />먼저 대화로 시작할 수 있습니다.</p>
       <div class="cta-row-center">
-        <a href="#contact" class="btn btn-primary">AI 프로젝트 무료 상담 신청 →</a>
+        <a href="#contact" class="btn btn-primary">AI 프로젝트 상담 신청 →</a>
         <a href="/" class="btn btn-ghost">회사 소개 보기</a>
       </div>
     </div>
@@ -870,7 +861,7 @@
         <p class="lede">
           아이디어 단계도 괜찮습니다.<br />
           문제 정의만 있어도 충분합니다.<br />
-          첫 상담은 무료입니다.
+          먼저 대화로 시작할 수 있습니다.
         </p>
         <div class="contact-info">
           <div class="contact-info-item">
@@ -883,47 +874,17 @@
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-            <span>문의 접수 후 1 영업일 이내 담당자 직접 연락</span>
+            <span>문의 내용을 확인해 담당자가 회신합니다</span>
           </div>
         </div>
       </div>
-      <form class="contact-form reveal" id="contact-form" novalidate>
-        <h3>무료 상담 신청</h3>
-        <div class="form-success" id="form-success">✓ 문의가 접수되었습니다. 1 영업일 이내 담당자가 직접 연락드립니다.</div>
-        <div class="field" data-field="name">
-          <label for="f-name">이름 <span class="req">*</span></label>
-          <input id="f-name" name="name" type="text" placeholder="홍길동" required />
-          <div class="err-msg">이름을 입력해 주세요.</div>
-        </div>
-        <div class="field" data-field="email">
-          <label for="f-email">이메일 <span class="req">*</span></label>
-          <input id="f-email" name="email" type="email" placeholder="email@company.com" required />
-          <div class="err-msg">올바른 이메일 주소를 입력해 주세요.</div>
-        </div>
-        <div class="field" data-field="phone">
-          <label for="f-phone">연락처</label>
-          <input id="f-phone" name="phone" type="tel" placeholder="010-0000-0000" />
-        </div>
-        <div class="field" data-field="type">
-          <label for="f-type">문의 유형 <span class="req">*</span></label>
-          <select id="f-type" name="type" required>
-            <option value="">선택해 주세요</option>
-            <option>AI Business Assistant 구축</option>
-            <option>AI Agent Services 구현</option>
-            <option>Agentic AI Solution</option>
-            <option>POC/MVP 패키지</option>
-            <option>기타 AI 프로젝트</option>
-          </select>
-          <div class="err-msg">문의 유형을 선택해 주세요.</div>
-        </div>
-        <div class="field" data-field="message">
-          <label for="f-message">문의 내용 <span class="req">*</span></label>
-          <textarea id="f-message" name="message" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요? 자유롭게 작성해 주세요." required></textarea>
-          <div class="err-msg">문의 내용을 입력해 주세요.</div>
-        </div>
-        <button type="submit" class="submit-btn">무료 상담 신청 →</button>
-        <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
-      </form>
+      <div class="contact-form reveal" data-tally-surface>
+        <h3>상담 신청</h3>
+        <p>프로젝트 맥락을 Tally 상담 신청서에서 바로 남겨 주세요.</p>
+        <button type="button" class="submit-btn" data-tally-open data-cta="consulting-consultation">상담 신청서 열기 →</button>
+        <p class="privacy">상담 신청서는 Tally에서 안전하게 작성됩니다.</p>
+        <p class="privacy" data-tally-status role="status" aria-live="polite" hidden></p>
+      </div>
     </div>
   </div>
 </section>
@@ -937,9 +898,9 @@
         <div class="logo"><span class="g">G</span>loBorder</div>
         <div style="margin-top:6px;">© 2025 (주)글로보더</div>
       </div>
-      <div class="center">사업자등록번호 : 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로 26길 61, 에이스하이엔드타워2차</div>
+      <div class="center">사업자등록번호 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로26길 61, 에이스하이엔드타워2차</div>
       <div class="right">
-        고객지원 &nbsp;/&nbsp; <a href="#">이용약관</a>
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
       </div>
     </div>
   </div>
@@ -981,33 +942,6 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => io.observe(el));
 
-  /* ── Contact form ── */
-  const form = document.getElementById('contact-form');
-  const fields = form.querySelectorAll('.field');
-  const success = document.getElementById('form-success');
-  const validateField = f => {
-    const input = f.querySelector('input,select,textarea');
-    if (!input) return true;
-    const v = (input.value||'').trim();
-    let ok = input.hasAttribute('required') ? !!v : true;
-    if (input.type==='email' && v) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    f.classList.toggle('error', !ok); return ok;
-  };
-  fields.forEach(f => {
-    const input = f.querySelector('input,select,textarea');
-    if (!input) return;
-    input.addEventListener('blur', () => validateField(f));
-    input.addEventListener('input', () => { if (f.classList.contains('error')) validateField(f); });
-  });
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let ok = true;
-    fields.forEach(f => { if (!validateField(f)) ok = false; });
-    if (!ok) { const first = form.querySelector('.field.error input,.field.error select,.field.error textarea'); if (first) first.focus(); return; }
-    success.classList.add('show');
-    form.querySelectorAll('input,select,textarea').forEach(el => el.value = '');
-    setTimeout(() => success.classList.remove('show'), 6000);
-  });
 </script>
 </body>
 </html>

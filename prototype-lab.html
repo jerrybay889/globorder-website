@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>프로토타입 랩 | GloBorder — 개념 검증 단계 프로토타입</title>
+  <meta name="description" content="글로보더가 개념 검증(PoC) 단계에서 만든 프로토타입을 정리한 공간입니다. 여기 있는 항목은 전부 프로토타입이며, 고객에게 납품된 프로덕션 시스템이 아닙니다." />
+  <link rel="canonical" href="https://www.globorder.kr/prototype-lab" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="프로토타입 랩 | GloBorder" />
+  <meta property="og:description" content="개념 검증 단계 프로토타입 모음. 프로덕션 아님. 마케팅 콘텐츠 프로토타입." />
+  <meta property="og:url" content="https://www.globorder.kr/prototype-lab" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/globals.css" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="GloBorder 홈"><span class="g">G</span>loBorder</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="/ai-academy">AI 아카데미</a>
+      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
+      <a href="/gov-project">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab" aria-current="page" style="color:var(--cyan);">프로토타입 랩</a>
+      <a href="/insights">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
+    </nav>
+    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
+  <a href="/ai-academy" data-close>AI 아카데미</a>
+  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
+</aside>
+
+<main>
+
+<section class="mkt-hero">
+  <div class="container">
+    <p class="crumbs"><a href="/">홈</a> / 프로토타입 랩</p>
+    <span class="eyebrow">Prototype Lab</span>
+    <h1>개념 검증 단계의 프로토타입</h1>
+    <p class="lead">
+      새로운 AI 패턴을 실제로 붙여보는 실험 공간입니다. 아래 항목은 <strong>전부 프로토타입</strong>이며,
+      고객에게 납품된 프로덕션 시스템이나 서비스가 아닙니다. 화면·수치·데이터는 검증 목적의 예시입니다.
+    </p>
+    <p style="margin-top:16px;"><span class="status-label">전부 프로토타입 · 프로덕션 아님</span></p>
+  </div>
+</section>
+
+<section class="mkt-section">
+  <div class="container">
+    <div class="sec-head">
+      <h2>탐색 중인 프로토타입</h2>
+      <p>각 항목은 "무엇을 검증하려는가"와 "현재 상태"를 함께 표시합니다.</p>
+    </div>
+    <div class="lab-grid">
+      <div class="lab-card">
+        <span class="status-label is-muted">개념 검증 (PoC)</span>
+        <h3>견적 초안 어시스턴트</h3>
+        <p>사내 제품·가격 자료를 참조해 견적·제안 초안을 만들어내는 흐름을 검증. 사람이 검토·수정하는 것을 전제로 설계.</p>
+      </div>
+      <div class="lab-card">
+        <span class="status-label is-muted">개념 검증 (PoC)</span>
+        <h3>상품 등록 에이전트</h3>
+        <p>여러 채널의 상품 등록 포맷 차이를 자동 변환하고, 입력값 오류를 등록 전에 잡아내는 에이전트 패턴 실험.</p>
+      </div>
+      <div class="lab-card">
+        <span class="status-label is-muted">개념 검증 (PoC)</span>
+        <h3>문서 RAG 어시스턴트</h3>
+        <p>내부 규정·매뉴얼을 근거로 답하고 출처 문단을 함께 보여주는 검색 어시스턴트. 근거 없는 답변을 억제하는 방식 검증.</p>
+      </div>
+      <div class="lab-card">
+        <span class="status-label is-muted">자체 IP · 베타</span>
+        <h3>INVIT — 투자행동 코칭</h3>
+        <p>글로보더 자체 IP. 개인 투자자의 의사결정 습관을 다루는 코칭 AI 앱의 베타. 외부 납품물이 아님.</p>
+      </div>
+      <div class="lab-card">
+        <span class="status-label is-muted">자체 IP · 베타</span>
+        <h3>OMYQT — 루틴 · 성찰</h3>
+        <p>글로보더 자체 IP. 개인·가족 단위 루틴과 성찰 기록을 돕는 AI 앱의 베타. 외부 납품물이 아님.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mkt-section alt">
+  <div class="container">
+    <div class="mkt-prose">
+      <h3>이 페이지의 표기 원칙</h3>
+      <p>글로보더는 프로토타입을 고객 납품 결과처럼 보이지 않게 표시합니다. 개념 검증 화면에 사용된 지표·로고·데이터는 실제 고객 성과가 아니며, AI로 생성한 예시 이미지를 성과 근거로 쓰지 않습니다.</p>
+      <p>특정 프로토타입을 실제 프로젝트로 발전시키는 방식은 <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a> 단계에서 범위·일정·비용을 확정한 뒤 진행합니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mkt-section on-dark">
+  <div class="container">
+    <div class="sec-head"><h2>다음으로</h2></div>
+    <div class="related-links on-dark" style="max-width:760px;margin:0 auto;">
+      <a href="/ai-consulting">프로토타입을 프로젝트로 →</a>
+      <a href="/work">수행한 프로젝트 유형 →</a>
+      <a href="/insights">인사이트 노트 →</a>
+      <a href="/contact">상담 신청 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="logo"><span class="g">G</span>loBorder</div>
+        <div style="margin-top:6px;">© 2025 (주)글로보더</div>
+      </div>
+      <div class="center">사업자등록번호 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로26길 61, 에이스하이엔드타워2차</div>
+      <div class="right">
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const drawer = document.getElementById('drawer');
+  const scrim = document.getElementById('scrim');
+  const hamb = document.getElementById('hamburger');
+  const open = () => { drawer.classList.add('open'); scrim.classList.add('open'); drawer.setAttribute('aria-hidden', 'false'); };
+  const close = () => { drawer.classList.remove('open'); scrim.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); };
+  hamb.addEventListener('click', () => drawer.classList.contains('open') ? close() : open());
+  scrim.addEventListener('click', close);
+  drawer.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
+})();
+</script>
+</body>
+</html>

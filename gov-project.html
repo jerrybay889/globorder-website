@@ -434,19 +434,6 @@
     }
     .gov-submit:hover { background: var(--cyan-muted); color: var(--white); }
     .privacy { margin-top: 12px; font-size: 12px; color: var(--gray-400); text-align: center; }
-    .form-success {
-      display: none;
-      background: rgba(0,212,255,.08);
-      border: 1px solid var(--cyan);
-      border-radius: 8px;
-      padding: 16px;
-      font-size: 14px;
-      color: var(--cyan);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .form-success.show { display: block; }
-
     /* ── Responsive ── */
     @media (max-width: 980px) {
       .strip-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
@@ -473,32 +460,37 @@
       .gov-contact-form { padding: 28px; }
     }
   </style>
+  <script src="/assets/js/tally-consultation.js" defer></script>
 </head>
 <body>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="GloBorder home"><span class="g">G</span>loBorder</a>
-    <nav class="nav-links" aria-label="primary">
-      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
-      <a href="/smb-ai">SMB AI</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
       <a href="/ai-academy">AI 아카데미</a>
-      <a href="/gov-project" class="active">정부지원사업</a>
-      <a href="/global-ecommerce">글로벌 e커머스</a>
+      <a href="/ai-consulting">AI 컨설팅 &amp; 빌드</a>
+      <a href="/gov-project" class="active" aria-current="page" style="color:var(--cyan);">공공 · 기관</a>
+      <a href="/work">프로젝트 사례</a>
+      <a href="/prototype-lab">프로토타입 랩</a>
+      <a href="/insights">인사이트</a>
+      <a href="/about">회사 · 신뢰</a>
     </nav>
-    <a href="#contact" class="nav-cta desktop-only">무료 상담</a>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <div class="scrim" id="scrim"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
-  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
-  <a href="/smb-ai" data-close>SMB AI</a>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
+  <a href="/contact" class="nav-cta" data-close>문의하기</a>
   <a href="/ai-academy" data-close>AI 아카데미</a>
-  <a href="/gov-project" data-close>정부지원사업</a>
-  <a href="/global-ecommerce" data-close>글로벌 e커머스</a>
-  <a href="#contact" class="nav-cta" data-close>무료 상담</a>
+  <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
+  <a href="/gov-project" data-close>공공 · 기관</a>
+  <a href="/work" data-close>프로젝트 사례</a>
+  <a href="/prototype-lab" data-close>프로토타입 랩</a>
+  <a href="/insights" data-close>인사이트</a>
+  <a href="/about" data-close>회사 · 신뢰</a>
 </aside>
 
 <main>
@@ -513,7 +505,7 @@
         성공적인 운영 노하우를 제공해 드립니다.
       </p>
       <div class="cta-row" style="margin-top:36px;">
-        <a href="#contact" class="btn btn-primary">정부지원사업 무료 상담 →</a>
+        <a href="#contact" class="btn btn-primary">정부지원사업 상담 신청 →</a>
         <a href="#history" class="btn btn-ghost">수행 이력 보기</a>
       </div>
       <div class="trust-microsignals">
@@ -645,8 +637,8 @@
       <div class="step-item reveal">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h3>무료 사전 상담 (1~2일)</h3>
-          <p>지원 사업 목표·현황·일정 파악. 적합 사업 유형 및 부처 추천. 신청 가능성·전략 방향 1차 검토. 무료, 비구속적 상담.</p>
+          <h3>사전 상담 (1~2일)</h3>
+          <p>지원 사업 목표·현황·일정 파악. 적합 사업 유형 및 부처 추천. 신청 가능성·전략 방향 1차 검토. 비구속적 상담.</p>
         </div>
       </div>
       <div class="step-item reveal">
@@ -773,10 +765,10 @@
     <h2>정부지원사업, 지금 시작하세요</h2>
     <p>
       어떤 사업에 신청해야 할지 모르겠어도 괜찮습니다.<br />
-      현재 상황과 목표를 알려주시면 적합한 방향을 먼저 제안드립니다. 첫 상담은 무료입니다.
+      현재 상황과 목표를 알려주시면 적합한 방향을 먼저 제안드립니다.
     </p>
     <div class="cta-row" style="justify-content:center; gap:16px;">
-      <a href="#contact" class="btn btn-navy">정부지원사업 무료 상담 신청 →</a>
+      <a href="#contact" class="btn btn-navy">정부지원사업 상담 신청 →</a>
       <a href="/ai-consulting" class="btn btn-outline-navy">AI 컨설팅 서비스 보기</a>
     </div>
   </div>
@@ -792,7 +784,7 @@
         <p class="lede">
           아이디어 단계도 괜찮습니다.<br />
           문제 정의만 있어도 충분합니다.<br />
-          첫 상담은 무료입니다.
+          먼저 대화로 시작할 수 있습니다.
         </p>
         <div class="contact-info">
           <div class="contact-info-item">
@@ -805,48 +797,18 @@
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-            <span>문의 접수 후 1 영업일 이내 담당자 직접 연락</span>
+            <span>문의 내용을 확인해 담당자가 회신합니다</span>
           </div>
         </div>
       </div>
 
-      <form class="contact-form reveal" id="contact-form" novalidate>
-        <h3>무료 상담 신청</h3>
-        <div class="form-success" id="form-success">✓ 문의가 접수되었습니다. 1 영업일 이내 담당자가 직접 연락드립니다.</div>
-
-        <div class="field" data-field="name">
-          <label for="f-name">이름 <span class="req">*</span></label>
-          <input id="f-name" name="name" type="text" placeholder="홍길동" required />
-          <div class="err-msg">이름을 입력해 주세요.</div>
-        </div>
-        <div class="field" data-field="email">
-          <label for="f-email">이메일 <span class="req">*</span></label>
-          <input id="f-email" name="email" type="email" placeholder="email@company.com" required />
-          <div class="err-msg">올바른 이메일 주소를 입력해 주세요.</div>
-        </div>
-        <div class="field" data-field="phone">
-          <label for="f-phone">연락처</label>
-          <input id="f-phone" name="phone" type="tel" placeholder="010-0000-0000" />
-        </div>
-        <div class="field" data-field="type">
-          <label for="f-type">문의 유형 <span class="req">*</span></label>
-          <select id="f-type" name="type" required>
-            <option value="">선택해 주세요</option>
-            <option>신규 지원사업 발굴 상담</option>
-            <option>제안서 설계·작성 지원</option>
-            <option>선정 후 수행·납품·정산 지원</option>
-            <option>기타</option>
-          </select>
-          <div class="err-msg">문의 유형을 선택해 주세요.</div>
-        </div>
-        <div class="field" data-field="message">
-          <label for="f-message">문의 내용 <span class="req">*</span></label>
-          <textarea id="f-message" name="message" rows="4" placeholder="어떤 프로젝트를 구상 중이신가요?" required></textarea>
-          <div class="err-msg">문의 내용을 입력해 주세요.</div>
-        </div>
-        <button type="submit" class="submit-btn">무료 상담 신청 →</button>
-        <p class="privacy">제출 시 개인정보 처리방침에 동의합니다.</p>
-      </form>
+      <div class="contact-form reveal" data-tally-surface>
+        <h3>상담 신청</h3>
+        <p>지원사업과 기관 협력 맥락을 상담 신청서에서 바로 남겨 주세요.</p>
+        <button type="button" class="submit-btn" data-tally-open data-cta="gov-consultation">상담 신청서 열기 →</button>
+        <p class="privacy">상담 신청서는 Tally에서 안전하게 작성됩니다.</p>
+        <p class="privacy" data-tally-status role="status" aria-live="polite" hidden></p>
+      </div>
     </div>
   </div>
 </section>
@@ -862,7 +824,7 @@
       </div>
       <div class="center">사업자등록번호 : 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로 26길 61, 에이스하이엔드타워2차</div>
       <div class="right">
-        고객지원 &nbsp;/&nbsp; <a href="#">이용약관</a>
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
       </div>
     </div>
   </div>
@@ -889,40 +851,6 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  const form    = document.getElementById('contact-form');
-  const fields  = form.querySelectorAll('.gfield');
-  const success = document.getElementById('form-success');
-
-  const vf = f => {
-    const i = f.querySelector('input,select,textarea');
-    if (!i) return true;
-    const v = (i.value || '').trim();
-    let ok = i.hasAttribute('required') ? !!v : true;
-    if (i.type === 'email' && v) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    f.classList.toggle('error', !ok);
-    return ok;
-  };
-
-  fields.forEach(f => {
-    const i = f.querySelector('input,select,textarea');
-    if (!i) return;
-    i.addEventListener('blur', () => vf(f));
-    i.addEventListener('input', () => { if (f.classList.contains('error')) vf(f); });
-  });
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let ok = true;
-    fields.forEach(f => { if (!vf(f)) ok = false; });
-    if (!ok) {
-      const fi = form.querySelector('.gfield.error input,.gfield.error select,.gfield.error textarea');
-      if (fi) fi.focus();
-      return;
-    }
-    success.classList.add('show');
-    form.querySelectorAll('input,select,textarea').forEach(el => el.value = '');
-    setTimeout(() => success.classList.remove('show'), 6000);
-  });
 })();
 </script>
 </body>
