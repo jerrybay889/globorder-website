@@ -96,7 +96,7 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'tally-floating__button';
-    button.dataset.tallyOpen = '';
+    button.dataset.consultationOpen = '';
     button.dataset.cta = 'floating-consultation';
     button.setAttribute('aria-label', FLOATING_LABEL);
 
@@ -122,7 +122,7 @@
 
   addFloatingTrigger();
 
-  document.querySelectorAll('[data-tally-open]').forEach((button) => {
+  document.querySelectorAll('[data-consultation-open]').forEach((button) => {
     button.addEventListener('click', () => {
       clearLoadError(button);
       button.disabled = true;

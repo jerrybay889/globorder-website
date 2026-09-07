@@ -21,7 +21,7 @@ assert.doesNotMatch(sitemap, /\/contact(?:<|\/|\?|#)/i, 'sitemap must not publis
 
 const forbiddenContactDestination = /href\s*=\s*["'](?:https:\/\/www\.globorder\.kr)?\/?contact(?:\.html)?(?:[?#][^"']*)?["']/i;
 const forbiddenContactAnchor = /href\s*=\s*["']#contact["']/i;
-const tallyTrigger = /<([a-z][\w-]*)\b([^>]*\bdata-tally-open\b[^>]*)>/gi;
+const tallyTrigger = /<([a-z][\w-]*)\b([^>]*\bdata-consultation-open\b[^>]*)>/gi;
 
 for (const file of publicFiles) {
   const html = read(file);
@@ -54,6 +54,7 @@ const siteSource = [...publicFiles, 'assets/js/tally-consultation.js']
   .map(read)
   .concat(sharedCss)
   .join('\n');
+assert.doesNotMatch(siteSource, /data-tally-open/i, 'public source must not expose the reserved Tally auto-hook');
 const forbiddenPopupBrand = ['JERRY', 'BAY'].join('');
 assert.equal(siteSource.toUpperCase().includes(forbiddenPopupBrand), false, 'site source must not hardcode a brand-specific popup title');
 
@@ -154,7 +155,7 @@ const document = {
     return null;
   },
   querySelectorAll(selector) {
-    return selector === '[data-tally-open]' ? this.triggers : [];
+    return selector === '[data-consultation-open]' ? this.triggers : [];
   }
 };
 document.head = {
@@ -165,7 +166,7 @@ document.head = {
 document.body = {
   appendChild(surface) {
     document.floating = surface;
-    const button = surface.children.find((child) => Object.hasOwn(child.dataset, 'tallyOpen'));
+    const button = surface.children.find((child) => Object.hasOwn(child.dataset, 'consultationOpen'));
     document.triggers.push(button);
   }
 };
@@ -173,7 +174,7 @@ document.body = {
 const pageSurface = new FakeElement('div', document);
 pageSurface.dataset.tallySurface = '';
 const pageButton = new FakeElement('button', document);
-pageButton.dataset.tallyOpen = '';
+pageButton.dataset.consultationOpen = '';
 pageButton.dataset.cta = 'hero<script>-consultation';
 const pageStatus = new FakeElement('p', document);
 pageStatus.dataset.tallyStatus = '';
@@ -182,6 +183,7 @@ pageSurface.append(pageButton, pageStatus);
 document.triggers.push(pageButton);
 
 const popupCalls = [];
+const popupCloses = [];
 const settle = () => new Promise((resolve) => setImmediate(resolve));
 const window = {
   location: {
@@ -208,7 +210,10 @@ pageButton.listeners.get('click')();
 assert.equal(document.scripts.length, 1, 'retry must create one fresh widget script');
 window.Tally = {
   openPopup(formId, options) {
-    popupCalls.push({ formId, options });
+    popupCalls.push({ formId, popupPath: `/popup/${formId}`, options });
+  },
+  closePopup(formId) {
+    popupCloses.push(formId);
   }
 };
 document.scripts[0].dispatch('load');
@@ -234,4 +239,19 @@ assert.deepEqual(
 assert.equal(pageStatus.hidden, true);
 assert.equal(pageButton.disabled, false);
 
-console.log(`PASS consultation popup contract: ${publicFiles.length} public routes + retry/success runtime`);
+popupCalls.length = 0;
+pageButton.listeners.get('click')();
+await settle();
+assert.equal(popupCalls.length, 1, 'widget-available open must invoke exactly one popup');
+window.Tally.closePopup('Y5bypd');
+assert.deepEqual(popupCloses, ['Y5bypd'], 'open/close/reopen regression must close the canonical popup');
+pageButton.listeners.get('click')();
+await settle();
+assert.equal(popupCalls.length, 2, 'widget-available reopen must add exactly one popup invocation');
+for (const call of popupCalls) {
+  assert.equal(call.formId, 'Y5bypd', 'every popup invocation must use the canonical non-blank form ID');
+  assert.equal(call.popupPath, '/popup/Y5bypd');
+  assert.notEqual(call.popupPath, '/popup/', 'no popup invocation may target a blank form ID');
+}
+
+console.log(`PASS consultation popup contract: ${publicFiles.length} public routes + retry + widget open/close/reopen runtime`);
