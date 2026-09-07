@@ -66,7 +66,7 @@ assert.match(helperSource, /cta:/);
 assert.match(helperSource, /const UTM_KEYS = \['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'\];/);
 assert.doesNotMatch(helperSource, /\btitle\s*:/i, 'popup title must remain owned by Tally');
 assert.doesNotMatch(helperSource, /hiddenFields[\s\S]*?\b(?:name|email|phone|message)\s*:/i, 'site helper must not send visitor PII');
-assert.match(helperSource, /const FLOATING_LABEL = '\?\?\?\?\?';/);
+assert.match(helperSource, /const FLOATING_LABEL = '\\uC0C1\\uB2F4\\uBC0F\\uBB38\\uC758';/);
 assert.match(helperSource, /button\.setAttribute\('aria-label', FLOATING_LABEL\)/);
 
 class FakeElement {
@@ -174,7 +174,7 @@ const window = {
 
 vm.runInNewContext(helperSource, { document, window, URLSearchParams, Promise, Error });
 
-assert.equal(document.floating.children[0].attributes['aria-label'], '?????');
+assert.equal(document.floating.children[0].attributes['aria-label'], '\uC0C1\uB2F4\uBC0F\uBB38\uC758');
 assert.equal(document.floating.children[0].dataset.cta, 'floating-consultation');
 
 pageButton.listeners.get('click')();

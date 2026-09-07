@@ -3,7 +3,7 @@
 
   const TALLY_FORM_ID = 'Y5bypd';
   const TALLY_WIDGET_URL = 'https://tally.so/widgets/embed.js';
-  const FLOATING_LABEL = '?????';
+  const FLOATING_LABEL = '\uC0C1\uB2F4\uBC0F\uBB38\uC758';
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   let widgetPromise;
 
