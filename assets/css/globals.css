@@ -145,7 +145,7 @@ img, svg { display: block; max-width: 100%; }
 .tally-floating {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  bottom: 72px;
   z-index: 90;
   display: flex;
   flex-direction: column;

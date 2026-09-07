@@ -8,6 +8,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const sitemap = read('sitemap.xml');
 const helperSource = read('assets/js/tally-consultation.js');
+const sharedCss = read('assets/css/globals.css');
 
 const publicUrls = [...sitemap.matchAll(/<loc>https:\/\/www\.globorder\.kr(\/[^<]*)?<\/loc>/g)]
   .map((match) => match[1] || '/');
@@ -49,8 +50,9 @@ for (const file of publicFiles) {
   }
 }
 
-const siteSource = [...publicFiles, 'assets/js/tally-consultation.js', 'assets/css/globals.css']
+const siteSource = [...publicFiles, 'assets/js/tally-consultation.js']
   .map(read)
+  .concat(sharedCss)
   .join('\n');
 const forbiddenPopupBrand = ['JERRY', 'BAY'].join('');
 assert.equal(siteSource.toUpperCase().includes(forbiddenPopupBrand), false, 'site source must not hardcode a brand-specific popup title');
@@ -68,6 +70,22 @@ assert.doesNotMatch(helperSource, /\btitle\s*:/i, 'popup title must remain owned
 assert.doesNotMatch(helperSource, /hiddenFields[\s\S]*?\b(?:name|email|phone|message)\s*:/i, 'site helper must not send visitor PII');
 assert.match(helperSource, /const FLOATING_LABEL = '\\uC0C1\\uB2F4\\uBC0F\\uBB38\\uC758';/);
 assert.match(helperSource, /button\.setAttribute\('aria-label', FLOATING_LABEL\)/);
+
+const floatingRule = sharedCss.match(/\.tally-floating\s*\{([\s\S]*?)\}/)?.[1] || '';
+const desktopRight = Number(floatingRule.match(/right:\s*(\d+)px/)?.[1]);
+const desktopBottom = Number(floatingRule.match(/bottom:\s*(\d+)px/)?.[1]);
+const reviewedFooterCta = { x: 1276, y: 831, width: 45, height: 21 };
+const reviewedFloatingSize = { width: 111, height: 46 };
+const reviewedViewport = { clientWidth: 1425, height: 900 };
+const correctedFloatingCta = {
+  x: reviewedViewport.clientWidth - desktopRight - reviewedFloatingSize.width,
+  y: reviewedViewport.height - desktopBottom - reviewedFloatingSize.height,
+  ...reviewedFloatingSize
+};
+const overlapArea = (a, b) => Math.max(0, Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x))
+  * Math.max(0, Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y));
+assert.equal(desktopBottom, 72, 'desktop floating control must clear the footer CTA hit-area');
+assert.equal(overlapArea(reviewedFooterCta, correctedFloatingCta), 0, '1440 footer and floating CTA hit-areas must not overlap');
 
 class FakeElement {
   constructor(tagName, owner) {
