@@ -3,6 +3,7 @@
 
   const TALLY_FORM_ID = 'Y5bypd';
   const TALLY_WIDGET_URL = 'https://tally.so/widgets/embed.js';
+  const FLOATING_LABEL = '?????';
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   let widgetPromise;
 
@@ -68,19 +69,58 @@
     return fields;
   };
 
+  const statusFor = (button) => button.closest('[data-tally-surface]')?.querySelector('[data-tally-status]')
+    || document.querySelector('.tally-floating [data-tally-status]');
+
   const showLoadError = (button) => {
-    const status = button.closest('[data-tally-surface]')?.querySelector('[data-tally-status]');
+    const status = statusFor(button);
     if (!status) return;
     status.hidden = false;
     status.textContent = '상담 신청서를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
   };
 
   const clearLoadError = (button) => {
-    const status = button.closest('[data-tally-surface]')?.querySelector('[data-tally-status]');
+    const status = statusFor(button);
     if (!status) return;
     status.hidden = true;
     status.textContent = '';
   };
+
+  const addFloatingTrigger = () => {
+    if (document.querySelector('.tally-floating')) return;
+
+    const surface = document.createElement('div');
+    surface.className = 'tally-floating';
+    surface.dataset.tallySurface = '';
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'tally-floating__button';
+    button.dataset.tallyOpen = '';
+    button.dataset.cta = 'floating-consultation';
+    button.setAttribute('aria-label', FLOATING_LABEL);
+
+    const icon = document.createElement('span');
+    icon.className = 'tally-floating__icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.textContent = '✦';
+
+    const label = document.createElement('span');
+    label.textContent = FLOATING_LABEL;
+
+    const status = document.createElement('p');
+    status.className = 'tally-floating__status';
+    status.dataset.tallyStatus = '';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.hidden = true;
+
+    button.append(icon, label);
+    surface.append(button, status);
+    document.body.appendChild(surface);
+  };
+
+  addFloatingTrigger();
 
   document.querySelectorAll('[data-tally-open]').forEach((button) => {
     button.addEventListener('click', () => {

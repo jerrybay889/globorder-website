@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/globals.css" />
+  <script src="/assets/js/tally-consultation.js" defer></script>
 </head>
 <body>
 
@@ -31,7 +32,7 @@
       <a href="/insights">인사이트</a>
       <a href="/about">회사 · 신뢰</a>
     </nav>
-    <a href="/contact" class="nav-cta desktop-only">문의하기</a>
+    <button type="button" class="nav-cta desktop-only" data-tally-open data-cta="header-consultation">문의하기</button>
     <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
@@ -40,7 +41,7 @@
 
 <div class="scrim" id="scrim"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="모바일 메뉴">
-  <a href="/contact" class="nav-cta" data-close>문의하기</a>
+  <button type="button" class="nav-cta" data-tally-open data-cta="mobile-nav-consultation" data-close>문의하기</button>
   <a href="/ai-academy" data-close>AI 아카데미</a>
   <a href="/ai-consulting" data-close>AI 컨설팅 &amp; 빌드</a>
   <a href="/gov-project" data-close>공공 · 기관</a>
@@ -63,7 +64,7 @@
       공개 검증 절차가 완료된 항목만 게시하며, 그 외에는 정성적 서술로 대신합니다.
     </p>
     <div class="cta-row">
-      <a href="/contact" class="btn btn-primary">프로젝트 상담 신청 →</a>
+      <button type="button" class="btn btn-primary" data-tally-open data-cta="work-hero-consultation">프로젝트 상담 신청 →</button>
       <a href="/prototype-lab" class="btn btn-ghost">프로토타입 랩 보기</a>
     </div>
   </div>
@@ -178,7 +179,7 @@
       <a href="/ai-consulting">AI 컨설팅 &amp; 빌드 서비스 →</a>
       <a href="/prototype-lab">프로토타입 랩 (개념 검증) →</a>
       <a href="/insights">인사이트 노트 →</a>
-      <a href="/contact">프로젝트 상담 신청 →</a>
+      <button type="button" class="tally-link-button" data-tally-open data-cta="work-related-consultation">프로젝트 상담 신청 →</button>
     </div>
   </div>
 </section>
@@ -194,7 +195,7 @@
       </div>
       <div class="center">사업자등록번호 386-86-03467 &nbsp;|&nbsp; 서울 구로구 디지털로26길 61, 에이스하이엔드타워2차</div>
       <div class="right">
-        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <a href="/contact">문의하기</a>
+        <a href="/about">회사 · 신뢰</a> &nbsp;/&nbsp; <button type="button" class="tally-link-button" data-tally-open data-cta="footer-consultation">문의하기</button>
       </div>
     </div>
   </div>
