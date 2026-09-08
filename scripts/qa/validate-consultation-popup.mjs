@@ -14,10 +14,16 @@ const publicUrls = [...sitemap.matchAll(/<loc>https:\/\/www\.globorder\.kr(\/[^<
   .map((match) => match[1] || '/');
 const publicFiles = publicUrls.map((url) => url === '/' ? 'index.html' : `${url.slice(1)}.html`);
 
-assert.equal(publicFiles.length, 11, 'sitemap must contain the 11 public non-contact routes');
+assert.equal(publicFiles.length, 10, 'sitemap must contain the 10 canonical public non-contact routes');
 assert.equal(new Set(publicFiles).size, publicFiles.length, 'sitemap routes must be unique');
 assert.equal(fs.existsSync(path.join(root, 'contact.html')), false, 'contact.html must not exist');
 assert.doesNotMatch(sitemap, /\/contact(?:<|\/|\?|#)/i, 'sitemap must not publish /contact');
+assert.doesNotMatch(sitemap, /\/prototype-lab(?:<|\/|\?|#)/i, 'sitemap must not publish the legacy prototype-lab route');
+
+const legacyPrototypeRoute = read('prototype-lab.html');
+assert.match(legacyPrototypeRoute, /window\.location\.replace\('\/work#selected-projects'\)/, 'legacy prototype route must redirect to the canonical project section');
+assert.match(legacyPrototypeRoute, /<meta name="robots" content="noindex, follow" \/>/, 'legacy prototype route must remain out of the search index');
+assert.doesNotMatch(legacyPrototypeRoute, /data-project-open|project-dialog|<article\b/i, 'legacy prototype route must not duplicate buyer-facing case content');
 
 const forbiddenContactDestination = /href\s*=\s*["'](?:https:\/\/www\.globorder\.kr)?\/?contact(?:\.html)?(?:[?#][^"']*)?["']/i;
 const forbiddenContactAnchor = /href\s*=\s*["']#contact["']/i;
@@ -56,7 +62,7 @@ const siteSource = [...publicFiles, 'assets/js/tally-consultation.js']
   .join('\n');
 assert.doesNotMatch(siteSource, /data-tally-open/i, 'public source must not expose the reserved Tally auto-hook');
 const forbiddenPopupBrand = ['JERRY', 'BAY'].join('');
-assert.equal(siteSource.toUpperCase().includes(forbiddenPopupBrand), false, 'site source must not hardcode a brand-specific popup title');
+assert.equal(helperSource.toUpperCase().includes(forbiddenPopupBrand), false, 'popup helper must not hardcode a brand-specific popup title');
 
 assert.match(helperSource, /const TALLY_FORM_ID = 'Y5bypd';/);
 assert.match(helperSource, /window\.Tally\.openPopup\(TALLY_FORM_ID,/);
