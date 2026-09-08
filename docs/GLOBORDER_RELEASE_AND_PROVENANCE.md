@@ -32,9 +32,9 @@ The production repository is static-first and includes shared assets plus public
 - `global-ecommerce.html`
 - `digital-marketing.html`
 - `about.html`
-- `contact.html`
 - `assets/css/globals.css`
 - `assets/js/main.js`
+- `assets/js/tally-consultation.js`
 - `vercel.json`
 
 ## Release gate
